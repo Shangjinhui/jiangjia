@@ -1,0 +1,860 @@
+/**app.wxss**/
+.emojiText {
+  display: inline-block;
+}
+.container {
+   height: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.clear{
+  clear: both;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.f-cb {
+	zoom: 1;
+}
+.f-cb:after {
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	overflow: hidden;
+	content: ".";
+}
+
+.row1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.row2 {
+  display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.row3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.row5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+image{max-width: 100%;}
+
+.trf{-webkit-transition: 0.3s linear;
+-moz-transition: 0.3s linear;
+-ms-transition: 0.3s linear;
+-o-transition: 0.3s linear;
+transition: 0.3s linear;
+}
+
+.rel{position: relative;}
+.abs{position: absolute;}
+.fixbo{position: fixed;bottom: 0;left: 0;width: 100%;z-index: 2;}
+.ovh{overflow: hidden;}
+
+.ovhY{overflow-y: hidden;}
+.h100{height: 100vh;}
+
+
+.center{text-align: center;}
+.left{text-align: left;}
+.right{text-align: right;}
+.inline{display: inline-block;}
+.block{display: block;}
+.background-cover{background: no-repeat center/cover}
+.bold{font-weight: bold;}
+.gray{
+  filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+}
+
+.scrollY{overflow-y: scroll;}
+.box{box-sizing: border-box;}
+.opa5{ opacity: 0.5;}
+.opa8{ opacity: 0.8;}
+
+.fontDINB{font-family:DIN-Bold,DIN,arial;}
+
+.marginauto{margin: 0 auto;}
+
+.fsize18{ font-size: 18rpx;}
+.fsize20{ font-size: 20rpx;}
+.fsize22{ font-size: 22rpx;}
+.fsize24{ font-size: 24rpx;}
+.fsize26{ font-size: 26rpx;}
+.fsize28{ font-size: 28rpx;}
+.fsize30{font-size: 30rpx;}
+.fsize32{font-size: 32rpx;}
+.fsize34{font-size: 34rpx;}
+.fsize36{font-size: 36rpx;}
+.fsize40{font-size: 40rpx;}
+.fsize42{font-size: 42rpx;}
+.fsize48{font-size: 48rpx;}
+.fsize66{font-size: 66rpx;}
+
+.lh22{line-height: 22rpx;}
+.lh25{line-height: 25rpx;}
+.lh30{line-height: 30rpx;}
+.lh34{line-height: 34rpx;}
+.lh36{line-height: 36rpx;}
+.lh38{line-height: 38rpx;}
+.lh40{line-height: 40rpx;}
+.lh48{line-height: 48rpx;}
+.lh50{line-height: 50rpx;}
+.lh57{line-height: 57rpx;}
+.lh64{line-height: 64rpx;}
+.lh68{line-height: 68rpx;}
+.lh70{line-height: 70rpx;}
+.lh72{line-height: 72rpx;}
+.lh74{line-height: 74rpx;}
+.lh80{line-height: 80rpx;}
+.lh86{line-height: 86rpx;}
+.lh88{line-height: 88rpx;}
+.lh100{line-height: 100rpx;}
+.lh108{line-height: 108rpx;}
+
+.lh132{line-height: 132rpx;}
+
+.minhei{min-height: 100vh;}
+
+.hei10{height: 10rpx;}
+.hei24{height: 24rpx;}
+.hei25{height: 25rpx;}
+.hei34{height: 34rpx;}
+.hei36{height: 36rpx;}
+.hei40{height: 40rpx;}
+.hei57{height: 57rpx;}
+.hei70{height: 70rpx;}
+.hei72{height: 72rpx;}
+.hei74{height: 74rpx;}
+.hei80{height: 80rpx;}
+.hei86{height: 86rpx;}
+.hei88{height: 88rpx;}
+.hei96{height: 96rpx;}
+.hei108{height: 108rpx;}
+.hei150{height: 150rpx;}
+
+.hei350{height: 350rpx;}
+.hei440{height: 440rpx;}
+
+
+
+.w15{width: 15%}
+
+.w18{width: 18.75%}
+.w20{width: 20%;}
+.w25{width: 25%;}
+.w33{width: 33.3%;}
+.w42{width: 42.5%;}
+
+.w50{width: 50%;}
+.w75{width: 75%;}
+.w100{width: 100%;}
+
+.wid10{width: 10rpx;}
+.wid24{width: 24rpx;}
+.wid34{width: 34rpx;}
+.wid36{width: 36rpx;}
+.wid40{width: 40rpx;}
+.wid70{width: 70rpx;}
+.wid80{width: 80rpx;}
+
+.wid86{width: 86rpx;}
+.wid90{width: 90rpx;}
+.wid100{width: 100rpx;}
+.wid110{width: 110rpx;}
+.wid120{width: 120rpx;}
+.wid130{width: 130rpx;}
+.wid138{width: 138rpx;}
+.wid140{width: 140rpx;}
+.wid150{width: 150rpx;}
+.wid160{width: 160rpx;}
+.wid172{width: 172rpx;}
+.wid180{width: 180rpx;}
+.wid188{width: 188rpx;}
+.wid200{width: 200rpx;}
+.wid215{width: 215rpx;}
+.wid266{width: 266rpx;}
+.wid270{width: 270rpx;}
+.wid276{width: 276rpx;}
+.wid213{width: 213rpx;}
+.wid300{width: 300rpx;}
+.wid325{width: 325rpx;}
+.wid350{width: 350rpx;}
+
+.wid440{width: 440rpx;}
+.wid540{width: 540rpx;}
+.wid600{width: 600rpx;}
+.wid620{width: 620rpx;}
+
+.wid670{width: 670rpx;}
+.maxwid170{max-width: 170rpx;}
+.maxwid140{max-width: 140rpx;}
+.maxwid120{max-width: 120rpx;}
+
+.pda20{padding:20rpx;}
+.pd24{padding: 0 24rpx;}
+
+.pt5{padding-top: 5rpx;}
+.pt10{padding-top: 10rpx;}
+.pt15{padding-top: 15rpx;}
+.pt20{padding-top: 20rpx;}
+.pt25{padding-top: 25rpx;}
+.pt30{padding-top: 30rpx;}
+.pt35{padding-top: 35rpx;}
+.pt45{padding-top: 45rpx;}
+.pt55{padding-top: 55rpx;}
+.pt70{padding-top: 70rpx;}
+.pt72{padding-top: 72rpx;}
+.pt88{padding-top: 88rpx;}
+.pt90{padding-top: 90rpx;}
+.pt100{padding-top: 100rpx;}
+.pt158{padding-top: 158rpx;}
+
+.pt190{padding-top: 190rpx;}
+
+.pl5{padding-left: 5rpx;}
+.pl10{padding-left: 10rpx;}
+.pl20{padding-left: 20rpx;}
+.pl25{padding-left: 25rpx;}
+.pl30{padding-left: 30rpx;}
+.pl40{padding-left: 40rpx;}
+.pl50{padding-left: 50rpx;}
+
+.pl60{padding-left: 60rpx;}
+.pl70{padding-left: 70rpx;}
+
+.pl95{padding-left: 95rpx;}
+.pl100{padding-left: 100rpx;}
+.pl172{padding-left: 172rpx;}
+
+.pr5{padding-right: 5rpx;}
+.pr10{padding-right: 10rpx;}
+.pr20{padding-right: 20rpx;}
+.pr25{padding-right: 25rpx;}
+.pr30{padding-right: 30rpx;}
+.pr40{padding-right: 40rpx;}
+.pr50{padding-right: 50rpx;}
+
+.pb5{padding-bottom: 5rpx;}
+.pb10{padding-bottom: 10rpx;}
+.pb15{padding-bottom: 15rpx;}
+.pb20{padding-bottom: 20rpx;}
+.pb25{padding-bottom: 25rpx;}
+.pb30{padding-bottom: 30rpx;}
+.pb35{padding-bottom: 35rpx;}
+.pb50{padding-bottom: 50rpx;}
+.pb60{padding-bottom: 60rpx;}
+.pb100{padding-bottom: 100rpx;}
+.pb100{padding-bottom: 100rpx;}
+
+.pb170{padding-bottom: 170rpx;}
+
+.mt5{margin-top: 5rpx;}
+.mt7{margin-top: 7rpx;}
+.mt10{margin-top: 10rpx;}
+.mt15{margin-top: 15rpx;}
+.mt20{margin-top: 20rpx;}
+.mt25{margin-top: 25rpx;}
+.mt30{margin-top: 30rpx;}
+.mt40{margin-top: 40rpx;}
+
+.ml5{margin-left: 5rpx;}
+.ml10{margin-left: 10rpx;}
+.ml20{margin-left: 20rpx;}
+.ml60{margin-left: 60rpx;}
+
+.mr5{margin-right: 5rpx;}
+.mr10{margin-right: 10rpx;}
+.mr-10{margin-right: -10rpx;}
+.mr15{margin-right: 15rpx;}
+.mr20{margin-right: 20rpx;}
+.mr25{margin-right: 25rpx;}
+.mr40{margin-right: 40rpx;}
+.mr55{margin-right: 55rpx;}
+.mr60{margin-right: 60rpx;}
+.mr78{margin-right: 78rpx;}
+
+.mb5{margin-bottom: 5rpx;}
+.mb10{margin-bottom: 10rpx;}
+.mb15{margin-bottom: 15rpx;}
+.mb20{margin-bottom: 20rpx;}
+.mb25{margin-bottom: 25rpx;}
+.mb30{margin-bottom: 30rpx;}
+.mb35{margin-bottom: 35rpx;}
+.mb40{margin-bottom: 40rpx;}
+.mb45{margin-bottom: 45rpx;}
+.mb50{margin-bottom: 50rpx;}
+.mb58{margin-bottom: 58rpx;}
+
+
+
+
+.top-0{top: 0;}
+.left-0{left: 0;}
+.right-0{right: 0;}
+.bottom-0{bottom: 0;}
+
+
+.cofff{color: #fff;}
+.co999{color: #999;}
+.co666{color: #666;}
+.co333{color: #333;}
+.coccc{color: #ccc;}
+.coFEA830{color: #FEA830}
+.coA0A0A0{color: #A0A0A0}
+.coE71415{color: #E71415}
+.coBC0100{color: #BC0100}
+.co3F88C5{color: #3F88C5}
+.co136F63{color: #136F63}
+.co4FC419{color: #4FC419}
+
+
+
+.bgfff{background: #fff;}
+.bgF4F7FA{background: #F4F7FA;}
+.bgF5F5F5{background: #f5f5f5;}
+.bgF8F8F8{background: #F8F8F8}
+.bgF2F2F2{background: #F2F2F2}
+.bgE9E9E9{background: #E9E9E9;}
+.bgbdbdbd{background:  #bdbdbd;}
+.bg767676{background: #767676;}
+.bg022B43{background: #022B43;}
+.bg7F2525{background: #7F2525;}
+.bgBC0100{background: #BC0100;}
+.bgE82F30{background: #E82F30;}
+.bgE71415{background: #E71415}
+.bgFFE1E1{background: #FFE1E1}
+.bgFF7A00{background: #FF7A00}
+.bgFEAB38{background: #FEAB38;}
+.bgffb519{background: #ffb519;}
+
+.bgECCA9B{background: #ECCA9B;}
+.bgFFEFE1{background: #FFEFE1}
+.bg63B4F7{background: #63B4F7}
+.bg0084FF{background: #0084FF;}
+.bgE1F1FF{background: #E1F1FF;}
+.bgGradienttop{background:linear-gradient(180deg,#BC0100 0%,rgba(188, 1, 0, 0) 100%);}
+
+
+.bor-D8D8D8{border: 1px solid rgba(216, 216, 216, 0.5)}
+.bor-boD8D8D8{border-bottom: 1px solid rgba(216, 216, 216, 0.5)}
+.bor-riD8D8D8{border-right: 1px solid rgba(216, 216, 216, 0.5)}
+.bor-leD8D8D8{border-left: 1px solid rgba(216, 216, 216, 0.5)}
+.bor-toD8D8D8{border-top: 1px solid rgba(216, 216, 216, 0.5)}
+.bor-b-f1f3f5{border-bottom:1px solid #f1f3f5;}
+.bor-coeee{border-color: rgba(238,238,238,0.5);}
+
+.radius2{border-radius: 2rpx;}
+.radius6{border-radius: 6rpx;}
+.radius10{border-radius: 10rpx;}
+.radius14{border-radius: 14rpx;}
+.radius20{border-radius: 20rpx;}
+.radius35{border-radius: 35rpx;}
+
+.radius-50{border-radius: 50%;}
+
+.vertical-5{vertical-align: -5rpx;}
+.vertical10{vertical-align: 10rpx;}
+
+
+.underline{text-decoration: underline;}
+.line-through{text-decoration: line-through;}
+
+.roteY{
+  transform: rotateX(180deg); 
+}
+
+button::after {
+  border: none;
+}
+
+/* 温馨提示 */
+.back-tip{
+   position: absolute;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius:16rpx;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    width: 645rpx;
+}
+
+
+/* 放大图片 */
+.picblow{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:22;
+  transition: all 0.3s;
+}
+.picblow-bg{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.picblow-img{
+  position: absolute;
+  width:750rpx;
+  height:750rpx;
+  background-size: cover;
+  background-position: center;
+}
+ .picblow swiper{
+  height:100vh;
+} 
+.picblow-con{
+  position: absolute;
+  left:0;
+  width:100%;
+  top:50%;
+  transform:translateY(-50%);
+}
+.pro-theme-item image{
+  vertical-align: middle;
+  position:absolute;
+  top: 50%;
+  transform:translateY(-50%);
+}
+
+
+
+/* 空 */
+.list-none{
+  text-align: center;
+font-size:26rpx;
+font-weight:400;
+color:#A0A0A0;
+line-height:40rpx;
+padding-top: 80rpx;
+}
+.list-none-text{
+  margin-bottom: 60rpx;
+font-size:24rpx;
+font-weight:400;
+color:#D0D5DB;
+line-height:33rpx;
+}
+.list-none .img{
+  width: 173rpx;
+  height: 203rpx;
+  margin-bottom: 10rpx;
+}
+.list-none .img2{
+  width: 266rpx;
+  height: 266rpx;
+  margin-bottom: 10rpx;
+}
+.list-none .img3{
+  width: 266rpx;
+  height: 199rpx;
+  margin-bottom: 10rpx;
+}
+
+
+/* 弹框 */
+.back-black {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  -webkit-transition: opacity 0.4s, z-index 0.4s;
+  transition: opacity 0.4s, z-index 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+.back-black-bg{
+    width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0,0,0,.65);
+  top: 0;
+  left: 0;
+}
+
+.back-black.back-black-show {
+  opacity: 1;
+  z-index: 10000;
+  visibility: visible;
+}
+.back-black-con,
+.back-black-cons{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+    max-height: 80vh;
+    box-sizing: border-box;
+}
+.back-black-cons{
+  max-height: 90vh;
+}
+.back-black .back-black-btn {
+    position: absolute;
+    top: 33rpx;
+    right: 30rpx;
+    height: 44rpx;
+    width:44rpx;
+    z-index: 111;
+}
+.back-black-tx .btn{
+  height: 40rpx;
+  width:40rpx;
+  position: absolute;
+   top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+.back-black-tx::before{
+   position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0rpx;
+  right: -32rpx;
+  background: rgba(221, 221, 221, 0.5);
+  height: 1px;
+}
+
+
+/* 公共样式封装 */
+/* 弹性布局封装 */
+/* 弹性盒子 */
+.fb {
+  /*display: box;*/
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -webkit-flex;
+  display: flex;
+}
+/* 容器属性 */
+/* 1、flex-direction 主轴方向 */
+.fb-row { 
+  -webkit-box-direction: normal; /*老语法*/
+  -webkit-box-orient: horizontal; /*老语法*/
+  -webkit-flex-direction: row;
+  flex-direction: row; 
+}
+.fb-row-rev { 
+  /* box-direction只是改变了子元素的排序，并没有改变对齐方式，需要新增一个 box-pack 来改变对齐方式*/
+  -webkit-box-pack: end; /*老语法*/
+  box-pack: end; /*老语法*/ 
+  -webkit-box-direction: reverse; /*老语法*/
+  box-direction: reverse; /*老语法*/
+  -webkit-box-orient: horizontal; /*老语法*/
+  box-orient: horizontal; /*老语法*/
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse; 
+}
+.fb-col { 
+  -webkit-box-direction: normal; /*老语法*/
+  box-direction: normal; /*老语法*/
+  -webkit-box-orient: vertical; /*老语法*/
+  box-orient: vertical; /*老语法*/
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.fb-col-rev {
+  /* box-direction只是改变了子元素的排序，并没有改变对齐方式，需要新增一个 box-pack 来改变对齐方式*/
+  -webkit-box-pack: end; /*老语法*/
+  -webkit-box-direction: reverse; /*老语法*/
+  -webkit-box-orient: vertical; /*老语法*/
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse; 
+}
+
+/* 2、flex-wrap 设置溢出换行 */
+.fb-nowrap { 
+  -webkit-flex-wrap: none;
+  flex-wrap: none;  /* 溢出不换行 强制一行，元素同比缩小 */
+} 
+.fb-wrap { 
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;  /* 溢出换行 */
+}  
+.fb-wrap-rev { 
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}
+
+/* 3、flex-flow 是flex-direction flex-wrap的缩写 */
+
+/* 4、justify-content属性定义了项目在主轴上的对齐方式 */
+.fb-main-start { 
+  -webkit-box-pack: start; /*老语法*/
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start; 
+}
+.fb-main-center { 
+  -webkit-box-pack: center; /*老语法*/
+  -webkit-justify-content: center;
+  justify-content: center; 
+}
+.fb-main-end { 
+  -webkit-box-pack: end;  /*老语法*/
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end; 
+}
+  /* 两端对齐，项目之间的间隔都相等 */
+.fb-main-between {
+  -webkit-box-pack: justify;  /*老语法*/
+  -webkit-justify-content: space-between;
+  justify-content: space-between; 
+} 
+  /* 每个项目两侧的间隔相等。项目之间的间隔比项目与边框的间隔大一倍。 */
+.fb-main-around { 
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+/* 5、align-items属性定义项目在交叉轴上如何对齐 */
+.fb-cross-start { 
+  -webkit-box-align: start; /*老语法*/
+  box-align: start; /*老语法*/
+  -webkit-align-items: flex-start;
+  align-items: flex-start; 
+}
+.fb-cross-center { 
+  -webkit-box-align: center; /*老语法*/
+  box-align: center; /*老语法*/
+  -webkit-align-items: center;
+  align-items: center; 
+}
+.fb-cross-end { 
+  -webkit-box-align: end; /*老语法*/
+  box-align: end; /*老语法*/
+  -webkit-align-items: flex-end;
+  align-items: flex-end; 
+}
+  /* 项目的第一行文字的基线对齐 */
+.fb-cross-baseline { 
+  -webkit-box-align: baseline; /*老语法*/
+  box-align: baseline; /*老语法*/
+  -webkit-align-items: baseline;
+  align-items: baseline;
+} 
+  /* 如果项目未设置高度或设为auto，将占满整个容器的高度 */
+.fb-cross-stretch { 
+  -webkit-box-align: stretch; /*老语法*/
+  box-align: stretch; /*老语法*/
+  -webkit-align-items: stretch;
+  align-items: stretch; 
+}
+
+/* 项目属性 */
+
+/* 1、order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0 */
+.fb .item-order-1 { 
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 1;
+  order: 1; 
+}
+.fb .item-order-2 { 
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 2;
+  order: 2; 
+}
+.fb .item-order-3 { 
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 3;
+  order: 3; 
+}
+
+/*2、flex-grow属性定义项目的放大比例
+      放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）
+*/
+.fb .item-grow-1 { 
+  -webkit-box-flex: 1.0;
+  -webkit-flex-grow: 1;
+  flex-grow: 1; 
+}
+.fb .item-grow-2 { 
+  -webkit-box-flex: 2.0;
+  -webkit-flex-grow: 2;
+  flex-grow: 2; 
+}
+/* ... */
+
+/* 3、flex-shrink属性定义了项目的缩小比例 
+    缩小：默认1（如果空间不足则会缩小，值为0不缩小)
+*/
+.fb .item-shrink-0 { 
+  -webkit-box-flex: 0;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0; 
+}
+
+/* 4、flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小 */
+.fb .item-basis-120 { flex-basis: 120px; }
+
+/* 5、(建议优先使用这个属性)flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto */
+.fb .item-flex-1 {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1.0;
+  flex: 1;
+}
+.fb .item-flex-2 {
+  display: block;
+  -webkit-flex: 2.0;
+  flex: 2;
+}
+/* {...} */
+
+/* 6、align-self 属性允许单个项目有与其他项目不一样的对齐方式。
+      可覆盖align-items属性。
+      默认值为auto，表示继承父元素的align-items属性，
+      如果没有父元素，则等同于stretch
+*/
+.fb .item-self-start { 
+  -webkit-align-self: flex-start;
+  align-self: flex-start; 
+}
+.fb .item-self-center { 
+  -webkit-align-self: center;
+  align-self: center; 
+}
+.fb .item-self-end { 
+  -webkit-align-self: flex-end;
+  align-self: flex-end; 
+}
+.fb .item-self-baseline { 
+  -webkit-align-self: baseline;
+  align-self: baseline; 
+}
+.fb .item-self-stretch { 
+  -webkit-align-self: stretch;
+  align-self: stretch; 
+}
+
+
+/*三级联动省市区  */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  z-index: 99;
+}
+.section {
+  padding-top: 20rpx;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+.usermotto {
+  margin-top: 200px;
+}
+.cityChance {
+  width: 100%;
+  height: 100rpx;
+  /* display:flex;  */
+}
+.cityChance view {
+  width: 93%;
+  height: 100rpx;
+  float: left;
+  font-size: 28rpx;
+  color: #333;
+  text-align: right;
+}
+
+.chiocing {
+  line-height: 100rpx;
+  display: block;
+}
+
+.ImageIcon {
+  margin-top: 39rpx;
+  float: right;
+  width: 22rpx;
+  height: 22rpx;
+}
+
+.cityheader {
+  width: 100%;
+  height: 100rpx;
+  margin-bottom: 10rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 100rpx;
+}
+
+wx-view.cityList {
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+
+.cityContent {
+  width: 100%;
+  height: 250rpx;
+  background: #fff;
+  font-size: 24rpx;
+  color: #333;
+  padding-top: 19rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+.citypicker {
+  height: 450rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  bottom: -285px;
+  left: 0;
+  margin-top: 5px;
+  background: #fff;
+  z-index: 999;
+}

@@ -1,0 +1,78 @@
+/* pages/withdraw/withdraw.wxss */
+
+.with-top-con {
+  width: 155rpx;
+  border-radius: 4rpx;
+  background: #f8f8f8;
+  color: #666;
+  margin-right: 24rpx;
+}
+
+.with-top-con.on {
+  background: linear-gradient(90deg, rgba(231, 20, 21, 1) 0%, rgba(217, 10, 11, 1) 100%);
+  color: #fff;
+}
+
+.with-top-fl {
+  width: 142rpx;
+}
+
+.with-top-fr {
+  width: 510rpx;
+}
+
+.with-ipt {
+  padding: 0 70rpx 30rpx 50rpx;
+}
+
+.with-ipt .ico1 {
+  left: 0;
+  top: 0;
+}
+
+.with-ipt .ico2 {
+  right: 0;
+  top: 0;
+}
+
+.with-btn::before {
+  position: absolute;
+  content: '';
+  width: 498rpx;
+  height: 70rpx;
+  background: linear-gradient(180deg, rgba(219, 45, 67, 1) 0%, rgba(201, 15, 39, 1) 100%);
+  border-radius: 35rpx;
+  opacity: 0.29;
+  filter: blur(11rpx);
+  top: 29rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.with-btn view {
+  background: linear-gradient(90deg, rgba(231, 20, 21, 1) 0%, rgba(217, 10, 11, 1) 100%);
+  border-radius: 12rpx;
+}
+
+.with-btn1::before {
+  background: #999;
+}
+
+.with-btn1 view {
+  background: #999;
+}
+
+.with-success {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 33;
+}
+
+.with-success image {
+  width: 195rpx;
+  height: 195rpx;
+  margin-top: 230rpx;
+}

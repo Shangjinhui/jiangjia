@@ -1,0 +1,12 @@
+<!--pages/teamPrize/teamPrize.wxml-->
+<view class="minhei box bgF4F7FA pb20 pt20">
+   <view class="f-cb bgfff bor-boD8D8D8 pd24 pt15 pb15" wx:for="{{list}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+    <image src="{{item.honor_logo?item.honor_logo:imgUrl+'banner_1.png'}}" mode="aspectFit" class="img1 fl "></image>
+    <view class="price fr">
+      <view class="price-tit  fsize28 f-cb mb5"><view class="row1 fl mr20">{{item.honor_name}}</view> <text class="cofff bgE71415 fsize24 fl center">{{item.number}}</text></view>
+      <view class="fsize22 coA0A0A0 bgF2F2F2 pd24 pt10  f-cb radius6">
+        <text wx:for="{{item.season}}" wx:key="idx" wx:for-index="idx" wx:for-item="it" class="fl {{(idx+1)%3==0?'':'mr78'}}  mb10">{{it}}</text>
+      </view>
+    </view>
+  </view>
+</view>

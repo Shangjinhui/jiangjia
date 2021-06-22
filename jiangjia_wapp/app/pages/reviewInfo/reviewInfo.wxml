@@ -1,0 +1,2 @@
+<!--pages/reviewInfo/reviewInfo.wxml-->
+<video src="{{link}}" id='myvideo' autoplay="true"></video>

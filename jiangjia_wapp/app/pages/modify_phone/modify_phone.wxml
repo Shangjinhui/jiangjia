@@ -1,0 +1,24 @@
+<!--pages/modify_phone/modify_phone.wxml-->
+<view class="por">
+    <view class="box f-cb" wx:if="{{type==1}}">
+      <text class="fl" style="background:url({{imgUrl+'phone.png'}}) center/22rpx no-repeat"></text>
+      <input class="input" disabled class="fl on" value="{{phone}}" placeholder="请输入原手机号码"></input>
+    </view>
+   
+    <view class="box f-cb" wx:else>
+      <text class="fl" style="background:url({{imgUrl+'phone.png'}}) center/22rpx no-repeat"></text>
+      <input class="input" bindinput="bindinput" data-cur='phone' class="fl on" placeholder="请输入新的手机号码"></input>
+    </view>
+   
+
+   <view class="box f-cb">
+      <text class="fl" style="background:url({{imgUrl+'code.png'}}) center/30rpx no-repeat"></text>
+      <input class="input" type="number" bindinput="bindinput" value="{{smsCode}}" data-cur='smsCode' placeholder="请输入验证码" class="fl"></input>
+      <view class="fr code" bindtap='getCode'>{{codeText}}</view>
+    </view>
+
+   <view class="tip-fa">为了你的安全，请先验证身份。</view>
+    <view class="submit" bindtap="bindPhone">确定</view>
+
+
+</view>

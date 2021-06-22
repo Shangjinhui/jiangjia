@@ -1,0 +1,45 @@
+<!--pages/matchFilter/matchFilter.wxml-->
+<view class="pt72 box h100 {{isIphoneX?'pb170':'pb100'}}">
+  <view class="fb bgfff center fsize24 bold lh72 rel home-top">
+    <view class="fb fb-col item-grow-1 fb-cross-center  {{nav==item.id?'coE71415':''}}" bindtap="changeNav" data-nav="{{item.id}}" wx:for="{{navList}}" wx:key="index">{{item.name}}</view>
+  </view>
+
+  <view style="height:100%;" wx:if="{{nav==1}}">
+    <!-- 左侧列表内容部分 -->
+    <scroll-view class="contentList" enable-back-to-top scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" bindscroll="onPageScroll" style="height:100%;">
+      <view class="pd24" wx:for="{{listMain}}" wx:for-index="index" wx:for-item="group" wx:key="{{group.id}}" id="{{'inTo'+group.id}}" data-id='{{group.id}}'>
+        <view class="fsize20  lh50 coA0A0A0">{{group.first_char}}</view>
+        <view class="f-cb fsize26 co666">
+          <view class="fl lh70 mr20 mb20 pl30 pr30 radius6 {{item.isCheck?'bgFFE1E1 coE71415':'bgF8F8F8'}}" wx:for="{{group.list}}" wx:for-index="idx" wx:for-item="item" wx:key="idx" bindtap="checkMatch" data-index="{{index}}" data-idx="{{idx}}">{{item.short_name_zh}}</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧字母导航 -->
+    <view class="orientation_region scrollY">
+      <block wx:for="{{listMain}}" wx:key="{{item.id}}">
+        <view class="orientation_city {{isActive==item.id ? 'coE71415':'' }}" bindtap="scrollToViewFn" data-id="{{item.id}}">
+          {{item.first_char=='热门赛事'?'热':item.first_char}}
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+  <view wx:else class="pd24 pt20 pb20 box scrollY" style="height:100%;">
+    <view class="f-cb fsize26 co666">
+      <view class="fl lh70 mr20 mb20 pl30 pr30 radius6 {{item.isCheck?'bgFFE1E1 coE71415':'bgF8F8F8'}}" wx:for="{{list}}" wx:key="index" bindtap="checkMatch" data-index="{{index}}">{{item.short_name_zh}}</view>
+    </view>
+  </view>
+
+
+  <view class="filBot bgfff f-cb fsize26 box">
+    <view class="fl" bindtap="checkNum" data-cur="1" wx:if="{{nav==1}}">一级</view>
+    <view class="fl" bindtap="checkNum" data-cur="2">全选</view>
+    <view class="fl none" bindtap="checkNum" data-cur="3">反选</view>
+    <view class="fr cofff bgE71415 radius6 wid188 lh72 center" bindtap="confirm">确定</view>
+  </view>
+
+  
+
+</view>

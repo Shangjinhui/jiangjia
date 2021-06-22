@@ -1,0 +1,58 @@
+/* pages/studio/studio.wxss */
+
+page {
+  background: #f4f7fa;
+}
+
+video {
+  width: 100%;
+  height: 420rpx;
+  display: block;
+}
+
+.img1 {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+
+.stu-bot {
+  background: #fff;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+  padding: 15rpx 24rpx;
+  bottom: 0;
+  box-shadow: 0px -4rpx 10rpx 0px rgba(0, 0, 0, 0.04);
+}
+.stu-bot.on{
+  padding-bottom: 83rpx;
+}
+
+.stu-bot-box {
+  /* width: 502rpx; */
+  border-radius: 36rpx;
+  border: 1px solid rgba(218, 218, 218, 0.5);
+  padding: 0 30rpx 0 83rpx;
+}
+
+.stu-bot-box  input {
+  height: 70rpx;
+  width: 100%;
+}
+
+.stu-bot image {
+  width: 36rpx;
+  height: 36rpx;
+  top: 14rpx;
+  left: 27rpx;
+}
+
+.stu-bot .fr {
+  width: 188rpx;
+  line-height: 72rpx;
+  height: 72rpx;
+  background: rgba(231, 28, 29, 1);
+  border-radius: 6rpx;
+}

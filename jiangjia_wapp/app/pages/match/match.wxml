@@ -1,0 +1,83 @@
+<!--pages/match/match.wxml-->
+<wxs src="../../filter/filter.wxs" module="filter" />
+<view class="{{type==2||type==3?'pt190':'pt100'}} rel  box pb10">
+  <view class="f-cb bgfff center fsize24 bold lh72 rel home-line ">
+    <view class="fl fb wid670">
+      <view class="fb fb-col item-grow-1 fb-cross-center  {{type==item.id?'coE71415':''}}" bindtap="changeType" data-nav="{{item.id}}" wx:for="{{typeList}}" wx:key="index">{{item.name}}</view>
+    </view>
+    <!-- <image src="{{imgUrl+'match_ico2.png'}}" class="fr" bindtap="showSet"></image> -->
+    <image src="{{imgUrl+'match_ico1.png'}}" class="fr" bindtap="goFilter" wx:if="{{type!=4}}"></image>
+  </view>
+
+  <!-- 赛程/赛果 -->
+  <view class="home-nav f-cb" wx:if="{{type==2||type==3}}">
+    <scroll-view class="fl fsize24 coA0A0A0 center" scroll-x="true" scroll-into-view="{{type==2?toView:toView1}}">
+      <view class="home-nav-con rel {{(type==2&&date==item.date)||(type==3&&date1==item.date)?'on':''}} {{nowDate==item.date?'now':''}}" wx:for="{{type==2?dateList:dateList1}}" wx:key="index" bindtap="changeDate" data-num="{{item.date}}" id="{{'inTo'+index}}">
+        <view class="lh64" wx:if="{{nowDate==item.date}}">
+          今天
+        </view>
+        <view class="" wx:else>
+          <view class="fszie20">{{item.showDate}}</view>
+          <view>{{item.name}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="fr home-nav-fr box">
+      <picker mode="date" value="{{type==2?date:date1}}" start="{{type==2?startDate:startDate1}}" end="{{type==2?endDate:endDate1}}" bindchange="bindDateChange">
+        <image src="{{imgUrl+'match_ico5.png'}}"></image>
+      </picker>
+
+    </view>
+  </view>
+
+
+  <view class="pd24" wx:if="{{type==1}}">
+    <matchcon list="{{list}}" type="{{type}}"></matchcon>
+    <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+  </view>
+
+  <view class="pd24" wx:if="{{type==4}}">
+    <matchcon list="{{list}}" type="{{type}}" bind:traList4="traList4"></matchcon>
+    <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+  </view>
+
+  <view class="pd24" wx:if="{{type==2}}">
+    <matchcon list="{{list2}}" type="{{type}}"></matchcon>
+    <view class="list-none pb50" wx:if="{{list2&&list2.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+  </view>
+
+  <view class="pd24" wx:if="{{type==3}}">
+    <matchcon list="{{list3}}" type="{{type}}"></matchcon>
+    <view class="list-none pb50" wx:if="{{list3&&list3.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+  </view>
+
+  <view class="pd24" wx:if="{{type==0}}">
+    <matchcon list="{{todayList}}" type="{{type}}" cur="1"  bind:traList01="traList01"></matchcon>
+   
+    <view class="match-top center fsize22 coA0A0A0" wx:if="{{endList&&endList.length>0}}">已结束</view>
+    <matchcon list="{{endList}}" type="{{type}}"  cur="2"></matchcon>
+
+    <view class="list-none pb50" wx:if="{{todayList&&tomorrowList&&endList&&todayList.length==0&&tomorrowList.length==0&&endList.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+  </view>
+
+  
+
+
+
+
+</view>

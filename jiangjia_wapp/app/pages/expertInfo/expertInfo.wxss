@@ -1,0 +1,138 @@
+/* pages/expertInfo/expertInfo.wxss */
+
+.expert-con {
+  height: 195rpx;
+}
+
+.expert-tx {
+  width: 121rpx;
+  line-height: 49rpx;
+  background: rgba(242, 242, 242, 1);
+  border-radius: 6rpx;
+  margin-top: 20rpx;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.expert-tx.on {
+  background: #fea830;
+  color: #fff;
+}
+
+.expert-tx image {
+  width: 24rpx;
+  height: 24rpx;
+  vertical-align: -2rpx;
+}
+
+.home-hot-tx::before {
+  height: 13rpx;
+  background: rgba(231, 30, 31, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  opacity: 0.3;
+  width: 100%;
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+}
+
+.home-hot-tx view {
+  background: rgba(252, 231, 231, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  padding: 0 10rpx;
+}
+
+.info-tx {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px -4rpx 10rpx 0px rgba(0, 0, 0, 0.04);
+  border-radius: 12rpx 12rpx 0px 0px;
+  margin-top: -37rpx;
+  padding: 37rpx 24rpx;
+}
+.info-tx-btn{
+  width: 22rpx;
+  height: 21rpx;
+  margin: 28rpx auto 0 auto;
+  padding: 10rpx;
+}
+
+.chart__wrap {
+  width: 100%;
+  height: 400rpx;
+}
+
+.chart__wrap ec-canvas {
+  width: 103%;
+  height: 400rpx;
+  position: relative;
+  z-index: 10;
+}
+
+
+
+
+.home-line {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 0px 0px rgba(216, 216, 216, 0.5);
+  border-radius: 12rpx 12rpx 0px 0px;
+}
+
+.home-line view {
+  position: relative;
+}
+
+.home-line view::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 31rpx;
+  background: #d8d8d8;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.home-line view:last-child::after {
+  display: none;
+}
+
+
+
+.home-match{
+  padding: 20rpx 30rpx;
+}
+.home-match-con image{
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: -5rpx;
+}
+
+
+.home-hot {
+  padding: 24rpx;
+}
+.home-hot-tx::before {
+  height: 13rpx;
+  background: rgba(231, 30, 31, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  opacity: 0.3;
+  width: 100%;
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+}
+
+.home-hot-tx view {
+  background: rgba(252, 231, 231, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  padding: 0 10rpx;
+}
+
+.home-hot .img2{
+   width: 68rpx;
+  height: 68rpx;
+  right: 50rpx;
+  bottom: 0;
+}

@@ -1,0 +1,138 @@
+<!--pages/liveInfo/liveInfo.wxml-->
+<view class="bgF4F7FA minhei box {{isIphoneX?'pb170':'pb100'}}">
+  <view class="cofff match-top center box pt20 " style="background:url({{imgUrl+ 'match_bg11.png'}}) no-repeat center bottom/750rpx 451rpx; ">
+    <view class="fsize36 lh50 ">直播详情</view>
+    <view class="fsize22 opa5 mb50 ">{{info.directStartTime}}</view>
+    <view class=" ">
+      <view class="rel match-top-con inline fsize28 ">
+        <image src="{{info.home_logo?info.home_logo:imgUrl+ 'banner_1.png'}} " mode='aspectFit' class="radius-50 block "></image>
+        <view class="abs ">{{info.home}}</view>
+      </view>
+      <view class="rel inline match-top-num fsize24 ">
+        <!-- 0比赛异常,1未开赛,2上半场,3中场,4下半场,5加时赛,7点球决战,8完场,9推迟,10中断,11腰斩,12取消,13待定 -->
+        <view class="fsize66 bold" wx:if="{{info.status_id==1||info.status_id==9||info.status_id==12||info.status_id==13}}">VS</view>
+        <view class="fsize66 bold" wx:else>{{info.home_scores}}：{{info.away_scores}}</view>
+
+        <view class="abs tx " wx:if="{{info.status==1}}">直播中</view>
+        <view class="abs tx " wx:elif="{{info.status==2}}">已结束</view>
+        <view class="abs tx" wx:elif="{{info.status==0&&info.price>0}}">预售中</view>
+        <view class="abs tx" wx:else>未开始</view>
+      </view>
+      <view class="rel match-top-con inline fsize28 ">
+        <image src="{{info.away_logo?info.away_logo:imgUrl+ 'banner_1.png'}} " mode='aspectFit' class="radius-50 block "></image>
+        <view class="abs ">{{info.away}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pd24 pt20 pb20 ">
+    <view class="mb20 bgfff radius6 home-hot ">
+      <view class="f-cb mb10 ">
+        <view class="rel fl mr20 ">
+          <image src="{{info.expert.avatar?info.expert.avatar:imgUrl+ 'tx.png'}} " mode='aspectFill' class="block radius-50 wid86 hei86 "></image>
+          <image src="{{imgUrl+ 'home_ico4.png'}} " mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24 "></image>
+        </view>
+        <view class="fl fsize20 pt10 ">
+          <view class="fsize28 mb5 ">{{info.expert.nickName}}</view>
+          <view class="coA0A0A0 ">比赛时间：{{info.match_time}}</view>
+        </view>
+        <view class="fr fsize20 coE71415 lh25 pt25 ">
+          <!-- <view class=" fl home-hot-tx rel  ml10" wx:if="{{info.expert.continueFocus>=3}}">
+            <view class="rel">{{info.expert.continueFocus}}连红</view>
+          </view>
+          <view class=" fl home-hot-tx rel  ml10" wx:if="{{info.expert.focus >=10&&info.expert.articleCount>=20}}">
+            <view class="rel">近20中{{info.expert.focus}}</view>
+          </view>
+          <view class=" fl home-hot-tx rel  ml10" wx:if="{{(info.expert.continueFocus<3||info.expert.focus <10)&&info.expert.focusArticleCount>0}}">
+            <view class="rel">总{{info.expert.articleCount}}中{{info.expert.focusArticleCount}}</view>
+          </view> -->
+           <view class=" fl home-hot-tx rel  ml10" wx:for="{{info.labelList}}" wx:key="index">
+            <view class="rel">{{item}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="fsize26 lh38 mb10 ">{{info.expert.intro}}</view>
+
+
+    </view>
+  </view>
+
+
+
+
+  <!-- 已付费 -->
+  <view class="art-bot bgfff f-cb fsize28 box lh72 " wx:if="{{info.isBuy==1}}">
+    <!-- <view class="fr bgE71415 center cofff radius6 ">请进入APP查看直播</view> -->
+    <view bindtap="goInfo" class="fr bgE71415 center cofff radius6 ">进入直播间</view>
+  </view>
+
+  <!-- 未付费 -->
+  <view class="f-cb lh72 coupon-bot fsize24 box" bindtap="showCou" wx:if="{{info.isBuy==0&&couList.length>0}}">
+    <view class="fl pl40" style="background:url({{imgUrl+ 'live_ico1.png'}}) no-repeat center left/30rpx 30rpx; ">优惠券</view>
+    <view class="fr pr25 coA0A0A0" style="background:url({{imgUrl+ 'live_ico2.png'}}) no-repeat center right/13rpx 22rpx; ">
+      <view wx:if="{{!couponInfo}}">{{couList.length}}张</view>
+      <view wx:else>{{couponInfo.name}}</view>
+    </view>
+  </view>
+  <view class="art-bot bgfff f-cb fsize28 box lh72" wx:if="{{info.isBuy==0}}">
+    <view class="fl">本方案价值
+      <text class="coE71415">{{price}}金币</text>
+    </view>
+    <view class="fr bgE71415 center cofff radius6" bindtap="showBuy">购买本场</view>
+  </view>
+
+
+  <!-- 购买 -->
+  <view class="back-black {{buyShow?'back-black-show':''}}">
+    <view class="back-black-bg" bindtap="showBuy"></view>
+    <view class="radius14 bgfff back-tip ">
+      <view class="fsize32 tit pt70 pb60 bor-boD8D8D8 pd24">您确定花{{price}}金币购买该场直播吗？</view>
+      <view class="f-cb lh100">
+        <view class="fl w50 bor-riD8D8D8 box" bindtap="showBuy">取消</view>
+        <view class="fl w50 coE71415" bindtap="buyNow">确定</view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 充值 -->
+  <view class="back-black {{tipShow?'back-black-show':''}} ">
+    <view class="back-black-bg" bindtap="showTip"></view>
+    <view class="radius14 bgfff back-tip ">
+      <view class="fsize32 tit pt70 pb60 bor-boD8D8D8 pd24">您的金币不足，请充值！</view>
+      <view class="f-cb lh100">
+        <view class="fl w50 bor-riD8D8D8 box" bindtap="showTip">取消</view>
+        <navigator hover-class="none" url="/pages/top_up/top_up" class="fl w50 coE71415">立即充值</navigator>
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <!-- 选择优惠券 -->
+  <view class="back-black {{couShow?'back-black-show':''}}">
+    <view class="back-black-bg " bindtap="showCou"></view>
+    <view class="back-black-con back-coupon">
+      <image src="{{imgUrl+'match_ico8.png'}}" class="back-black-btn" bindtap="showCou"></image>
+      <view class="rel fsize36 bold center pt35 pb35">选择优惠券</view>
+      <view class="back-coupon-box pd24">
+        <view class="f-cb back-coupon-con box mb20 rel" bindtap="chooseCou" data-item="{{item}}" wx:for="{{couList}}" wx:key="index" style="background:url({{imgUrl+ 'live_ico3.png'}}) no-repeat center/703rpx 168rpx; ">
+          <image src="{{imgUrl+'expert_ico13.png'}}" class="abs" wx:if="{{coupon==item.id}}"></image>
+          <view class="fl back-coupon-fl">
+            <view class="fsize36 row1 mb10">{{item.name}}</view>
+            <view class="fsize22 coA0A0A0">有效期限：{{item.startTime}}——{{item.overTime}}</view>
+          </view>
+          <view class="fr back-coupon-btn box">立即使用</view>
+
+          <view class="fsize24 coE71415 fr back-coupon-fr">
+            <text class="bold fsize48">{{item.discount}}</text>折</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

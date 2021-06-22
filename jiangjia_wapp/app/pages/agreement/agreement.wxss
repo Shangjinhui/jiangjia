@@ -1,0 +1,7 @@
+/* pages/agreement/agreement.wxss */
+.detaile{
+  padding: 30rpx 24rpx;
+  font-size: 30rpx;
+  color: #333333;
+  line-height: 1.8;
+}

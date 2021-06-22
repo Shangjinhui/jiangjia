@@ -1,0 +1,23 @@
+/* pages/infomationEdit/infomationEdit.wxss */
+page{
+  background-color:#F4F7FA;
+}
+
+.with-btn::before {
+  position: absolute;
+  content: '';
+  width: 498rpx;
+  height: 70rpx;
+  background: linear-gradient(180deg, rgba(219, 45, 67, 1) 0%, rgba(201, 15, 39, 1) 100%);
+  border-radius: 35rpx;
+  opacity: 0.29;
+  filter: blur(11rpx);
+  top: 29rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.with-btn view {
+  background: linear-gradient(90deg, rgba(231, 20, 21, 1) 0%, rgba(217, 10, 11, 1) 100%);
+  border-radius: 12rpx;
+}

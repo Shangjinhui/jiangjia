@@ -1,0 +1,17 @@
+/* pages/teamPrize/teamPrize.wxss */
+.img1{
+  width: 76rpx;
+  height: 76rpx;
+  margin-right: 40rpx;
+}
+.price{
+  width: 586rpx;
+}
+.price-tit view{
+  width: 530rpx;
+}
+.price-tit text{
+  width:34rpx;
+line-height: 34rpx;
+border-radius: 50%;
+}

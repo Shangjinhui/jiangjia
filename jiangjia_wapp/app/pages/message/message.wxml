@@ -1,0 +1,31 @@
+<!--pages/message/message.wxml-->
+<view class="por pt90">
+  <view class="head-box f-cb">
+    <view class="tit {{state==1?'on':''}}" bindtap="changeState" data-id="1">站内信</view>
+    <view class="tit {{state==2?'on':''}}" bindtap="changeState" data-id="2">系统公告</view>
+  </view>
+  <view class="list" wx:if="{{state==1}}">
+    <view bindtap="goInfo" data-item="{{item}}" class="box" wx:for="{{list}}" wx:key="index">
+      <view class="point" wx:if="{{item.isRead==0}}"></view>
+      <view class="title">{{item.title}}</view>
+      <view class="time">{{item.createTime}}</view>
+      <view class="detaile">{{item.description}}</view>
+    </view>
+  </view>
+  <view class="lists" wx:else>
+    <view class="box" wx:for="{{list}}" wx:key="index">
+      <!-- <view class="point"></view> -->
+      <view class="title">积分商品已发货</view>
+      <view class="f-cb mbox">
+        <view class="img fl" style="background-image:url({{item.gift.thumb?item.gift.thumb:imgUrl+'banner_1.png'}})"></view>
+        <view class="fl text">亲爱的小主，你兑换的商品{{item.gift.name}}已成功发货，发货公司为{{item.company}}，单号为{{item.shipNo}}</view> 
+      </view>
+    </view>
+  </view>
+
+   <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+
+</view>

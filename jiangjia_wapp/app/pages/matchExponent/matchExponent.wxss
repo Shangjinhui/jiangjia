@@ -1,0 +1,29 @@
+/* pages/matchExponent/matchExponent.wxss */
+
+.exponent-top {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 0;
+}
+
+.exponent-left {
+  position: fixed;
+  left: 0;
+  top: 88rpx;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 30rpx 10rpx 0 10rpx;
+}
+
+.exponent-left-con {
+  line-height: 57rpx;
+  border-radius: 29rpx;
+  margin-bottom: 30rpx;
+}
+
+.bgGary{
+  background:rgba(244,247,250,0.5);
+}
+
+.wid577{width: 577rpx;}

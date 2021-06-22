@@ -1,0 +1,46 @@
+<!--pages/invite_center/invite_center.wxml-->
+<view class="por" wx:if="{{isShow}}">
+  <image src="{{imgUrl+'invite-ico2.png'}}" class="ban-img"></image>
+  <navigator hover-class="none" url="/pages/rules/rules?state=2" class="rules"><text>活动</text><text>规则</text></navigator>
+  <view class="list">
+    <view class="f-cb box">
+      <text class="fl">1</text>
+      <view class="fr fa">分享好友，好友注册可获得平台5折优惠券</view>
+    </view>
+    <view class="f-cb box">
+      <text class="fl">2</text>
+      <view class="fr fa">二级分销体系，当上级分享给下级，下级又发展下线后，下下级产生的收益，上级可获得10%</view>
+    </view>
+    <view class="f-cb box">
+      <text class="fl">3</text>
+      <view class="fr fa">邀请不同的注册数，对应的合伙人等级不同，可获得的佣金比例也不同</view>
+    </view>
+  </view>
+  <view class="fix-box">
+    <view class="mbox">
+      <view class="i"></view>
+      <view class="title">{{info.partnerTitle}}({{info.partnerRate}}%)</view>
+      <view class="fa">当前等级（佣金比）</view>
+    </view>
+    <navigator hover-class="none" class="mbox" url="/pages/inviter/inviter">
+      <view class="i"></view>
+      <view class="title">{{info.flagNumber}}人</view>
+      <view class="fa arr" style="background:url({{imgUrl+'home_ico7.png'}}) 65% center/13rpx no-repeat">邀请人数</view>
+    </navigator>
+    <navigator hover-class="none" url="/pages/inviteIncome/inviteIncome" class="mbox">
+      <view class="title">{{info.partnerBalance}}</view>
+      <view class="fa arr" style="background:url({{imgUrl+'home_ico7.png'}}) 90% center/13rpx no-repeat">累计收益(元)</view>
+    </navigator>
+  </view>
+  <view class="info">
+    <view class="title"><text class="icon" style="background:url({{imgUrl+'invite-ico1.png'}}) center/22rpx no-repeat"></text><text class="tit">邀请好友方式</text> <text class="icon" style="background:url({{imgUrl+'invite-ico1.png'}}) center/22rpx no-repeat"></text></view> 
+    <view class="detaile">
+      <rich-text nodes="{{content}}"></rich-text>
+      <view>一、点击按钮“立即邀请”立即进入邀请好友页面</view>
+      <view>二、平台相关可分享页面分享给好友，好友点击并注册</view>
+    </view>
+  </view>
+  <view class="fix-btn">
+    <navigator hover-class="none" class="btn" url="/pages/invite_friends/invite_friends">立即邀请</navigator>
+  </view>
+</view>

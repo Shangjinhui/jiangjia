@@ -1,0 +1,40 @@
+<!--pages/task_hall/task_hall.wxml-->
+<view class="por">
+  <image src="{{imgUrl+'tank-ico5.png'}}" class="ban-img"></image>
+  <view class="mian por">
+    <view class="info" style="background:url({{imgUrl+'tank-ico2.png'}}) center top/cover no-repeat">
+      <view class="tit">当前积分</view>
+      <view class="number">{{info.point}}</view>
+      <navigator hover-class="none" url="/pages/integral/integral" class="more f-cb"><image src="{{imgUrl+'tank-ico7.png'}}"></image> 积分明细</navigator>
+    </view>
+    <view class="list">
+      <view class="f-cb box">
+        <image src="{{imgUrl+'tank-ico1.png'}}" class="fl"></image>
+        <view class="mbox fl">
+          <view class="title">每日签到</view>
+          <view class="tit">每天签到即可+10积分</view>
+        </view>
+        <view bindtap="signIn" class="btn fr" wx:if="{{isSign==0}}">去签到</view>
+        <view class="btn fr" wx:if="{{isSign==1}}">已签到</view>
+
+      </view>
+      <view class="f-cb box">
+        <image src="{{imgUrl+'tank-ico4.png'}}" class="fl"></image>
+        <view class="mbox fl">
+          <view class="title">每日分享({{info.shareNumber}}/3)</view>
+          <view class="tit">每天分享前3次，每次均+20积分</view>
+        </view>
+        <view class="btn fr" bindtap="goHome" data-cur="2">去看看</view>
+      </view>
+      <view class="f-cb box">
+        <image src="{{imgUrl+'tank-ico3.png'}}" class="fl"></image>
+        <view class="mbox fl">
+          <view class="title">每日查看推荐</view>
+          <view class="tit">查看需付费的未赛推荐文章，每篇+30积分</view>
+        </view>
+        <view class="btn fr" bindtap="goHome" data-cur="1">去看看</view>
+        <!-- <navigator hover-class="none" open-type='switchTab' url="/pages/match/match" class="btn fr">去看看</navigator> -->
+      </view>
+    </view>
+  </view>
+</view>

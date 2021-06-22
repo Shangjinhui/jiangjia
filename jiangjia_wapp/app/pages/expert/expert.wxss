@@ -1,0 +1,126 @@
+/* pages/expert/expert.wxss */
+page{
+  background:#F4F7FA;
+}
+.expert-top {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.expert-top-search {
+  border-radius: 12rpx;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 13rpx;
+}
+
+.expert-top-search image {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 28rpx;
+  width: 44rpx;
+  height: 44rpx;
+  opacity: 0.5;
+}
+
+.home-line {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 0px 0px rgba(216, 216, 216, 0.5);
+  border-radius: 12rpx 12rpx 0px 0px;
+}
+
+.home-line view {
+  position: relative;
+}
+
+.home-line view::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 31rpx;
+  background: #d8d8d8;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.home-line view:last-child::after {
+  display: none;
+}
+
+.orientation_region {
+  width: 38rpx;
+  position: fixed;
+  z-index: 12;
+  top: 88rpx;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 20rpx;
+  font-weight: 500;
+  color: rgba(160, 160, 160, 1);
+  text-align: center;
+  line-height: 40rpx;
+  padding: 80rpx 0 30rpx 0;
+}
+
+.home-hot-tx::before {
+  height: 13rpx;
+  background: rgba(231, 30, 31, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  opacity: 0.3;
+  width: 100%;
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+}
+
+.home-hot-tx view {
+  background: rgba(252, 231, 231, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  padding: 0 10rpx;
+}
+.expert-con{
+  width: 600rpx;
+}
+
+.expert-con .img1 {
+  width: 50rpx;
+  height: 40rpx;
+  left: 24rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.expert-con .tx {
+  width: 50rpx;
+  left: 24rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.expert-tx {
+  width: 121rpx;
+  line-height: 49rpx;
+  background: rgba(242, 242, 242, 1);
+  border-radius: 6rpx;
+  margin-top: 35rpx;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.expert-tx.on {
+  background: #fea830;
+  color: #fff;
+}
+
+.expert-tx image{
+  width: 24rpx;
+  height: 24rpx;
+  vertical-align: -2rpx;
+
+}

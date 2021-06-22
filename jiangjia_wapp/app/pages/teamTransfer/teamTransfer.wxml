@@ -1,0 +1,31 @@
+<!--pages/teamTransfer/teamTransfer.wxml-->
+<view class="minhei box bgF4F7FA pb20 pt100">
+  <view class="fb bgfff center fsize24 bold lh72 rel home-top box">
+    <view class="fb fb-col item-grow-1 fb-cross-center rel {{nav==item.id?'coE71415':''}}" bindtap="changeNav" data-nav="{{item.id}}" wx:for="{{navList}}" wx:key="index">{{item.name}}</view>
+  </view>
+
+  <navigator hover-class="none" open-type="{{isHome?'reLaunch':'navigate'}}" url="/pages/teamPlayer/teamPlayer?id={{item.player_id}}" class="f-cb bgfff bor-boD8D8D8 pd24 pt15 pb15" wx:for="{{list}}" wx:key="index">
+    <image src="{{item.player_logo?item.player_logo:imgUrl+'tx.png'}}" mode="aspectFill" class="img1 fl mr10"></image>
+    <view class="fl">
+      <view class="fsize28 lh40 hei40">{{item.player_name}}</view>
+      <view class="fsize22 coA0A0A0">{{item.time}}</view>
+    </view>
+    <view class="fr right">
+      <view class="fsize24 coE71415" wx:if="{{nav==1&&item.team_name}}">{{item.team_name}}<image src="{{imgUrl+'team_ico2.png'}}" class="img2"></image></view>
+      <view class="fsize24 coFEA830" wx:if="{{nav==2&&item.team_name}}">{{item.team_name}}<image src="{{imgUrl+'team_ico1.png'}}" class="img2"></image></view>
+      <view class="fsize24 coA0A0A0" wx:if="{{!item.team_name}}">-</view>
+      <view class="fsize22" wx:if="{{item.transfer_fee!=0}}">{{item.transfer_fee/1000}}万欧</view>
+      <view class="fsize22" wx:if="{{item.transfer_fee==0}}">
+        <view wx:if="{{item.transfer_type==1}}">租借</view>
+        <view wx:if="{{item.transfer_type==2}}">租借结束</view>
+        <view wx:if="{{item.transfer_type==3}}">转会</view>
+        <view wx:if="{{item.transfer_type==4}}">退役</view>
+        <view wx:if="{{item.transfer_type==5}}">选秀</view>
+        <view wx:if="{{item.transfer_type==6}}">已解约</view>
+        <view wx:if="{{item.transfer_type==7}}">已签约</view>
+        <view wx:if="{{item.transfer_type==8}}">未知</view>
+      </view>
+    </view>
+  </navigator>
+
+</view>

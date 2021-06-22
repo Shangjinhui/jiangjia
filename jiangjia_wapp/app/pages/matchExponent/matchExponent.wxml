@@ -1,0 +1,52 @@
+<!--pages/matchExponent/matchExponent.wxml-->
+<view class="h100 box pt88 pl172 fsize24" wx:if="{{isShow}}">
+  <!-- 让球 -->
+  <view class="lh88 bgF4F7FA center f-cb  coA0A0A0 bor-boD8D8D8 bor-coeee exponent-top" wx:if="{{option==1}}">
+    <view class="wid172 fl mr40">公司</view>
+    <view class="wid110 fl">主队</view>
+    <view class="wid110 fl">盘口</view>
+    <view class="wid110 fl">客队</view>
+    <view class="wid160 fl">变盘时间</view>
+  </view>
+  <!-- 欧赔 -->
+  <view class="lh88 bgF4F7FA center f-cb  coA0A0A0 bor-boD8D8D8 bor-coeee exponent-top" wx:if="{{option==2}}">
+    <view class="wid172 fl ">公司</view>
+    <view class="fl wid577">
+      <view class="w18 fl">主胜</view>
+      <view class="w18 fl">平局</view>
+      <view class="w18 fl">客胜</view>
+      <view class="w18 fl">客返率</view>
+      <view class="w25 fl">变盘时间</view>
+    </view>
+  </view>
+  <!-- 总进球 -->
+  <view class="lh88 bgF4F7FA center f-cb  coA0A0A0 bor-boD8D8D8 bor-coeee exponent-top" wx:if="{{option==3}}">
+    <view class="wid172 fl mr40">公司</view>
+    <view class="wid110 fl">大球</view>
+    <view class="wid110 fl">盘口</view>
+    <view class="wid110 fl">小球</view>
+    <view class="wid160 fl">变盘时间</view>
+  </view>
+  <view class="exponent-left wid172 bor-riD8D8D8 bor-coeee box center">
+    <view class="row1 exponent-left-con {{index==num?'bgE71415 cofff':''}}" bindtap="changeNum" data-idx="{{index}}" wx:for="{{nameList}}" wx:key="index">{{item.company_name}}</view>
+  </view>
+
+  <view wx:if="{{option==1||option==3}}">
+    <view class="lh72 pl40 center f-cb {{index%2==0?'bgGary':''}}" wx:for="{{list}}" wx:key="index">
+      <view class="wid110 fl {{item.home_win_status>0?'coE71415':''}} {{item.home_win_status<0?'co4FC419':''}}">{{item.home_win}}</view>
+      <view class="wid110 fl {{item.draw_status>0?'coE71415':''}} {{item.draw_status<0?'co4FC419':''}}">{{item.draw}}</view>
+      <view class="wid110 fl {{item.away_win_status>0?'coE71415':''}} {{item.away_win_status<0?'co4FC419':''}}">{{item.away_win}}</view>
+      <view class="wid160 fl {{item.match_time?'coFEA830':''}}">{{item.time}}{{item.match_time&&item.match_time!='中场'?'‘':''}}</view>
+    </view>
+  </view>
+  <view wx:if="{{option==2}}">
+    <view class="lh72  center f-cb {{index%2==0?'bgGary':''}}" wx:for="{{list}}" wx:key="index">
+      <view class="w18 fl {{item.home_win_status>0?'coE71415':''}} {{item.home_win_status<0?'co4FC419':''}}">{{item.home_win}}</view>
+      <view class="w18 fl {{item.draw_status>0?'coE71415':''}} {{item.draw_status<0?'co4FC419':''}}">{{item.draw}}</view>
+      <view class="w18 fl {{item.away_win_status>0?'coE71415':''}} {{item.away_win_status<0?'co4FC419':''}}">{{item.away_win}}</view>
+      <view class="w18 fl co999">{{item.return_rate}}</view>
+      <view class="w25 fl {{item.match_time?'coFEA830':'co999'}}">{{item.time}}{{item.match_time&&item.match_time!='中场'?'’':''}}</view>
+    </view>
+  </view>
+
+</view>

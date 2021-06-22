@@ -1,0 +1,81 @@
+<!--pages/focus_on/focus_on.wxml-->
+<view class="por pt90">
+  <view class="head-box f-cb">
+    <view class="tit {{state==1?'on':''}}" bindtap="changeState" data-id="1">专家</view>
+    <view class="tit {{state==2?'on':''}}" bindtap="changeState" data-id="2">比赛</view>
+  </view>
+  <view class="experts-list" wx:if="{{state==1}}">
+    <view class="box f-cb" wx:for="{{list}}" wx:key="index">
+      <navigator class="fl wid540" url="/pages/expertInfo/expertInfo?id={{item.expert.id}}">
+        <view class="img fl" style="background:url({{item.expert.avatar?item.expert.avatar:imgUrl+'tx.png'}}) center/cover no-repeat">
+          <view class="icon" style="background:url({{imgUrl+'home_ico4.png'}}) center/cover no-repeat"></view>
+        </view>
+        <view class="mbox fl">
+          <view class="title row1">{{item.expert.nickName}}</view>
+          <view class="fa">足球</view> 
+        </view>
+      </navigator>
+      <view class="btn fr on" bindtap="collectInfo" data-item="{{item}}">已关注</view>
+    </view>
+  </view>
+  <view class="football-list" wx:else="{{state==2}}">
+    <view class="pd24">
+      <view class="mb20" wx:for="{{list}}" wx:key="index">
+         <view class=" rel bgfff radius6 match-con">
+          <navigator url="/pages/matchInfo/matchInfo?id={{item.match_id}}">
+            <!-- 状态：{{it.status_id}} -->
+            <view class="f-cb fsize20 mb40">
+              <view class="fl w33"><text class="fl">{{item.competition_name}}</text><text class="fl co999 ml10">{{item.sjhTime}}</text></view>
+              
+              <!-- 0比赛异常,1未开赛,2上半场,3中场,4下半场,5加时赛,7点球决战,8完场,9推迟,10中断,11腰斩,12取消,13待定 -->
+              <view class="fl w33 center co136F63" wx:if="{{item.status_id==2}}">{{item.time>45?'45+':item.time}}'</view>
+              <view class="fl w33 center co136F63" wx:if="{{item.status_id==4||item.status_id==5}}">{{item.time>90?'90+':item.time}}'</view>
+              <!-- <view class="fl w33 center co136F63" wx:if="{{item.status_id==2||item.status_id==4||item.status_id==5}}">{{item.time>90?'90+':item.time}}'</view> -->
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==0}}">异常</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==1}}">未</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==3}}">中</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==7}}">点球</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==8}}">完</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==9}}">推迟</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==10}}">中断</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==11}}">腰斩</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==12}}">取消</view>
+              <view class="fl w33 center coA0A0A0" wx:if="{{item.status_id==13}}">待定</view>
+              <!-- 未（还没有开始）、中（中场休息）、完（已结束），还有加时赛（如原本45的，后面加时显示45+） -->
+            </view>
+            <view class="lh40 f-cb co333  fsize28 mb20 match-con-tx">
+              <view class="fl wid266 right rel pr50 box minhei40">
+               <text class="fr  {{item.homenum==1?'maxwid170':''}} {{item.homenum==2?'maxwid140':''}} {{item.homenum==3?'maxwid120':''}}" > {{item.home_team_name}}</text>
+            <text class="fr pl5 pr5 fsize20 co999 inline " wx:if="{{item.home_position}}">[{{item.home_position}}]</text>
+            <text class="fr pl5 pr5 fsize20 bgE71415 lh30 cofff inline mt7" wx:if="{{item.home_scores[2]&&item.home_scores[2]!=0}}">{{item.home_scores[2]}}</text>
+            <text class="fr pl5 pr5 fsize20 bgffb519 lh30 cofff inline mr5 mt7" wx:if="{{item.home_scores[3]&&item.home_scores[3]!=0}}">{{item.home_scores[3]}}</text>
+                <image src="{{item.home_team_logo?item.home_team_logo:imgUrl+'banner.png'}}" class="abs img2"></image>
+              </view>
+              <view class="fl wid110 center fsize22 bold" wx:if="{{item.status_id==1||item.status_id==9||item.status_id==12||item.status_id==13}}">VS</view>
+              <view class="fl wid110 center fsize22 bold" wx:else>{{item.home_scores[0]}}-{{item.away_scores[0]}}</view>
+              <view class="fl wid266 rel pl50 box minhei40">
+                <image src="{{item.away_team_logo?item.away_team_logo:imgUrl+'banner.png'}}" class="abs img3"></image>
+                  <text class="fl mr5 {{item.awaynum==1?'maxwid170':''}} {{item.awaynum==2?'maxwid140':''}} {{item.awaynum==3?'maxwid120':''}}" >{{item.away_team_name}}</text>
+            <text class="fl pl5 pr5 fsize20 co999 inline" wx:if="{{item.away_position}}">[{{item.away_position}}]</text>
+            <text class="fl pl5 pr5 fsize20 bgE71415 lh30 cofff inline mr5 mt7" wx:if="{{item.away_scores[2]&&item.away_scores[2]!=0}}">{{item.away_scores[2]}}</text>
+            <text class="fl pl5 pr5 fsize20 bgffb519 lh30 cofff inline mt7" wx:if="{{item.away_scores[3]&&item.away_scores[3]!=0}}">{{item.away_scores[3]}}</text>
+              </view>
+            </view>
+            <view class="f-cb fsize20 coA0A0A0">
+              <view class="fl w33 pl30 box" style="background:url({{imgUrl+'match_ico4.png'}}) no-repeat center left /22rpx 22rpx;">{{item.number}}</view>
+              <view class="fl w33 center " wx:if="{{item.status_id!=1&&item.status_id!=9&&item.status_id!=12&&item.status_id!=13}}">
+                <text class="mr10" wx:if="{{item.status_id!=2}}">半：{{item.home_scores[1]}}-{{item.away_scores[1]}}</text>
+                <text>角：{{item.home_scores[4]}}-{{item.away_scores[4]}}</text> </view>
+            </view>
+          </navigator>
+          <image bindtap="collectMatch" data-item="{{item}}" src="{{imgUrl+'tank-ico8.png'}}" class="abs img1"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+</view>

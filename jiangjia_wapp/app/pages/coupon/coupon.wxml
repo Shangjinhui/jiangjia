@@ -1,0 +1,23 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="pd24 pt20 box minhei bgF4F7FA">
+  <view class="f-cb back-coupon-con box mb20 {{item.status==0?'':'gary'}}" wx:for="{{list}}" wx:key="index" style="background:url({{imgUrl+ 'live_ico3.png'}}) no-repeat center/703rpx 168rpx; ">
+    <view class="fl back-coupon-fl">
+      <view class="fsize36 row1 mb10">{{item.name}}</view>
+      <view class="fsize22 coA0A0A0">有效期限：{{item.startTime}}——{{item.overTime}}</view>
+    </view>
+    <view class="fr back-coupon-btn box" bindtap="goList" data-item="{{item}}" wx:if="{{item.status==0}}">立即使用</view>
+    <view class="fr back-coupon-btn box" bindtap="goList" data-item="{{item}}" wx:if="{{item.status==1}}">已使用</view>
+    <view class="fr back-coupon-btn box" bindtap="goList" data-item="{{item}}" wx:if="{{item.status==2}}">已失效</view>
+
+
+    <view class="fsize24 coE71415 fr back-coupon-fr">
+      <text class="bold fsize48">{{item.discount}}</text>折</view>
+
+  </view>
+
+   <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+
+</view>

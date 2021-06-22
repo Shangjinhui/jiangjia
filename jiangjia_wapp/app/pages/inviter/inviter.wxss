@@ -1,0 +1,46 @@
+/* pages/inviter/inviter.wxss */
+.por{
+  min-height: 100vh;
+  background-color: #F4F7FA;
+  font-family:PingFangSC-Regular,PingFang SC;
+}
+.list{
+  padding-top: 20rpx;
+}
+.list .box{
+  padding: 16rpx 24rpx;
+  background-color: #fff;
+  margin-bottom: 1px;
+}
+.list .box .img{
+  width:68rpx;
+  height:68rpx;
+  border-radius: 50%;
+}
+.list .box .mbox{
+  width: calc(100% - 80rpx);
+}
+.list .box .mbox .title .tit{
+  font-size:28rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+}
+.list .box .mbox .title .lv{
+  font-size:22rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+}
+.list .box .mbox .time .fa{
+  font-size:22rpx;
+  font-weight:400;
+  color:rgba(160,160,160,1);
+  line-height:30rpx;
+}
+.list .box .mbox .time .class{
+  font-size:22rpx;
+  font-weight:400;
+  color:rgba(160,160,160,1);
+  line-height:30rpx;
+}

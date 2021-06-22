@@ -1,0 +1,16 @@
+<!--pages/integral/integral.wxml-->
+<view class="por pt90">
+  <view class="head-box f-cb">
+    <view class="tit {{type==1?'on':''}}" bindtap="changeType" data-cur="1">获取来源</view>
+    <view class="tit {{type==2?'on':''}}" bindtap="changeType" data-cur="2">兑换记录</view>
+  </view>
+  <view class="list">
+    <view class="box {{type==2?'on':''}}" wx:for="{{list}}" wx:key="index">
+      <view class="f-cb mbox">
+        <view class="title fl">{{item.note}}</view>
+        <view class="number fr">{{type==1?'+':'-'}}{{item.point}}积分</view>
+      </view>
+      <view class="time">{{item.createTime}}</view>
+    </view>
+  </view>
+</view>

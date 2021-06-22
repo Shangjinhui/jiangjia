@@ -1,0 +1,80 @@
+<!--pages/center/center.wxml-->
+<view class="por" wx:if="{{isShow}}">
+  <view class="head por" style="background:url({{imgUrl+'center-ico14.png'}}) center top/cover no-repeat">
+    <view class="f-cb">
+      <navigator hover-class="none" url="/pages/message/message" class="info fr rel"  style="background:url({{imgUrl+'center-ico12.png'}}) center/cover no-repeat">
+        <image src="{{imgUrl+'center-ico8.png'}}" wx:if="{{info.isNew==1}}" class="abs"></image>
+      </navigator>
+      <!-- <navigator url="/pages/set_up/set_up" class="set_up fr"  style="background:url({{imgUrl+'center-ico7.png'}}) center/cover no-repeat"></navigator> -->
+    </view>
+    <view class="f-cb infos">
+      <navigator hover-class="none" url="/pages/infomation/infomation" class="picture fl" style="background:url({{info.avatar?info.avatar:imgUrl+'tx.png'}}) center/cover no-repeat">
+      </navigator>
+      <navigator hover-class="none" url="/pages/infomation/infomation" class="fl text">
+        <view class="title inline" style="background:url({{imgUrl+'center-ico15.png'}}) right center/11rpx no-repeat">{{info.nickName}}</view>
+        <view class="id">ID:{{info.showId}}</view>
+      </navigator>
+      <view class="sign_in fr" bindtap="signIn" wx:if="{{isSign==0}}"><text style="background:url({{imgUrl+'center-ico4.png'}}) center/33rpx no-repeat"></text>签到</view>
+      <view class="sign_in fr" wx:if="{{isSign==1}}">已签到</view>
+    </view>
+    <view class="list">
+      <view class="mbox">
+        <view class="title">{{info.balance}}金币</view>
+        <view class="fa">我的余额</view>
+      </view>
+      <navigator hover-class="none" class="mbox" url="/pages/integral/integral">
+        <view class="title">{{info.point}}</view>
+        <view class="fa">我的积分</view>
+      </navigator>
+      <navigator hover-class="none" class="mbox" url="/pages/inviter/inviter">
+        <view class="title">{{info.flagNumber}}</view>
+        <view class="fa">我的邀请人</view>
+      </navigator>
+    </view>
+    <navigator hover-class="none" url="/pages/invite_friends/invite_friends" class="invitation">
+      <image src="{{imgUrl+'center-ico1.png'}}" class=""></image>
+    </navigator>
+  </view>
+  <view class="content">
+    <view class="list">
+      <navigator hover-class="none" url="/pages/task_hall/task_hall" class="mbox">
+        <view class="icon"  style="background:url({{imgUrl+'center-ico6.png'}}) center/cover no-repeat"></view>
+        <view class="tit">任务大厅</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/pointsMall/pointsMall" class="mbox">
+        <view class="icon"  style="background:url({{imgUrl+'center-ico11.png'}}) center/cover no-repeat"></view>
+        <view class="tit">积分商城</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/myorder/myorder" class="mbox">
+        <view class="icon"  style="background:url({{imgUrl+'center-ico10.png'}}) center/cover no-repeat"></view>
+        <view class="tit">我的订单</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/wallet_center/wallet_center" class="mbox">
+        <view class="icon"  style="background:url({{imgUrl+'center-ico5.png'}}) center/cover no-repeat"></view>
+        <view class="tit">钱包中心</view>
+      </navigator>
+    </view>
+    <view class="lists">
+     <navigator hover-class="none" url="/pages/coupon/coupon" class="f-cb box" style="background:url({{imgUrl+'center-ico17.png'}}) left center/44rpx no-repeat">
+        <text class="f-cb fl">我的优惠券</text>
+        <text class="arr fr" style="background:url({{imgUrl+'center-ico3.png'}}) center/15rpx no-repeat"></text>
+      </navigator>
+     <navigator hover-class="none" url="/pages/focus_on/focus_on" class="f-cb box" style="background:url({{imgUrl+'center-ico16.png'}}) left center/44rpx no-repeat">
+        <text class="f-cb fl">我的关注</text>
+        <text class="arr fr" style="background:url({{imgUrl+'center-ico3.png'}}) center/15rpx no-repeat"></text>
+      </navigator>
+      <navigator hover-class="none" url="/pages/invite_center/invite_center" class="f-cb box" style="background:url({{imgUrl+'center-ico13.png'}}) left center/44rpx no-repeat">
+        <text class="f-cb fl">邀请中心</text>
+        <text class="arr fr" style="background:url({{imgUrl+'center-ico3.png'}}) center/15rpx no-repeat"></text>
+      </navigator>
+      <!-- <navigator url="/" class="f-cb box" style="background:url({{imgUrl+'center-ico2.png'}}) left center/40rpx no-repeat">
+        <text class="f-cb fl">关于我们</text>
+        <text class="arr fr" style="background:url({{imgUrl+'center-ico3.png'}}) center/15rpx no-repeat"></text>
+      </navigator> -->
+      <navigator hover-class="none" url="/pages/problem_feedback/problem_feedback" class="f-cb box" style="background:url({{imgUrl+'center-ico9.png'}}) left center/44rpx no-repeat">
+        <text class="f-cb fl">问题反馈</text>
+        <text class="arr fr" style="background:url({{imgUrl+'center-ico3.png'}}) center/15rpx no-repeat"></text>
+      </navigator>
+    </view>
+  </view>
+</view>

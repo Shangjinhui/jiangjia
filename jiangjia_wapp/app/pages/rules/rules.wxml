@@ -1,0 +1,10 @@
+<!--pages/rules/rules.wxml-->
+<view class="por">
+  <view class="detaile">
+    <view wx:if="{{state==1}}" class="fsize48 lh68 mb10">{{info.title}}</view>
+    <view wx:if="{{state==1}}" class="fsize22 coA0A0A0">{{info.createTime}}</view>
+
+    <import src="../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>

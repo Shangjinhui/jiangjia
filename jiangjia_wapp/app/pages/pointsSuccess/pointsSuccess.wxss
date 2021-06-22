@@ -1,0 +1,23 @@
+/* pages/pointsSuccess/pointsSuccess.wxss */
+
+image {
+  width: 242rpx;
+  height: 193rpx;
+  margin-top: 230rpx;
+}
+
+.point-con {
+  width: 220rpx;
+  line-height: 54rpx;
+  border-radius: 6rpx;
+  border: 1px solid rgba(204, 204, 204, 1);
+  color: #999;
+  font-size: 24rpx;
+  display: inline-block;
+  margin: 67rpx 10rpx 0 10rpx;
+}
+
+.point-con1 {
+  border-color: rgba(231, 20, 21, 1);
+  color: #e71415;
+}

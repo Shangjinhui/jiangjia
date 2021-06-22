@@ -1,0 +1,7 @@
+<!--pages/expertSuccess/expertSuccess.wxml-->
+<view class="center">
+  <image src="{{imgUrl+'expert_ico12.png'}}" class="mb25"></image>
+  <view class="fsize36 mb10">恭喜你购买成功！</view>
+  <view class="fsize26 coA0A0A0 mb35">{{time}}秒后，自动跳转到已购买解读详情页</view>
+  <view class="cofff bgE71415 radius6 lh72 wid276 inline fsize28" bindtap="goBack">立即查看</view>
+</view>

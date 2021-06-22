@@ -1,0 +1,19 @@
+<!--pages/points_mall/points_mall.wxml-->
+<view class="minhei  box pt100">
+  <view class="head-box f-cb">
+    <view class="tit {{nav==item.id?'on':''}}" bindtap="changeNav" data-nav="{{item.id}}" wx:for="{{navList}}" wx:key="index">{{item.name}}</view>
+  </view>
+  <view class="pd24 f-cb">
+    <navigator hover-class="none" url="/pages/pointsInfo/pointsInfo?id={{item.id}}" class="fl mb20 fsize24 bgfff mall-con box {{(index+1)%2==0?'':'mr20'}}" wx:for="{{list}}" wx:key="index">
+      <image src="{{item.thumb?item.thumb:imgUrl+'banner_1.png'}}" mode='aspectFill' class="block mb30"></image>
+      <view class="row2 lh34 mb10">{{item.name}}</view>
+      <view class="coE71415"><text class="fsize32 fontDINB">{{item.price}}</text>积分</view>
+    </navigator>
+  </view>
+
+  <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+
+</view>

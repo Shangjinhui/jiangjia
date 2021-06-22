@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<view class="por login" >
+  <image src="{{imgUrl+'login-ico2.png'}}" class="fix-img"></image>
+  <view class="center-box">
+    <image src="{{imgUrl+'login.png'}}" class="logo"></image>
+    <view class="title">欢迎来到进球哨！</view>
+    <button  class='auth-btn' open-type="getUserInfo" lang='zh_CN' bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view class='auth-colse' bindtap='cosleAuth'>取消授权</view>
+    <view class="tip-fa">登录即代表同意<navigator hover-class="none" src="/pages/agreement/agreement?id=1">《用户协议》</navigator></view>
+  </view>
+</view>

@@ -1,0 +1,104 @@
+/* component/prompt/prompt.wxss */
+
+/* 弹框 */
+
+.back-black {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  -webkit-transition: opacity 0.4s, z-index 0.4s;
+  transition: opacity 0.4s, z-index 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-black-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+  top: 0;
+  left: 0;
+}
+
+.back-black.back-black-show {
+  opacity: 1;
+  z-index: 10000;
+  visibility: visible;
+}
+
+.back-black-con {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: #fff;
+  width: 645rpx;
+  border-radius: 14rpx;
+  padding: 74rpx 38rpx 56rpx 38rpx;
+  box-sizing: border-box;
+}
+
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.f-cb {
+	zoom: 1;
+}
+.f-cb:after {
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	overflow: hidden;
+	content: ".";
+}
+
+.fsize20{font-size: 20rpx;}
+.fsize22{font-size: 22rpx;}
+.fsize32{
+  font-size: 32rpx;
+}
+.lh92{line-height: 92rpx;}
+.lh30{line-height: 30rpx;}
+.pt5{padding-top: 5rpx;}
+.minwid66{min-width:66rpx;}
+.mr20{margin-right: 20rpx;}
+.wid345{width: 345rpx;}
+.wid215{width: 215rpx;}
+.mb17{margin-bottom: 17rpx;}
+.row1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.img1{
+  width: 92rpx;
+  height: 92rpx;
+}
+.coBC0100{color: #BC0100}
+.coccc{color: #CCCCCC}
+.img2{
+  top: 12rpx;
+  right: 0;
+  width: 8rpx;
+  height: 13rpx;
+}
+.rel{position: relative;}
+.abs{position: absolute;}
+.pr15{padding-right: 15rpx;}
+
+.back-black-bot{
+font-size:28rpx;
+color:rgba(255,255,255,1);
+line-height:72rpx;
+background:rgba(231,28,29,1);
+margin-top: 32rpx;
+text-align: center;
+}

@@ -1,0 +1,127 @@
+/* pages/focus_on/focus_on.wxss */
+.por{
+  font-family:PingFangSC-Medium,PingFang SC;
+  min-height: 100vh;
+  background-color: #F4F7FA;
+}
+.head-box{
+  height: 74rpx;
+  line-height: 74rpx;
+  text-align: center;
+  background-color: #fff;
+  box-shadow:0px 1px 0px 0px rgba(238,238,238,1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.head-box .tit{
+  margin: 0 65rpx;
+  font-size:28rpx;
+  display: inline-block;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  position: relative;
+}
+.head-box .tit:before{
+  display: block;
+  content: '';
+  width:20rpx;
+  height:4rpx;
+  border-radius:3px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.head-box .tit.on:before{
+  background:rgba(231,20,21,1);
+}
+.head-box .tit.on{
+  color: #E71415;
+}
+.experts-list{
+  /* margin-top: 20rpx; */
+}
+.experts-list .box{
+  background-color: #fff;
+  margin-bottom: 1px;
+  padding: 16rpx 24rpx 18rpx;
+}
+.experts-list .box .img{
+  width: 86rpx;
+  height: 86rpx;
+  border-radius: 50%;
+  position: relative;
+}
+.experts-list .box .img .icon{
+  display: block;
+  width:24rpx;
+  height: 24rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.experts-list .box .mbox{
+  width: 400rpx;
+  padding-top: 15rpx;
+  margin-left: 20rpx;
+}
+.experts-list .box .title{
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(62,62,62,1);
+  line-height:28rpx;
+  margin-bottom: 7rpx;
+}
+.experts-list .box  .fa{
+  font-size:22rpx;
+  font-weight:400;
+  color:rgba(160,160,160,1);
+  line-height:28rpx;
+}
+.experts-list .box .btn{
+  width:121rpx;
+  height:49rpx;
+  line-height: 49rpx;
+  border-radius:6rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  font-size:24rpx;
+  font-weight:bold;
+  background:#E71415;
+  color:#fff;
+}
+.experts-list .box .btn.on{
+  background:rgba(242,242,242,1);
+  color:rgba(160,160,160,1);
+}
+.football-list{
+  padding: 20rpx 0 30rpx;
+}
+.match-con {
+  padding: 20rpx 30rpx;
+}
+.match-con-tx image {
+  width: 32rpx;
+  height: 32rpx;
+  /* vertical-align: -5rpx; */
+}
+.img2{
+  top: 4rpx;
+  right: 0  
+}
+.img3{
+  top: 4rpx;
+  left: 0  
+}
+
+.match-con .img1 {
+  width: 33rpx;
+  height: 33rpx;
+  top: 20rpx;
+  right: 23rpx;
+}
+
+
+.minhei40{min-height: 40rpx;}

@@ -1,0 +1,5 @@
+足球pc 正式地址https://www.jinqiushao.com/pc/index.html#/      ft：47.112.235.164 root Jiangjia.2020 22
+       测试地址 http://39.99.210.26/pc/index.html              ft：39.99.210.26 root Jiangjia.2020 22
+	
+足球小程序git地址      http://47.99.171.152:3000/web/jiangjia_wapp
+足球专家端 bocadmin   bocadmin999

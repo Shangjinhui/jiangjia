@@ -1,0 +1,26 @@
+<!--component/prompt/prompt.wxml-->
+<view class="back-black ">
+  <view class="back-black-bg"></view>
+  <view class="back-black-con">
+    <view class="f-cb">
+      <view class="fl fsize32 lh92 mr20 minwid66">72'</view>
+      <image src="{{imgUrl+'ico1.png'}}" class="img1 fl"></image>
+      <view class="fr wid345 fsize22 lh30 pt5">
+        <view class="fl wid215 ">
+          <view class="row1 mb17">斯拉维亚莫兹里</view>
+          <view class="row1">戈洛迪亚</view>
+        </view>
+        <view class="fl fsize20 lh92 coBC0100">进球</view>
+        <view class="fr">
+          <view class="coBC0100 mb17 rel pr15 ">3
+            <image src="{{imgUrl+'ico2.png'}}" class="abs img2"></image>
+          </view>
+          <view class="coccc pr15 rel">0
+            <image src="{{imgUrl+'ico2.png'}}" class="abs img2"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="back-black-bot">前往设置</view>
+  </view>
+</view>

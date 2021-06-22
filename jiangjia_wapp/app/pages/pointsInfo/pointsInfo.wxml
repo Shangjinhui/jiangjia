@@ -1,0 +1,84 @@
+<!--pages/pointsInfo/pointsInfo.wxml-->
+<view class="minhei box  {{isIphoneX?'pb170':'pb100'}}" wx:if="{{isShow}}">
+  <view class="banner bgfff">
+    <swiper indicator-dots="true" circular autoplay="true" interval="5000" duration="1000" class=" rel">
+      <block wx:for="{{info.photo}}" wx:key="item">
+        <swiper-item>
+          <image src="{{item?item:imgUrl+'banner.png'}}" mode='aspectFill' class="w100  rel bolck"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="bgfff pd24 pt45 pb30">
+    <view class="fsize34 mb20">{{info.name}}</view>
+    <view class="f-cb">
+      <view class="coE71415 fl fsize24">
+        <text class="fsize32 fontDINB">{{info.price}}</text>积分</view>
+      <view class="fr fsize26 coA0A0A0">库存：{{info.stock}}</view>
+    </view>
+  </view>
+  <view class="rel center fsize26 co999 lh88 info-tit">
+    <text></text> 商品详情
+    <text></text>
+  </view>
+  <view class="fsize26 lh36">
+     <rich-text nodes="{{info.content}}"></rich-text>
+  </view>
+
+  <view class="info-bot lh80 center fsize30 bgfff box">
+    <view class="bgE71415 cofff radius10" bindtap="showBack" wx:if="{{info.stock>0&&info.price*1<=info.userPoint*1}}">立即兑换</view>
+    <view class="bgbdbdbd cofff radius10" bindtap="tipShow" wx:else>立即兑换</view>
+  </view>
+
+
+  <view class="back-black back-black-show" wx:if="{{backShow}}">
+    <view class="back-black-bg" bindtap="showBack"></view>
+    <view class="back-black-con back-point">
+      <image src="{{imgUrl+'match_ico8.png'}}" class="abs btn" bindtap="showBack"></image>
+      <view class="lh100 pd24 fsize28 bor-boD8D8D8">收货信息完善</view>
+      <view class="f-cb fsize32 back-point-con bor-boD8D8D8">
+        <text class="fl co999 lh108" space="ensp">姓    名</text>
+        <view class="fr back-point-fr"><input placeholder="请输入姓名"  bindinput="bindinput" data-cur='name' value="{{name}}" class="w100 hei108" placeholder-style="color:#999;"/></view>
+      </view>
+      <view class="f-cb fsize32 back-point-con bor-boD8D8D8">
+        <text class="fl co999 lh108" space="ensp">联系电话</text>
+        <view class="fr back-point-fr"><input placeholder="请输入联系电话" type="number" bindinput="bindinput" data-cur='phone' value="{{phone}}" class="w100 hei108" placeholder-style="color:#999;"/></view>
+      </view>
+       <view class="f-cb fsize32 back-point-con bor-boD8D8D8">
+        <text class="fl co999 lh108" space="ensp">收货地址</text>
+        <view class="fr back-point-fr" bindtap="areaShow"><input placeholder="请选择省市区" disabled class="w100 hei108" placeholder-style="color:#999;" disabled value="{{province?province:''}}{{city?city:''}}{{region?region:''}}"/></view>
+      </view>
+      <view class="f-cb fsize32 back-point-con bor-boD8D8D8">
+        <text class="fl co999 lh108" space="ensp">详细地址</text>
+        <view class="fr back-point-fr"><input placeholder="请输入详细地址" bindinput="bindinput" data-cur='addinfo' value="{{addinfo}}" class="w100 hei108" placeholder-style="color:#999;"/></view>
+      </view>
+      <view class="info-bot lh80 center fsize30 bgfff box"><view class="bgE71415 cofff radius10" bindtap="pointExchange">提交</view></view>
+    </view>
+  </view>
+
+
+   <!--  联动省市  -->
+  <view class="main" wx:if="{{condition}}">
+    <view class="modal-mask {{maskVisual}}" bindtap="cascadeDismiss"></view>
+    <view animation="{{animationData}}" class="citypicker">
+      <view class="cityheader">
+        <view bindtap="opened" class="city-cancel">取消</view>
+        <view bindtap="confirm" class="city-true">确定</view>
+      </view>
+      <view class="cityContent">
+        <picker-view indicator-style="height: 50rpx;" style="width: 100%; height: 208rpx; " value="{{value}}" bindchange="bindChange" class="citybody">
+          <picker-view-column>
+            <view wx:for="{{provinceList}}" wx:key="item" class="cityList" style="line-height:68rpx;">{{item.name}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{cityList}}" wx:key="item" class="cityList" style="line-height:68rpx;">{{item.name}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{regionList}}" wx:key="item" class="cityList" style="line-height:68rpx;">{{item.name}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
+  </view>
+
+</view>

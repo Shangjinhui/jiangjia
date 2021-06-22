@@ -1,0 +1,9 @@
+<!--pages/pointsSuccess/pointsSuccess.wxml-->
+<view class="center">
+  <image src="{{imgUrl+'points_ico1.png'}}" class="mb25"></image>
+  <view class="fsize32 mb10">恭喜您兑换成功！ <view>请耐心等待平台发货</view></view>
+  <view >
+    <view class="point-con" bindtap="goBack">继续逛逛</view>
+    <!-- <view class="point-con point-con1">查看详情</view> -->
+  </view>
+</view>

@@ -1,0 +1,70 @@
+/* pages/pointsInfo/pointsInfo.wxss */
+page{
+  background: #F4F7FA;
+}
+.back-black.back-black-show{
+  z-index: 10;
+}
+.banner swiper, .banner image {
+  height: 750rpx;
+}
+
+.banner .wx-swiper-dot {
+  display: inline-flex;
+  width: 18rpx;
+  height: 5rpx;
+  justify-content: space-between;
+}
+
+.banner .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(220, 219, 219, 1);
+  border-radius: 3rpx;
+}
+
+.banner .wx-swiper-dot-active::before {
+  background: #e71415;
+}
+
+.info-tit text{
+  width: 100rpx;
+  border-bottom: 1px dotted #979797;
+  display: inline-block;
+  vertical-align: 10rpx;
+  margin: 0 33rpx;
+}
+
+.info-bot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8rpx 24rpx;
+  z-index: 3;
+}
+.pb170 .info-bot{
+  padding-bottom:76rpx; 
+}
+
+.back-point .btn{
+  width: 27rpx;
+  height: 27rpx;
+  right: 14rpx;
+  top: 28rpx;
+  padding: 10rpx;
+}
+
+.back-point-con{
+  padding: 0 32rpx;
+}
+.back-point-fr{
+  width: 500rpx;
+}
+.back-point .info-bot{
+  position: relative;
+}
+
+.citypicker{
+ box-shadow: 0px 3rpx 37rpx 0px rgba(231, 231, 231, 0.5);
+}

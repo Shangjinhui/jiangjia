@@ -1,0 +1,67 @@
+/* pages/login/login.wxss */
+.login{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-family: PingFangSC-Medium;
+}
+.fix-img{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.center-box{
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 5;
+  text-align: center;
+}
+.center-box .logo{
+  width:130rpx;
+  height: 130rpx;
+  display: block;
+  margin: 0 auto;
+}
+.center-box .title{
+  font-size: 60rpx;
+  color: #333333;
+  letter-spacing: 0;
+  margin: 35rpx 0 75rpx;
+}
+.center-box .auth-btn,
+.center-box .auth-colse{
+  border-radius: 12rpx;
+  width: 622rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0 auto;
+}
+.center-box .auth-btn{
+  background-image: linear-gradient(90deg, #E71415 0%, #D90A0B 100%);
+  color: #FFFFFF;
+  margin-bottom:30rpx;
+}
+.center-box .auth-colse{
+  border:1px solid #D90A0B;
+  color: #D90A0B;
+}
+.center-box .tip-fa{
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 24rpx;
+  margin-top: 65rpx;
+}
+.center-box .tip-fa navigator{
+  color:#D90A0B;
+  display: inline;
+}

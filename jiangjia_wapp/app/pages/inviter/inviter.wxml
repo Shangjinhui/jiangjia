@@ -1,0 +1,18 @@
+<!--pages/inviter/inviter.wxml-->
+<view class="por">
+  <view class="list">
+    <view class="box f-cb" wx:for="{{list}}" wx:key="index">
+      <view class="img fl" style="background:url({{item.avatar?item.avatar:imgUrl+'tx.png'}}) center/cover no-repeat"></view>
+      <view class="mbox fr">
+        <view class="title f-cb"><text class="fl tit">{{item.nickName}}</text><text class="fr lv">{{item.inviteType==1?'下级':'下下级'}}</text></view>
+        <view class="time f-cb"><text class="fl fa">受邀时间：{{item.createTime}}</text><text class="fr class">所属类别</text></view>
+      </view>
+    </view>
+
+    <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+
+  </view>
+</view>

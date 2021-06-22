@@ -1,0 +1,27 @@
+<!--pages/problem_feedback/problem_feedback.wxml-->
+<view class="por problem">
+  <view class="box">
+    <view class="title">标 题</view>
+    <view class="text">
+      <input class="input" value="{{title}}" bindinput="bindinput" data-cur='title' placeholder="请输入标题内容" placeholder-style="color:#A0A0A0;"/>
+    </view>
+  </view>
+  <view class="box">
+    <view class="title">内容描述</view>
+    <view class="text">
+      <textarea value="{{content}}" bindinput="bindinput" data-cur='content' placeholder="请更详细的描述问题" placeholder-style="color:#A0A0A0;"/>
+    </view>
+  </view>
+  <view class="box">
+    <view class="title">相关图片</view>
+    <view class="list f-cb">
+      <view class="img fl rel" wx:for="{{photoBaseList}}" wx:key="{{index}}" style="background:url({{item}}) center/cover no-repeat">
+      <image src="{{imgUrl+'pro_ico8.png'}}" mode='aspectFill' class="abs img1" bindtap="deleteImg" data-cur="{{index}}"></image>
+      </view>
+      <view class="avatarBtn fl"  bindtap="addImg" wx:if="{{photoList.length<5}}">
+        <image src="{{imgUrl+'login-ico6.png'}}" mode='aspectFill' class="img"></image>
+      </view>
+    </view>
+  </view>
+  <view class="submit {{isIphoneX?'on':''}}" bindtap="uploadImgSubmit"><view>提交</view></view>
+</view>

@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/liveInfo/liveInfo",
+    "pages/reviewInfo/reviewInfo",
+    "pages/studio/studio",
+    "pages/expert/expert",
+    "pages/expertInfo/expertInfo",
+    "pages/expertArticle/expertArticle",
+    "pages/expertSuccess/expertSuccess",
+    "pages/search/search",
+    "pages/match/match",
+    "pages/matchFilter/matchFilter",
+    "pages/matchInfo/matchInfo",
+    "pages/matchExponent/matchExponent",
+    "pages/teamInfo/teamInfo",
+    "pages/teamTransfer/teamTransfer",
+    "pages/teamPrize/teamPrize",
+    "pages/teamPlayer/teamPlayer",
+    "pages/login/login",
+    "pages/center/center",
+    "pages/bindPhone/bindPhone",
+    "pages/modify_phone/modify_phone",
+    "pages/agreement/agreement",
+    "pages/infomation/infomation",
+    "pages/infomationEdit/infomationEdit",
+    "pages/problem_feedback/problem_feedback",
+    "pages/set_up/set_up",
+    "pages/task_hall/task_hall",
+    "pages/invite_center/invite_center",
+    "pages/inviteIncome/inviteIncome",
+    "pages/rules/rules",
+    "pages/invite_friends/invite_friends",
+    "pages/message/message",
+    "pages/integral/integral",
+    "pages/inviter/inviter",
+    "pages/focus_on/focus_on",
+    "pages/myorder/myorder",
+    "pages/wallet_center/wallet_center",
+    "pages/withdraw/withdraw",
+    "pages/top_up/top_up",
+    "pages/pointsMall/pointsMall",
+    "pages/pointsInfo/pointsInfo",
+    "pages/pointsSuccess/pointsSuccess",
+    "pages/coupon/coupon",
+    "pages/webView/webView"
+  ],
+  
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "进球哨",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#95989F",
+    "selectedColor": "#E12920",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/img/footer_1.png",
+        "selectedIconPath": "/img/footer_11.png"
+      },
+      {
+        "pagePath": "pages/match/match",
+        "text": "比赛",
+        "iconPath": "/img/footer_2.png",
+        "selectedIconPath": "/img/footer_21.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "我的",
+        "iconPath": "/img/footer_3.png",
+        "selectedIconPath": "/img/footer_31.png"
+      }
+    ]
+  }
+}

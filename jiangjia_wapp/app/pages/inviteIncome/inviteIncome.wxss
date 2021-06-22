@@ -1,0 +1,4 @@
+/* pages/inviteIncome/inviteIncome.wxss */
+.int-fl{
+  width: 550rpx;
+}

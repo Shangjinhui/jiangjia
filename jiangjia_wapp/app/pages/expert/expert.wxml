@@ -1,0 +1,109 @@
+<!--pages/expert/expert.wxml-->
+<view class="pt158 rel h100 box ">
+  <view class="bgBC0100 expert-top">
+    <view class="pd24 ">
+      <view class="rel expert-top-search">
+        <input placeholder="搜索专家" confirm-type="search" bindconfirm="getExpertList" bindinput="bindinput" data-cur='keyword' placeholder-style="color:rgba(255,255,255,0.5)" class="w100 hei72 pl95 pr30 fsize26 cofff" />
+        <image src="{{imgUrl+'nav_btn.png'}}" class="abs"></image>
+      </view>
+    </view>
+    <view class="f-cb center fsize24 bold lh70 rel home-line ">
+      <view class="fl w25  {{nav==item.id?'coE71415':''}}" bindtap="changeNav" data-nav="{{item.id}}" wx:for="{{navList}}" wx:key="index">{{item.name}}</view>
+    </view>
+  </view>
+
+
+  <view style="height:100%;" wx:if="{{nav==''}}">
+
+    <!-- 左侧列表内容部分 -->
+    <scroll-view class="contentList" enable-back-to-top scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" bindscroll="onPageScroll" style="height:100%;">
+      <view wx:for="{{list}}" wx:for-item="group" wx:key="{{group.id}}" id="{{'inTo'+group.id}}" data-id='{{group.id}}'>
+        <view class="fsize20 pd24 lh50">{{group.region?group.region:''}}</view>
+        <navigator hover-class="none" url="/pages/expertInfo/expertInfo?id={{item.id}}" class="bgfff bor-boD8D8D8 pd24 pt15 pb15 f-cb" wx:for="{{group.items}}" wx:for-item="item" wx:key="{{item.brandId}}">
+          <view class="rel fl mr20">
+            <image src="{{item.avatar?item.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+            <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+          </view>
+          <view class="fl fsize28 lh86 mr20">{{item.nickName}} </view>
+          <!-- <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{item.continueFocus>=3}}">
+            <view class="rel">{{item.continueFocus}}连红</view>
+          </view>
+          <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{item.focus >=10&&item.articleCount>=20}}">
+            <view class="rel">近20中{{item.focus}}</view>
+          </view>
+          <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{(item.continueFocus<3||item.focus <10)&&item.focusArticleCount>0}}">
+            <view class="rel">总{{item.articleCount}}中{{item.focusArticleCount}}</view>
+          </view> -->
+          <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:for="{{item.labelList}}"  wx:for-item="it" wx:key="{{idx}}">
+            <view class="rel">{{it}}</view>
+          </view>
+        </navigator>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧字母导航 -->
+    <view class="orientation_region scrollY">
+      <block wx:for="{{list}}" wx:key="{{item.id}}">
+        <view class="orientation_city {{isActive==item.id ? 'coE71415':'' }}" bindtap="scrollToViewFn" data-id="{{item.id}}">
+          {{item.region?item.region:''}}
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{nav!=''}}">
+
+    <view class="bgfff bor-boD8D8D8  f-cb pr25 " wx:for="{{list}}" wx:for-item="item" wx:key="{{index}}">
+      <navigator hover-class="none" url="/pages/expertInfo/expertInfo?id={{item.id}}" class="pl100 pt15 pb15 rel box fl expert-con">
+        <image src="{{imgUrl+'expert_ico'+(index+1)+'.png'}}" class="abs img1" wx:if="{{index<3}}"></image>
+        <view class="abs tx fsize24" wx:else>{{index+1}}</view>
+        <view class="rel fl mr20">
+          <image src="{{item.avatar?item.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+          <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+        </view>
+        <view class="fl fsize28 lh86 mr20">{{item.nickName}} </view>
+
+        <!-- 人气 -->
+        <view class="fl" wx:if="{{nav==1}}">
+          <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:for="{{item.labelList}}"  wx:for-item="it" wx:key="{{idx}}">
+            <view class="rel">{{it}}</view>
+          </view>
+        </view>
+
+        <!-- 命中 -->
+        <view class="fl" wx:if="{{nav==2}}">
+         <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{item.label}}">
+            <view class="rel">{{item.label}}</view>
+          </view>
+          <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{item.focus>=10&&item.articleCount>=20}}">
+            <view class="rel">近20中{{item.focus}}</view>
+          </view>
+        </view>
+
+
+        <!-- 连红 -->
+        <view class="fl" wx:if="{{nav==3}}">
+         <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{item.label}}">
+            <view class="rel">{{item.label}}</view>
+          </view>
+          <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{item.continueFocus>=3}}">
+            <view class="rel">{{item.continueFocus}}连红</view>
+          </view>
+         
+        </view>
+      </navigator>
+      <view class="fr fsize24 expert-tx " wx:if="{{item.isCollect==1}}" bindtap="collectInfo" data-item="{{item}}" data-idx="{{index}}">已关注</view>
+      <view class="fr fsize24 expert-tx on" wx:else bindtap="collectInfo" data-item="{{item}}" data-idx="{{index}}">
+        <image src="{{imgUrl+'expert_ico4.png'}}"></image> 关注</view>
+    </view>
+
+  </view>
+
+  <view class="list-none" wx:if="{{list&&list.length==0}}">
+    <image src="{{imgUrl+'no2.png'}}" class=" img2"></image>
+    <view>未搜索到任何结果</view>
+  </view>
+
+
+
+</view>

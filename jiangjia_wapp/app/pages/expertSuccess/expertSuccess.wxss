@@ -1,0 +1,6 @@
+/* pages/expertSuccess/expertSuccess.wxss */
+image{
+  width: 192rpx;
+  height: 192rpx;
+  margin-top: 230rpx;
+}

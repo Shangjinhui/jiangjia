@@ -1,0 +1,30 @@
+/* pages/coupon/coupon.wxss */
+.gary{
+  -webkit-filter: grayscale(1);
+filter: grayscale(1);
+opacity: 0.5;
+}
+.back-coupon-con {
+  height: 168rpx;
+}
+
+.back-coupon-fl {
+  width: 390rpx;
+  padding: 38rpx 0 0 44rpx;
+}
+
+
+.back-coupon-btn {
+  padding: 47rpx 20rpx;
+  width: 107rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 37rpx;
+}
+
+.back-coupon-fr{
+  margin-top: 38rpx;
+  margin-right: 40rpx;
+}

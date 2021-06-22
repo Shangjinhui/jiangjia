@@ -1,0 +1,91 @@
+/* pages/invite_friends/invite_friends.wxss */
+page{
+  padding: 38rpx 48rpx 10rpx;
+  background-color: #B21313;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.mian{
+  width:100%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 40rpx 0 60rpx;
+}
+.mian .ban-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin: 0 auto 15rpx;
+  display: block;
+}
+.mian  .fa{
+  font-size:28rpx;
+  font-weight:400;
+  line-height: 1.2;
+  text-align: center;
+  color:rgba(102,102,102,1);
+}
+.mian .decoration{
+  width: 100%;
+  position: relative;
+  height: 18rpx;
+  padding-top: 12rpx;
+  margin: 30rpx 0;
+}
+.mian .decoration .hr{
+  width: 565rpx;
+  border-top: 2px dashed #999;
+  margin: 0 auto;
+  height: 0;
+}
+.mian .decoration:before,
+.mian .decoration:after{
+  width: 30rpx;
+  height: 30rpx;
+  background-color:#B21313;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.mian .decoration:before{
+  left: -15rpx;
+}
+.mian .decoration:after{
+  right: -15rpx;
+}
+.mian .title{
+  font-size:36rpx;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:50px;
+  text-align: center;
+}
+.mian .ewm{
+  width: 370rpx;
+  height: 370rpx;
+  display: block;
+  margin: 0 auto 50rpx;
+}
+.mian .share-btn{
+  width:472rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  background:linear-gradient(90deg,rgba(231,20,21,1) 0%,rgba(217,10,11,1) 100%);
+  border-radius:12rpx;
+  margin: 60rpx auto 30rpx;
+
+}
+.mian .detaile{
+  width: 565rpx;
+  margin: 0 auto 30rpx;
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height: 1.8;
+}

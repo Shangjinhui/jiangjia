@@ -1,0 +1,45 @@
+<!--pages/wallet_center/wallet_center.wxml-->
+<view class="por {{isIphoneX?'pb170':'pb100'}}" wx:if="{{isShow}}">
+  <view class="head" style="background:url({{imgUrl+'img1.jpg'}}) center/cover no-repeat">
+    <view class="box"  style="background:url({{imgUrl+'money-ico1.png'}}) center/cover no-repeat">
+      <view class="mbox">
+        <view class="numer"><text>{{info.balance}}</text>金币</view>
+        <view class="fa">账户总额</view>
+      </view>
+      <view class="mbox">
+        <view class="numer"><text>{{info.withdrawBalance}}</text>金币</view>
+        <view class="fa">可提现金额</view>
+      </view>
+    </view> 
+  </view>
+  <view class="nav f-cb">
+    <view class="fl tit {{state==1?'on':''}}" bindtap="changeState" data-id="1">获取记录</view>
+    <view class="fl tit {{state==3?'on':''}}" bindtap="changeState" data-id="3">消费记录</view>
+    <view class="fl tit {{state==2?'on':''}}" bindtap="changeState" data-id="2">提现记录</view>
+  </view>
+  <view class="list ">
+    <view class="box" wx:for="{{list}}" wx:key="list">
+      <view class="title" wx:if="{{state==1}}">
+        <view wx:if="{{item.type==1}}">购买</view>
+        <view wx:if="{{item.type==2}}">提现</view>
+        <view wx:if="{{item.type==3}}">佣金</view>
+        <view wx:if="{{item.type==4}}">充值</view>
+        <view wx:if="{{item.type==5}}">专家解读不中退款</view>
+        <view wx:if="{{item.type==6}}">比赛取消退款</view>
+        <view wx:if="{{item.type==7}}">后台赠送</view>
+
+      </view>
+      <view class="title "wx:if="{{state==2}}">{{item.type==1?'支付宝':'银行卡'}}</view>
+
+      <view class="title "wx:if="{{state==3}}">{{item.type==1?'购买':''}}</view>
+
+      <view class="time">交易时间：{{item.createTime}}</view>
+      <view class="number" wx:if="{{state==1}}">+{{item.amount}}</view>
+      <view class="number on" wx:else>-{{item.amount}}</view>
+    </view>
+  </view>
+  <view class="fix-box f-cb">
+    <navigator hover-class="none" url="/pages/withdraw/withdraw" class="withdrawal">我要提现</navigator>
+    <navigator hover-class="none" class="top-up" url="/pages/top_up/top_up">立即充值</navigator>
+  </view>
+</view>

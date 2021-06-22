@@ -1,0 +1,20 @@
+<!--pages/myorder/myorder.wxml-->
+<view class="por">
+  <view class="list">
+    <view class="box" bindtap="goInfo" data-item="{{item}}" wx:for="{{list}}" wx:key="index">
+      <view class="time f-cb">下单时间：{{item.createTime}} <view class="fr coE71415" wx:if="{{item.orderStaus==2}}">已退款</view></view>
+      <view class="detaile">
+        <view class="fa"><text>购买类型：</text>{{item.type==1?'文章':'直播'}}</view> 
+        <view class="fa"><text>名 称：</text>{{item.title}}</view> 
+        <view class="fa"><text>专 家：</text>{{item.expert}}</view> 
+      </view>
+      <view class="money">支付金额：<text class="fa">{{item.payPrice}}元</text></view>
+    </view>
+   
+     <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+
+  </view>
+</view>

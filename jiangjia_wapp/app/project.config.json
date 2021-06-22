@@ -1,0 +1,375 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.2",
+  "appid": "wx50152f7d9126efbe",
+  "projectname": "%E5%8C%A0%E4%BD%B3%E7%A7%91%E6%8A%801",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": -1,
+          "name": "专家列表",
+          "pathName": "pages/expert/expert",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "专家详情",
+          "pathName": "pages/expertInfo/expertInfo",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "授权登陆",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "绑定手机号码",
+          "pathName": "pages/bindPhone/bindPhone",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "用户协议",
+          "pathName": "pages/agreement/agreement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人中心-基本信息",
+          "pathName": "pages/infomation/infomation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "问题反馈",
+          "pathName": "pages/problem_feedback/problem_feedback",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "设置",
+          "pathName": "pages/set_up/set_up",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "修改手机号码",
+          "pathName": "pages/modify_phone/modify_phone",
+          "query": "phone=152****6271",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人中心",
+          "pathName": "pages/center/center",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "任务大厅",
+          "pathName": "pages/task_hall/task_hall",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "邀请中心",
+          "pathName": "pages/invite_center/invite_center",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "活动规则/消息详情",
+          "pathName": "pages/rules/rules",
+          "query": "state=1&id=4",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "邀请好友",
+          "pathName": "pages/invite_friends/invite_friends",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人中心-消息",
+          "pathName": "pages/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的积分",
+          "pathName": "pages/integral/integral",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 16,
+          "name": "邀请人记录",
+          "pathName": "pages/inviter/inviter",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 17,
+          "name": "个人中心-我的关注",
+          "pathName": "pages/focus_on/focus_on",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "比赛",
+          "pathName": "pages/match/match",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人中心-我的订单",
+          "pathName": "pages/myorder/myorder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "钱包中心",
+          "pathName": "pages/wallet_center/wallet_center",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "充值",
+          "pathName": "pages/top_up/top_up",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "比赛",
+          "pathName": "pages/match/match",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 23,
+          "name": "筛选",
+          "pathName": "pages/matchFilter/matchFilter",
+          "query": "date=2020-09-10&type=0",
+          "scene": null
+        },
+        {
+          "id": 24,
+          "name": "赛事详情页",
+          "pathName": "pages/matchInfo/matchInfo",
+          "query": "id=3472884",
+          "scene": null
+        },
+        {
+          "id": 25,
+          "name": "指数详情页",
+          "pathName": "pages/matchExponent/matchExponent",
+          "query": "option=1&id=2904719&companyName=BET365",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "搜索",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 27,
+          "name": "球队详情页",
+          "pathName": "pages/teamInfo/teamInfo",
+          "query": "id=10194",
+          "scene": null
+        },
+        {
+          "id": 28,
+          "name": "转会记录",
+          "pathName": "pages/teamTransfer/teamTransfer",
+          "query": "id=10247",
+          "scene": null
+        },
+        {
+          "id": 29,
+          "name": "锦标详情",
+          "pathName": "pages/teamPrize/teamPrize",
+          "query": "id=10247",
+          "scene": null
+        },
+        {
+          "id": 30,
+          "name": "球员详情页",
+          "pathName": "pages/teamPlayer/teamPlayer",
+          "query": "id=17591",
+          "scene": null
+        },
+        {
+          "id": 31,
+          "name": "直播详情",
+          "pathName": "pages/liveInfo/liveInfo",
+          "query": "id=18",
+          "scene": null
+        },
+        {
+          "id": 32,
+          "name": "解读详情",
+          "pathName": "pages/expertArticle/expertArticle",
+          "query": "id=823",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "支付成功",
+          "pathName": "pages/expertSuccess/expertSuccess",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 34,
+          "name": "积分商城",
+          "pathName": "pages/pointsMall/pointsMall",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 35,
+          "name": "积分商品详情",
+          "pathName": "pages/pointsInfo/pointsInfo",
+          "query": "id=13",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "兑换成功",
+          "pathName": "pages/pointsSuccess/pointsSuccess",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收益记录",
+          "pathName": "pages/inviteIncome/inviteIncome",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "提现",
+          "pathName": "pages/withdraw/withdraw",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的优惠券",
+          "pathName": "pages/coupon/coupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 41,
+          "name": "精彩回顾详情",
+          "pathName": "pages/reviewInfo/reviewInfo",
+          "query": "link=http://demo2.yunmofo.cn/JJ_football/upload/2020/08/06/15966799182246234r3.mp4",
+          "scene": null
+        },
+        {
+          "id": 41,
+          "name": "直播间",
+          "pathName": "pages/studio/studio",
+          "query": "id=457692",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/matchInfo/matchInfo",
+          "pathName": "pages/matchInfo/matchInfo",
+          "query": "id=3472884",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#BC0100",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "prompt": "/component/prompt/prompt"
+  }
+}

@@ -1,0 +1,26 @@
+<!--pages/top_up/top_up.wxml-->
+<view class="por pb60">
+  <view class="tip-fa"><text>请选择充值金额</text></view>
+  <view class="list">
+    <view class="f-cb ">
+      <view class="mbox fl {{goldProductId==item.id?'on':''}} mb20 {{(index+1)%2==0?'':'mr20'}}" wx:for="{{list}}" wx:key="index" bindtap="changeId" data-id="{{item.id}}">
+        <view class="title">{{item.goldNumber}}金币</view>  
+        <view class="tit">{{item.price}}元</view>  
+      </view>
+    </view>
+    <view class="other-fa">其他金额</view>
+    <view class="f-cb other-money">
+      <input placeholder="请输入充值金额"  type="number" bindinput="bindinput" data-cur='number' value="{{number}}"  class="fl" placeholder-class="color" ></input>
+      <view class="fr fa">元</view>
+    </view>
+  </view>
+  <view class="pay">
+    <view class="title">选择支付方式</view>
+    <view class="box f-cb">
+      <image class="fl" src="{{imgUrl+'tank-ico9.png'}}"></image>
+      <view class="fr icon" style="background:url({{imgUrl+'login-ico4.png'}}) center/cover no-repeat"></view>
+    </view>
+
+  </view>
+  <view class="submit" bindtap="pay">立即充值</view>
+</view>

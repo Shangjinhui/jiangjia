@@ -1,0 +1,157 @@
+/* pages/teamPlayer/teamPlayer.wxss */
+
+.match-top {
+  height: 289rpx;
+  padding-top: 55rpx;
+}
+
+.match-top-con {
+  width: 112rpx;
+}
+
+.match-top-con image {
+  width: 112rpx;
+  height: 112rpx;
+  background: #fff;
+}
+
+.home-top {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 0px 0px rgba(216, 216, 216, 0.5);
+  border-radius: 12rpx 12rpx 0px 0px;
+  margin-top: -20rpx;
+}
+
+.home-top.on {
+  position: fixed;
+  margin-top: 0;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  border-radius: 0;
+}
+
+.info-prize {
+  padding: 0 10rpx;
+}
+
+.info-prize image {
+  width: 78rpx;
+  height: 78rpx;
+  margin: 0 auto 10rpx auto;
+}
+
+.history .img1 {
+  width: 76rpx;
+  height: 76rpx;
+}
+
+.history-box image {
+  width: 74rpx;
+  height: 74rpx;
+}
+
+.radarContainer {
+  width: 100%;
+  height: 395rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.radarCanvas {
+  width: 100%;
+  height: 395rpx;
+  margin: 0 auto;
+  position: absolute;
+}
+
+.record {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 645rpx;
+}
+
+.record-con{
+  max-height: 500rpx;
+  overflow-y: auto;
+}
+
+.team-line-top {
+  line-height: 87rpx;
+}
+
+.team-line-top::after {
+  position: absolute;
+  content: '';
+  width: 4rpx;
+  height: 20rpx;
+  background: rgba(231, 28, 29, 1);
+  border-radius: 2rpx;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.team-line image {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+
+.team-match-top {
+  line-height: 87rpx;
+}
+
+.team-match-top image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.team-match-fl {
+  padding: 5rpx 46rpx 7rpx 38rpx;
+  width: 170rpx;
+}
+
+.team-match-con image {
+  width: 60rpx;
+  height: 44rpx;
+}
+
+.team-match-cen {
+  width: 436rpx;
+  padding: 0 44rpx 0 57rpx;
+  line-height: 44rpx;
+}
+
+.team-match-fr {
+  padding: 38rpx 0 0;
+ margin-right: -24rpx;
+width: 81rpx;
+
+}
+
+.team-match-fr view {
+  /* width: 38rpx; */
+  line-height: 38rpx;
+}
+
+
+.price .img1{
+  width: 76rpx;
+  height: 76rpx;
+}
+.price-fr{
+  width: 486rpx;
+}
+.price-tit view{
+  width: 430rpx;
+}
+.price-tit text{
+  width:34rpx;
+line-height: 34rpx;
+border-radius: 50%;
+}

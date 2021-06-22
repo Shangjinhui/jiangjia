@@ -1,0 +1,77 @@
+/* pages/infomation/infomation.wxss */
+
+page {
+  background-color: #f4f7fa;
+}
+
+.info {
+  position: relative;
+  min-height: calc(100vh - 20rpx);
+  padding-top: 20rpx;
+  width: 100%;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+
+.info .portrait {
+  padding: 23rpx 24rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.info .portrait .avatar {
+  padding-right: 25rpx;
+  margin-right: 25rpx;
+}
+
+.info .portrait .avatar .img {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.info .portrait text, .info  .box text {
+  display: inline-block;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: rgba(62, 62, 62, 1);
+}
+
+.info .portrait navigator {
+  display: inline-block;
+  height: 74rpx;
+  line-height: 74rpx;
+  padding-right: 27rpx;
+}
+
+.info .portrait navigator .img {
+  display: block;
+  height: 74rpx;
+  width: 74rpx;
+}
+
+.info  .box {
+  padding: 0 24rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #fff;
+  margin-bottom: 1px;
+}
+
+.info  .box navigator {
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(160, 160, 160, 1);
+  padding-right: 27rpx;
+}
+
+.info-fr {
+  min-width: 500rpx;
+  text-align: right;
+}
+

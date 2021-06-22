@@ -1,0 +1,118 @@
+/* pages/search/search.wxss */
+.search-top{
+  position: fixed;
+  left: 0;
+  top:0 ;
+  width: 100%;
+  z-index: 3;
+}
+.search-top-con{
+background:rgba(245,246,250,1);
+border-radius:12rpx;
+padding-left: 95rpx;
+}
+.wid615{
+ width:615rpx;
+}
+.search-top-con input{
+height:72rpx;
+}
+.search-top .img1{
+  width: 42rpx;
+  height: 42rpx;
+  left: 28rpx;
+  top:16rpx;
+}
+.search-top .img2{
+  width:36rpx;
+height: 36rpx;
+right: 0;
+top: 50%;
+transform: translateY(-50%);
+padding: 13rpx;
+
+}
+
+
+.search-tx-con{
+  min-width: 135rpx;
+  border-radius: 4rpx;
+}
+.search-tx .img2{
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.search-top-box{
+  position: fixed;
+  top: 76rpx;
+  width: 100%;
+  left: 0;
+  z-index: 3;
+
+
+}
+.search-top-box .on{
+color:rgba(231,20,21,1);
+}
+.search-top-box .on::after{
+  position: absolute;
+  content: '';
+  width: 20rpx;
+  height: 4rpx;
+  background: #E71415;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pt166{padding-top: 166rpx;}
+
+
+.home-hot {
+  padding: 24rpx;
+}
+.home-hot-tx::before {
+  height: 13rpx;
+  background: rgba(231, 30, 31, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  opacity: 0.3;
+  width: 100%;
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+}
+
+.home-hot-tx view {
+  background: rgba(252, 231, 231, 1);
+  border-radius: 17rpx 2rpx 17rpx 2rpx;
+  padding: 0 10rpx;
+}
+
+
+
+
+.home-match{
+  padding: 20rpx 30rpx;
+}
+.home-match-con image{
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: -5rpx;
+}
+.home-match .img1{
+  width: 33rpx;
+  height: 27rpx;
+}
+
+
+.img2{
+  top: 4rpx;
+  right: 0  
+}
+.img3{
+  top: 4rpx;
+  left: 0  
+}
+
+.minhei40{min-height: 40rpx;}

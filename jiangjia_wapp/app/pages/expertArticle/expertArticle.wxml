@@ -1,0 +1,370 @@
+<!--pages/expertArticle/expertArticle.wxml-->
+<view class="bgF4F7FA minhei box {{isIphoneX?'pb170':'pb100'}}" wx:if="{{isShow}}">
+  <view class="pd24  pt25 f-cb  expert-con box" style="background: url({{imgUrl+'expert_ico6.png'}}) no-repeat center bottom/100% 363rpx;">
+    <navigator hover-class="none" open-type="reLaunch" url="/pages/expertInfo/expertInfo?id={{info.expert.id}}">
+      <view class="rel fl mr20">
+        <image src="{{info.expert.avatar?info.expert.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+        <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+      </view>
+      <view class="fl fsize38  mr20 mt5">
+        <view>{{info.expert.nickName}}</view>
+        <view class="fsize20 coA0A0A0">粉丝：{{info.expert.collect}}</view>
+      </view>
+
+      <!-- <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{info.expert.continueFocus>=3}}">
+        <view class="rel">{{info.expert.continueFocus}}连红</view>
+      </view>
+      <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{info.expert.focus >=10&&info.expert.articleCount>=20}}">
+        <view class="rel">近20中{{info.expert.focus}}</view>
+      </view>
+      <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:if="{{(info.expert.continueFocus<3||info.expert.focus <10)&&info.expert.focusArticleCount>0}}">
+        <view class="rel">总{{info.expert.articleCount}}中{{info.expert.focusArticleCount}}</view>
+      </view> -->
+      <view class="fsize20 coE71415 fl home-hot-tx rel lh25 vertical10 mr5 mt30" wx:for="{{info.labelList}}" wx:key="index">
+        <view class="rel">{{item}}</view>
+      </view>
+    </navigator>
+
+
+    <view class="fr fsize24 expert-tx " wx:if="{{info.expert.isCollect==1}}" bindtap="collectInfo">已关注</view>
+    <view class="fr fsize24 expert-tx on" wx:else bindtap="collectInfo">
+      <image src="{{imgUrl+'expert_ico4.png'}}"></image> 关注</view>
+
+  </view>
+
+  <view class="bgfff info-tx rel mb20">
+    <view class="mb20 fsize38 bold f-cb"><text class="cofff fsize18 bgE82F30 pl5 pr5 mr10 radius2 fl lh30 mt5" wx:if="{{info.notPointRefund==1}}">不中退金币</text>{{info.title}}</view>
+    <view class=" fsize26 lh38  act-tx rel mb20">
+      {{info.description}}
+      <image src="{{imgUrl+'expert_ico7.png'}}" class="abs img1"></image>
+      <image src="{{imgUrl+'expert_ico7.png'}}" class="abs img2"></image>
+
+
+    </view>
+    <!-- <view class="coE71415 fsize24 mb20">截止时间：2020-05-09 13:00:00</view> -->
+
+
+    <!-- 未付费 -->
+    <view class="pb20" wx:if="{{info.haveOpen==0}}">
+      <view class="bgfff art-con-top mb20" wx:for="{{info.match}}" wx:key="index">
+        <view class="f-cb mb10 coA0A0A0 fsize20">
+          <view class="fl w33">
+            <view class="fl mr20">周{{item.ftime}}</view>
+            <view class="co333 fl">{{item.match_name}}</view>
+          </view>
+          <view class="fl w33 center">{{item.time}}</view>
+        </view>
+        <view class=" lh40 f-cb co333  fsize28 mb15 home-match-con center">
+          <view class="fl wid180">
+            <view class="fr">
+              <image src="{{item.home_logo?item.home_logo:imgUrl+'banner_1.png'}}" mode="aspectFit"></image>
+              <view class="wid180 {{item.home.length>6?'right':'center'}}">{{item.home}}</view>
+            </view>
+          </view>
+          <view class="fl wid276 co333 mt25 fsize42" wx:if="{{item.status==1||item.status==2}}">{{item.home_scores}}-{{item.away_scores}}</view>
+          <view class="fl wid276 co333 mt25 fsize42" wx:else>VS</view>
+          <view class="fl wid180">
+            <view class="fl">
+              <image src="{{item.away_logo?item.away_logo:imgUrl+'banner_1.png'}}" mode="aspectFit"></image>
+              <view class="wid180 {{item.away.length>6?'left':'center'}}">{{item.away}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="lh38 fsize26 mb20">
+        {{info.description}}
+      </view> -->
+      <view class="lh38 fsize26 rel art-none">
+        <view class="tx">
+          大家好，昨日文字和直播方向各自都是3中2，表现还是一般。昨天没写韩K揭幕站，今天回调看好的场次触及韩K。另外两场白俄超还是如约会给大家带来推荐，晚上20点第一场白俄超也是我直播，希望这单能给今天开个好头。
+        </view>
+        <view class="abs fsize24 art-none-tx center coA0A0A0">
+          <image src="{{imgUrl+'expert_ico11.png'}}"></image>
+          <view wx:if="{{info.canBuy==1}}">购买后查看文章</view>
+          <view wx:else>比赛进行中，无法付费查看</view>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 已付费 -->
+    <view wx:if="{{info.haveOpen==1}}">
+      <view class="mb20" wx:if="{{info.secret.type!=1}}" wx:for="{{info.secret.detail}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="bgfff art-con-top">
+          <view class="f-cb mb10 coA0A0A0 fsize20">
+            <view class="fl w33">
+              <view class="fl mr20">周{{item.ftime}}</view>
+              <view class="co333 fl">{{item.match_name}}</view>
+            </view>
+            <view class="fl w33 center">{{item.time}}</view>
+          </view>
+          <view class=" lh40 f-cb co333  fsize28 mb15 home-match-con center">
+            <view class="fl wid180">
+              <view class="fr">
+                <image src="{{item.home_logo?item.home_logo:imgUrl+'banner_1.png'}}" mode="aspectFit"></image>
+                <view class="wid180 {{item.home.length>6?'right':'center'}}">{{item.home}}</view>
+              </view>
+            </view>
+            <view class="fl wid276 co333 mt25 fsize42" wx:if="{{item.status!=0}}">{{item.home_scores}}-{{item.away_scores}}</view>
+            <view class="fl wid276 co333 mt25 fsize42" wx:else>VS</view>
+            <view class="fl wid180">
+              <view class="fl">
+                <image src="{{item.away_logo?item.away_logo:imgUrl+'banner_1.png'}}" mode="aspectFit"></image>
+                <view class="wid180 {{item.away.length>6?'left':'center'}}">{{item.away}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 竞彩单关 -->
+        <view class="art-con fsize26 center lh74 f-cb " wx:if="{{info.secret.type==2}}">
+          <view class="fl w25 ">
+            <view class="hei74 line-bo"></view>
+            <view class="lh132 rel">竞彩单关
+              <image class="abs img2" src="{{imgUrl+'expert_ico8.png'}}" wx:if="{{item.focus==2}}"></image>
+              <image class="abs img2" src="{{imgUrl+'expert_ico9.png'}}" wx:if="{{item.focus==1}}"></image>
+            </view>
+          </view>
+          <view class="fl w75">
+            <view class="f-cb line-bo">
+              <view class="fl w25 line-fl">让球</view>
+              <view class="fl w25 line-fl">胜</view>
+              <view class="fl w25 line-fl">平</view>
+              <view class="fl w25 line-fl">负</view>
+            </view>
+            <view class="f-cb line-bo num">
+              <view class="fl w25 line-fl {{it.checked==1?'coFEA830':''}}" wx:for="{{item.spfList}}" wx:key="idx" wx:for-index="idx" wx:for-item="it">{{it.num}}
+                <image class="abs img1" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{it.checked==1}}"></image>
+              </view>
+            </view>
+            <view class="f-cb  num">
+              <view class="fl w25 line-fl {{it.checked==1?'coFEA830':''}}" wx:for="{{item.rqList}}" wx:key="idx" wx:for-index="idx" wx:for-item="it">{{it.num}}
+                <image class="abs img1" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{it.checked==1}}"></image>
+              </view>
+            </view>
+            
+          </view>
+
+        </view>
+
+
+        <!-- 玩法类型 让球 -->
+        <view class="art-con fsize26 center lh38 f-cb " wx:if="{{info.secret.type==3}}">
+          <view class="fl w25 pt20 pb20 rel">玩法类型
+            <view>让球
+              <image class="abs img2" src="{{imgUrl+'expert_ico8.png'}}" wx:if="{{item.focus==2}}"></image>
+              <image class="abs img2" src="{{imgUrl+'expert_ico9.png'}}" wx:if="{{item.focus==1}}"></image>
+            </view>
+          </view>
+          <view class="fl w25 line-fl pt20 pb20">主胜
+            <view class="{{item.res==1?'coFEA830':'num'}}">{{item.win}}
+              <image class="abs img3" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{item.res==1}}"></image>
+            </view>
+          </view>
+          <view class="fl w25 line-fl pt20 pb20">让球
+            <view class="num">{{item.concedePoints}}</view>
+          </view>
+          <view class="fl w25 line-fl pt20 pb20">客胜
+            <view class="{{item.res==3?'coFEA830':'num'}}">{{item.lost}}
+              <image class="abs img3" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{item.res==3}}"></image>
+            </view>
+          </view>
+        </view>
+
+
+        <!-- 玩法类型 北单胜平负 -->
+        <view class="art-con fsize26 center lh38 f-cb " wx:if="{{info.secret.type==4}}">
+          <view class="fl w25 pt20 pb20 rel">玩法类型
+            <view>北单胜平负
+              <image class="abs img2" src="{{imgUrl+'expert_ico8.png'}}" wx:if="{{item.focus==2}}"></image>
+              <image class="abs img2" src="{{imgUrl+'expert_ico9.png'}}" wx:if="{{item.focus==1}}"></image>
+            </view>
+          </view>
+          <view class="fl w75 ">
+            <view class="fl w25 line-fl pt20 pb20">让球
+              <view class="num">{{item.concedePoints}}</view>
+            </view>
+            <view class="fl w25 line-fl pt20 pb20">胜
+              <view class="{{(item.res==1||item.res==4)?'coFEA830':'num'}}">{{item.win}}
+                <image class="abs img1" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{item.res==1||item.res==4}}"></image>
+              </view>
+            </view>
+            <view class="fl w25 line-fl pt20 pb20">平
+              <view class="{{(item.res==2||item.res==4||item.res==5)?'coFEA830':'num'}}">{{item.flat}}
+                <image class="abs img1" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{item.res==2||item.res==4||item.res==5}}"></image>
+              </view>
+            </view>
+            <view class="fl w25 line-fl pt20 pb20">负
+              <view class="{{(item.res==3||item.res==5)?'coFEA830':'num'}}">{{item.lost}}
+                <image class="abs img1" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{item.res==3||item.res==5}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 玩法类型 北单胜负 -->
+        <view class="art-con fsize26 center lh38 f-cb " wx:if="{{info.secret.type==5}}">
+          <view class="fl w25 pt20 pb20 rel">玩法类型
+            <view>北单胜负
+              <image class="abs img2" src="{{imgUrl+'expert_ico8.png'}}" wx:if="{{item.focus==2}}"></image>
+              <image class="abs img2" src="{{imgUrl+'expert_ico9.png'}}" wx:if="{{item.focus==1}}"></image>
+            </view>
+          </view>
+          <view class="fl w25 line-fl pt20 pb20">主胜
+            <view class="{{item.res==1?'coFEA830':'num'}}">{{item.win}}
+              <image class="abs img3" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{item.res==1}}"></image>
+            </view>
+          </view>
+          <view class="fl w25 line-fl pt20 pb20">让球
+            <view class="num">{{item.concedePoints}}</view>
+          </view>
+          <view class="fl w25 line-fl pt20 pb20">负
+            <view class="{{item.res==3?'coFEA830':'num'}}">{{item.lost}}
+              <image class="abs img3" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{item.res==3}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      <!-- 竞彩二串一 -->
+      <view class="" wx:if="{{info.secret.type==1}}">
+        <view class="mb20" wx:for="{{info.secret.detail}}" wx:key="index">
+          <view class="bgfff art-con-top">
+            <view class="f-cb mb10 coA0A0A0 fsize20">
+              <view class="fl w33">
+                <view class="fl mr20">周{{item.ftime}}</view>
+                <view class="co333 fl">{{item.match_name}}</view>
+              </view>
+              <view class="fl w33 center">{{item.time}}</view>
+            </view>
+            <view class=" lh40 f-cb co333  fsize28 mb15 home-match-con center">
+              <view class="fl wid180">
+                <view class="fr">
+                  <image src="{{item.home_logo?item.home_logo:imgUrl+'banner_1.png'}}" mode="aspectFit"></image>
+                  <view class="wid180 {{item.home.length>6?'right':'center'}}">{{item.home}}</view>
+                </view>
+              </view>
+              <view class="fl wid276 co333 mt25 fsize42" wx:if="{{item.status==2}}">{{item.home_scores}}-{{item.away_scores}}</view>
+              <view class="fl wid276 co333 mt25 fsize42" wx:else>VS</view>
+              <view class="fl wid180">
+                <view class="fl">
+                  <image src="{{item.away_logo?item.away_logo:imgUrl+'banner_1.png'}}" mode="aspectFit"></image>
+                  <view class="wid180 {{item.away.length>6?'left':'center'}}">{{item.away}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="art-con fsize26 center lh74 f-cb ">
+            <view class="fl w25 ">
+              <view class="hei74 line-bo"></view>
+              <view class="lh132 rel">竞彩二串一
+                <image class="abs img2" src="{{imgUrl+'expert_ico8.png'}}" wx:if="{{item.focus==2}}"></image>
+                <image class="abs img2" src="{{imgUrl+'expert_ico9.png'}}" wx:if="{{item.focus==1}}"></image>
+              </view>
+            </view>
+            <view class="fl w75">
+              <view class="f-cb line-bo">
+                <view class="fl w25 line-fl">让球</view>
+                <view class="fl w25 line-fl">胜</view>
+                <view class="fl w25 line-fl">平</view>
+                <view class="fl w25 line-fl">负</view>
+              </view>
+               <view class="f-cb line-bo num">
+                <view class="fl w25 line-fl {{it.checked==1?'coFEA830':''}}" wx:for="{{item.spfList}}" wx:key="idx" wx:for-index="idx" wx:for-item="it">{{it.num}}
+                  <image class="abs img1" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{it.checked==1}}"></image>
+                </view>
+              </view>
+              <view class="f-cb  num">
+                <view class="fl w25 line-fl {{it.checked==1?'coFEA830':''}}" wx:for="{{item.rqList}}" wx:key="idx" wx:for-index="idx" wx:for-item="it">{{it.num}}
+                  <image class="abs img1" src="{{imgUrl+'expert_ico10.png'}}" wx:if="{{it.checked==1}}"></image>
+                </view>
+              </view>
+             
+            </view>
+
+          </view>
+
+
+        </view>
+      </view>
+
+      <view class="lh38 fsize26 wxParse-tx">
+        <rich-text nodes="{{info.secret.content}}"></rich-text>
+        <!-- <import src="../../wxParse/wxParse.wxml" /> -->
+        <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+      </view>
+    </view>
+  </view>
+
+
+
+  <!-- 未付费 -->
+  <view class="f-cb lh72 coupon-bot fsize24 box" bindtap="showCou" wx:if="{{info.haveOpen==0&&info.canBuy==1&&couList.length>0}}">
+    <view class="fl pl40" style="background:url({{imgUrl+ 'live_ico1.png'}}) no-repeat center left/30rpx 30rpx; ">优惠券</view>
+    <view class="fr pr25 coA0A0A0" style="background:url({{imgUrl+ 'live_ico2.png'}}) no-repeat center right/13rpx 22rpx; ">
+      <view wx:if="{{!couponInfo}}">{{couList.length}}张</view>
+      <view wx:else>{{couponInfo.name}}</view>
+    </view>
+  </view>
+  <view class="art-bot bgfff f-cb fsize28 box lh72" wx:if="{{info.haveOpen==0&&info.canBuy==1}}">
+    <view class="fl">本方案价值
+      <text class="coE71415">{{price}}金币</text>
+    </view>
+    <view class="fr bgE71415 center cofff radius6" bindtap="showBuy">购买本场</view>
+  </view>
+
+
+  <!-- 购买 -->
+  <view class="back-black {{buyShow?'back-black-show':''}}">
+    <view class="back-black-bg" bindtap="showBuy"></view>
+    <view class="radius14 bgfff back-tip ">
+      <view class="fsize32 tit pt70 pb60 bor-boD8D8D8 pd24">您确定花费{{price}}金币购买该解读吗？</view>
+      <view class="f-cb lh100">
+        <view class="fl w50 bor-riD8D8D8 box" bindtap="showBuy">取消</view>
+        <view class="fl w50 coE71415" bindtap="buyNow">确定</view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 充值 -->
+  <view class="back-black {{tipShow?'back-black-show':''}} ">
+    <view class="back-black-bg" bindtap="showTip"></view>
+    <view class="radius14 bgfff back-tip ">
+      <view class="fsize32 tit pt70 pb60 bor-boD8D8D8 pd24">您的金币不足，请充值！</view>
+      <view class="f-cb lh100">
+        <view class="fl w50 bor-riD8D8D8 box" bindtap="showTip">取消</view>
+        <navigator hover-class="none" url="/pages/top_up/top_up" class="fl w50 coE71415">立即充值</navigator>
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <!-- 选择优惠券 -->
+  <view class="back-black {{couShow?'back-black-show':''}}">
+    <view class="back-black-bg " bindtap="showCou"></view>
+    <view class="back-black-con back-coupon">
+      <image src="{{imgUrl+'match_ico8.png'}}" class="back-black-btn" bindtap="showCou"></image>
+      <view class="rel fsize36 bold center pt35 pb35">选择优惠券</view>
+      <view class="back-coupon-box pd24">
+        <view class="f-cb back-coupon-con box mb20 rel" bindtap="chooseCou" data-item="{{item}}" wx:for="{{couList}}" wx:key="index" style="background:url({{imgUrl+ 'live_ico3.png'}}) no-repeat center/703rpx 168rpx; ">
+          <image src="{{imgUrl+'expert_ico13.png'}}" class="abs" wx:if="{{coupon==item.id}}"></image>
+          <view class="fl back-coupon-fl">
+            <view class="fsize36 row1 mb10">{{item.name}}</view>
+            <view class="fsize22 coA0A0A0">有效期限：{{item.startTime}}——{{item.overTime}}</view>
+          </view>
+          <view class="fr back-coupon-btn box">立即使用</view>
+
+          <view class="fsize24 coE71415 fr back-coupon-fr">
+            <text class="bold fsize48">{{item.discount}}</text>折</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

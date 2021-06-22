@@ -1,0 +1,54 @@
+/* pages/matchFilter/matchFilter.wxss */
+.home-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0px 1px 0px 0px rgba(216, 216, 216, 0.5);
+  padding-right: 10rpx;
+  z-index: 2;
+}
+
+.orientation_region {
+  width: 38rpx;
+  position: fixed;
+  z-index: 12;
+  top: 72rpx;
+  bottom: 100rpx;
+  right: 0;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 20rpx;
+  font-weight: 500;
+  color: rgba(160, 160, 160, 1);
+  text-align: center;
+  line-height: 40rpx;
+  padding: 64rpx 0;
+}
+
+
+
+
+
+.filBot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width:100%; 
+  z-index: 2;
+  box-shadow: 0px -4rpx 10rpx 0px rgba(0, 0, 0, 0.04);
+  padding: 15rpx 24rpx 15rpx 0;
+}
+.filBot .fl{
+  padding: 0 30rpx;
+  border-right: 1px solid rgba(216, 216, 216, 0.5);
+  margin-top: 20rpx;
+}
+.filBot .fl.none{
+  border-right: none;
+}
+.pb170 .filBot{
+  padding-bottom: 85rpx;
+}
+.pb170 .orientation_region{
+  bottom: 170rpx;
+}

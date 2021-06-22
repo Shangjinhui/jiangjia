@@ -1,0 +1,131 @@
+.por{
+  font-family:PingFangSC-Regular,PingFang SC;
+}
+.head{
+  padding: 30rpx 40rpx 0;
+}
+.head .info,
+.head .set_up{
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 25rpx;
+  display: block;
+}
+.info image{
+  width: 21rpx;
+  height: 21rpx;
+  right: 0;
+  top: 0;
+}
+.head  .infos .picture{
+  width:128rpx;
+  height:128rpx;
+  border:3rpx solid rgba(255,255,255,1);
+  border-radius: 50%;
+}
+.head  .infos .text{
+  max-width: 300rpx;
+  margin-left: 26rpx;
+  padding-top: 18rpx;
+}
+.head  .infos .text .title{
+  padding-right: 30rpx;
+  height: 53rpx;
+  line-height: 53rpx;
+  margin-bottom: 8rpx;
+}
+.head  .infos .text .id{
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(160,160,160,1);
+  line-height: 1.5;
+}
+.head  .infos .sign_in{
+  width:153rpx;
+  height:52rpx;
+  line-height: 52rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 0px 4px 0px rgba(0,0,0,0.17);
+  border-radius:26rpx;
+  text-align: center;
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  margin-top: 40rpx;
+}
+.head  .infos .sign_in text{
+  display: inline;
+  padding: 17rpx;
+  margin-right:19rpx;
+}
+.head  .list{
+  display: flex;
+  text-align: center;
+  padding: 33rpx 0 50rpx;
+}
+.head  .list .mbox{
+  flex: 1;
+}
+.head  .list .mbox .title{
+  font-size:38rpx;
+  font-family:DIN-Bold,DIN,arial;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  margin-bottom: 3rpx;
+  line-height: 47rpx;
+}
+.head  .list .mbox .fa{
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height: 33rpx;
+}
+.head .invitation{
+  width: 100%;
+}
+.head .invitation image{
+  display: block;
+  width: 670rpx;
+  height: 102rpx;
+}
+.content{
+  background:rgba(255,255,255,1);
+  box-shadow:0px -10px 8px 0px rgba(0,0,0,0.07);
+  border-radius:20px 20px 0px 0px;
+  padding-top: 40rpx;
+}
+.content .list{
+  display: flex;
+  text-align: center;
+} 
+.content .list .mbox{
+  flex: 1;
+  font-size:26rpx;
+  font-weight:400;
+  line-height: 1.2;
+  color:rgba(51,51,51,1);
+}
+.content .list .mbox .icon{
+  width: 72rpx;
+  height: 72rpx;
+  margin: 0 auto 15rpx;
+  display: block;
+}
+.content .lists{
+  padding: 0 40rpx 30rpx;
+  margin-top: 60rpx;
+}
+.content .lists .box{
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size:28rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  padding-left: 68rpx;
+}
+.content .lists .box .arr{
+  display: inline-block;
+  height: 88rpx;
+  padding: 0 5px;
+}
+

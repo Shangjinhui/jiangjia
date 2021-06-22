@@ -1,0 +1,33 @@
+<!--pages/studio/studio.wxml-->
+<view>
+
+  <video src="{{roomUrl}}" bindplay="onPlay" bindpause="onPause" bindended="onEnded" controls="{{false}}" autoplay="{{true}}"/>
+
+  <view class="lh88 fsize30 pd24">聊天互动</view>
+
+  <scroll-view scroll-y="true" style="height: {{height}}px;"  bindscroll="scroll"  scroll-top="{{scrollTop}}">
+    <view>
+    <view class="bgfff bor-boD8D8D8 pd24 pt20 pb20 f-cb" wx:for="{{commentList}}" wx:key="index">
+      <image src="{{item.avatar?item.avatar:imgUrl+'tx.png'}}" class="fl img1" mode="scaleToFill"></image>
+      <view class="fr wid620">
+        <view class="f-cb mb10">
+          <view class="fl fsize28 co666">{{item.name}}</view>
+          <view class="fr fsize22 coA0A0A0">{{item.time}}</view>
+        </view>
+        <view class="fsize28">{{item.message}}</view>
+      </view>
+    </view>
+    </view>
+  </scroll-view>
+
+
+
+  <view class="stu-bot box f-cb {{isIphoneX?'on':''}}">
+    <view class="stu-bot-box rel box">
+      <input placeholder="我来说两句…" class="fsize28" bindinput="bindinput" data-cur='comment' value="{{comment}}" confirm-type="send" bindconfirm="sendInfo" />
+      <image src="{{imgUrl+'ico3.png'}}" class="abs"></image>
+    </view>
+    <!-- <view class="fr cofff center fsize28" bindtap="sendInfo">发 布</view> -->
+  </view>
+
+</view>

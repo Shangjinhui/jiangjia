@@ -1,0 +1,100 @@
+/* pages/task_hall/task_hall.wxss */
+.por{
+  font-family:PingFangSC-Medium,PingFang SC;
+  min-height: 100vh;
+  background-color: #F4F7FA;
+}
+.ban-img{
+  display: block;
+  width: 100%;
+  height: 360rpx;
+}
+.mian{
+  width: 700rpx;
+  margin: 0 auto;
+  position: relative;
+  margin-top: -53rpx;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+}
+.info{
+  width: 100%;
+  height: 216rpx;
+  text-align: center;
+}
+.info .tit{
+  font-size:24rpx;
+  font-weight:500;
+  color:rgba(160,160,160,1);
+  line-height: 1.2;
+  padding:45rpx 0 15rpx;
+}
+.info .number{
+  font-size:60rpx;
+  font-family:DIN-Bold,DIN,arial;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  line-height: 1;
+}
+.info .more{
+  position: absolute;
+  font-size:24rpx;
+  font-weight:400;
+  height: 36rpx;
+  line-height: 36rpx;
+  color:#3F88C5;
+  right: 30rpx;
+  top:27rpx;
+}
+.info .more image{
+  display: inline-block;
+  width: 36rpx;
+  float: left;
+  height: 36rpx;
+  margin-right: 5rpx;
+}
+.list{
+  padding: 0 30rpx;
+  border-radius:12rpx;
+  background-color: #fff;
+}
+.list .box{
+  padding: 34rpx 0;
+  border-bottom: 1px solid #D8D8D8;
+}
+.list .box:last-child{
+  border-bottom:0;
+}
+.list .box image{
+  display: block;
+  width:80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+.list .mbox .title{
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height: 1;
+  padding: 7rpx 0 18rpx;
+}
+.list .mbox .tit{
+  font-size:22rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  line-height: 1;
+  color:rgba(160,160,160,1);
+}
+.list .btn{
+  width:138rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  border-radius:30rpx;
+  border:2rpx solid rgba(219,11,12,1);
+  font-size:24rpx;
+  text-align: center;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(231,20,21,1);
+  margin-top: 10rpx;
+} 

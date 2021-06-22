@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<view class="por login" >
+  <image src="{{imgUrl+'login-ico2.png'}}" class="fix-img"></image>
+  <view class="center-box">
+    <view class="title">绑定手机</view>
+    <view class="detaile">应国家法律要求，使用互联网需完成实名验证，请绑定手机。</view>
+    <button  class='auth-btn'  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >授权绑定手机号码</button>
+    <view class='auth-colse' bindtap='colseFun'>取消授权</view>
+    <view class="tip-fa">登录即代表同意<navigator hover-class="none" src="/pages/agreement/agreement?id=1">《用户协议》</navigator></view>
+  </view>
+</view>

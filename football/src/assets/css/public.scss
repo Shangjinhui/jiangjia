@@ -1,0 +1,834 @@
+@import './color.scss';
+@font-face{
+	font-family: 'DINCond-Bold';
+	src : url('../fonts/DINCond-Bold.woff');
+}
+.DINCond-Bold{
+	font-family: 'DINCond-Bold';
+}
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	-webkit-transition-timing-function: ease-in-out;
+	-moz-transition-timing-function: ease-in-out;
+	-ms-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+	background-repeat: no-repeat;
+	//font-family: "微软雅黑";
+	font-family: "微软雅黑", "Source Han Sans CN", "Microsoft YaHei", "Microsoft JhengHei", "Hiragino Sans GB", "PingFang SC", "Helvetica Neue", Helvetica, "Heiti SC", Arial, sans-serif;
+	box-sizing: border-box;
+}
+*:focus {
+	outline: none;
+}
+*, *:before, *:after {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+ol, ul, li {
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+u, i {
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	width: 100%;
+}
+fieldset, img {
+	border: 0;
+}
+html {
+	width: 100%;
+	min-height:100vh;
+	background:#f2f2f2;
+}
+body {
+	width: 100%;
+	position: relative;
+	font-size: 14px;
+	color: #333;
+	line-height: 1;
+	min-width: 1200px;
+}
+input, select, textarea {
+	-webkit-appearance: none;
+	border: none;
+	border-radius: 0;
+	font-family: "微软雅黑", "Source Han Sans CN", "Microsoft YaHei", "Microsoft JhengHei", "Hiragino Sans GB", "PingFang SC", "Helvetica Neue", Helvetica, "Heiti SC", Arial, sans-serif;
+}
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+.f-x {
+	zoom: 1;
+}
+.f-x:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+.new-loading {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 1);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999999999;
+}
+.oppo {
+	width: 400px;
+	background: rgba(0, 0, 0, .8);
+	box-sizing: border-box;
+	padding: 20px 15px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	border-radius: 10px;
+	color: #fff;
+	z-index: 999999;
+	border: 1px solid rgba(255, 255, 255, .5);
+	font-size: 17px;
+}
+[v-cloak] {
+	display: none;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+.f-cb {
+	zoom: 1;
+}
+.f-cb:after {
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	overflow: hidden;
+	content: "";
+}
+#cnzz_stat_icon_1272933968 {
+	display: none;
+}
+textarea, input {
+	&::-webkit-input-placeholder { color: $input; }
+	&:-ms-input-placeholder { color: $input; }
+	&::placeholder { color:$input; }
+}
+.opa0{ opacity:0;}
+.opa2{ opacity:0.2;}
+.opa4 {
+	opacity: .4;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+.opa5 {
+	opacity: 0.5;
+}
+.opa6 {
+	opacity: 0.6;
+}
+
+img{max-width: 100%;}
+
+
+.ovh {
+	overflow: hidden;
+}
+
+.img-cover{object-fit: cover;}
+.img-contain{object-fit: contain;}
+.img-gary{
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+}
+
+
+.rel {
+	position: relative ;
+}
+.abs {
+	position: absolute;
+}
+.tra {
+	-webkit-transition: 0.3s linear; -moz-transition: 0.3s linear; -ms-transition: 0.3s linear; -o-transition: 0.3s linear; transition: 0.3s linear;
+}
+.row1 {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.row2 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.row3 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+.left {text-align: left }
+.center { text-align: center; }
+.right { text-align: right }
+.cursor { cursor: pointer; }
+.block { display: block }
+.inline { display: inline-block; }
+.underline { text-decoration: underline ; }
+.italic{font-style: italic ;}
+.scrollY {
+	overflow-y: scroll;
+}
+.bold{font-weight: bold}
+
+.maxwid100{max-width: 100px;}
+.wid16{width: 16px}
+.wid20{width: 20px}
+.wid76{width: 76px}
+.wid80{width: 80px}
+.wid140{width: 140px}
+.wid210{width: 210px}
+.wid360{width: 360px}
+.wid380{width: 380px}
+.wid420{ width:420px;}
+.wid1200{width: 1200px;}
+
+.minhei550{min-height: 550px}
+.minhei580{min-height: 580px}
+.mh850{min-height: 850px}
+
+.hei36{ height:36px;}
+.hei40{ height:40px;}
+
+.lh18{ line-height:18px;}
+.lh20{ line-height:20px;}
+.lh24{ line-height:24px;}
+.lh28{ line-height:28px;}
+.lh30{ line-height:30px;}
+.lh46{ line-height:46px;}
+.lh54{ line-height:54px;}
+
+.fsize12{font-size: 12px}
+.fsize14{font-size: 14px}
+.fsize16{font-size: 16px}
+.fsize18{font-size: 18px}
+.fsize22{font-size: 22px}
+.fsize24{font-size: 24px}
+.fsize28{font-size: 28px}
+.fsize30{font-size: 30px}
+
+.marginauto{margin: 0px auto;}
+
+.mt10{ margin-top:10px;}
+.mt17{ margin-top:17px;}
+.mt20{ margin-top:20px;}
+.mt40{ margin-top:40px;}
+
+.ml5{margin-left: 5px;}
+.ml10{margin-left: 10px;}
+.ml20{ margin-left:20px;}
+
+.mr5{ margin-right:5px;}
+.mr10{margin-right: 10px;}
+.mr15{margin-right: 15px;}
+.mr40{margin-right: 40px}
+
+.mb5{margin-bottom: 5px;}
+.mb10{margin-bottom: 10px;}
+.mb15{margin-bottom: 15px;}
+
+.mb20{margin-bottom: 20px;}
+.mb25{margin-bottom: 25px;}
+
+.mb30{margin-bottom: 30px;}
+.mb50{margin-bottom: 50px;}
+
+.pd5{ padding:0 5px;}
+.pd15{padding:0 15px}
+.pd22{padding:0 22px}
+.pd28{padding: 0 28px;}
+.pda20{padding: 20px}
+.pt5{ padding-top:5px;}
+.pt10{ padding-top:10px;}
+.pt15{ padding-top:15px;}
+.pt20{ padding-top:20px;}
+.pt30{ padding-top:30px;}
+.pt80{ padding-top:80px;}
+
+.pr2{padding-right:2px;}
+.pr5{padding-right: 5px}
+.pr10{padding-right: 10px}
+.pr20{padding-right: 20px}
+.pr25{padding-right: 25px}
+.pr35{padding-right: 35px;}
+
+.pl2{padding-left:2px;}
+.pl5{padding-left:5px;}
+.pl10{ padding-left:10px;}
+.pl20{ padding-left:20px;}
+.pl30{ padding-left:30px;}
+
+.pb10{padding-bottom: 10px;}
+.pb15{padding-bottom: 15px;}
+.pb20{padding-bottom: 20px}
+.pb30{padding-bottom: 30px}
+.pb50{padding-bottom: 50px}
+
+.cofff{ color: #fff;}
+.coc2c2c2{ color: #c2c2c2;}
+.co999{ color: #999;}
+.co8b8b8b{ color: #8b8b8b;}
+.co666{ color: #666;}
+.co333{ color: #333;}
+.color{ color: $color;}
+.coffc61a{ color: #ffc61a;}
+.coa7a7a7{color:#a7a7a7;}
+.coff261a{color:#ff261a;}
+.hover{
+	-webkit-transition: 0.3s linear; -moz-transition: 0.3s linear; -ms-transition: 0.3s linear; -o-transition: 0.3s linear; transition: 0.3s linear;
+	&:hover{ color: $color;}
+}
+.cobb53eb{ color: #bb53eb;}
+.co1b8ee7{ color: #1b8ee7;}
+
+.bgfff{background: #fff}
+.bgf2f2f2{background: #f2f2f2}
+.bgf5f5f5{background: #f5f5f5}
+.bgcolor{background: $color}
+.bgfea830{background: #fea830}
+.bgffb519{background:#ffb519;}
+.bgE71415{background:#E71415;}
+
+
+.vertical2{vertical-align: 2px;}
+.vertical-2{vertical-align: -2px;}
+.vertical-4{vertical-align: -4px;}
+.vertical-5{vertical-align: -5px;}
+.vertical-6{vertical-align: -6px;}
+
+.bor-bof5f5f5{border-bottom: 1px solid rgba(245, 245, 245, 0.5) }
+
+
+.bor-ric6c6c6{border-right: 1px solid rgba(198, 198, 198, 1) }
+.bor-boc6c6c6{border-bottom: 1px solid rgba(245, 245, 245, 1) }
+
+.bore8e8e8{border-color: #e8e8e8;}
+
+
+.radius{border-radius: 50%}
+.radius2{border-radius: 2px}
+.radius4{border-radius: 4px}
+.radius6{border-radius: 6px}
+
+
+
+/*新弹窗*/
+.back-black {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	-webkit-transition: opacity 0.4s, z-index 0.4s;
+	transition: opacity 0.4s, z-index 0.4s;
+	opacity: 1;
+	// visibility: hidden;
+	&.on{
+		-webkit-transition: opacity 0.6s, z-index 0.8s;
+		transition: opacity 0.6s, z-index 0.8s;
+	}
+	.back-black-bg {
+		background: rgba(0, 0, 0, 0.6);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&.back-black-show {
+		opacity: 1;
+		z-index: 100;
+		visibility: visible;
+	}
+}
+.back-black-con {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: #ffffff;
+	max-height: 80vh;
+	box-sizing: border-box;
+	border-radius: 4px;
+	min-width: 290px;
+	overflow: hidden;
+
+	.back-black-tit {
+		font-size: 16px;
+		background: #f0f0f0;
+		line-height: 40px;
+		padding: 0px 15px;
+	}
+
+	.back-black-btn{
+		position: absolute;
+		right:15px;
+		top:12px;
+		cursor: pointer;
+	}
+
+}
+.mint-switch-core {
+	width: 1.04rem;
+	height: 0.6rem;
+	border: 1px solid #bbb;
+	background: #bbb;
+	border-radius: 0.3rem;
+
+	&::before {
+		width: 1rem;
+		height: 0.56rem;
+		background-color: #bbb;
+	}
+	&::after {
+		width: 0.56rem;
+		height: 0.56rem;
+		background-color: #fff;
+	}
+}
+.mint-switch-input:checked + .mint-switch-core {
+	border-color: $color;
+	background-color: $color;
+	&::after {
+		-webkit-transform: translateX(0.45rem);
+		transform: translateX(0.45rem);
+	}
+}
+.mint-datetime-action {
+	color: $color;
+}
+//下拉
+.drop-more {
+	padding: .32rem 0 .32rem;
+}
+.drop-more-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: .3rem;
+	line-height: .3rem;
+	font-size: .24rem;
+	color: #c4c4c4;
+}
+.drop-more-text i {
+	display: block;
+	width: .64rem;
+	height: 1px;
+	background: #c4c4c4;
+}
+.avatar {
+	border-radius: 100%;
+	background-size: cover;
+}
+.mint-msgbox-confirm {
+	color: $color;
+}
+.switch {
+	//display: inline-block;
+	width: 1.04rem;
+	height: 0.6rem;
+	border: 1px solid #bbb;
+	border-radius: .3rem;
+	background: #bbb;
+	position: relative;
+	&::after {
+		content: '';
+		top: 0;
+		left: 0;
+		position: absolute;
+		-webkit-transition: -webkit-transform .3s;
+		transition: -webkit-transform .3s;
+		transition: transform .3s;
+		transition: transform .3s, -webkit-transform .3s;
+		border-radius: 0.3rem;
+		width: .56rem;
+		height: .56rem;
+		background-color: #fff;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+	}
+	&.on {
+		background: $color;
+		border-color: $color;
+		&::after {
+			-webkit-transform: translateX(.45rem);
+			transform: translateX(.45rem);
+		}
+	}
+}
+.mint-popup {
+	width: 100%;
+
+	.sure {
+		text-align: right;
+		border-bottom: 1px solid rgba(230, 230, 230, 0.53);
+
+		.sure-btn {
+			display: inline-block;
+			font-size: 0.3rem;
+			padding: 0.2rem 0.3rem;
+		}
+	}
+}
+//.picker-slot{
+//	width:100%;
+//}
+
+/*网站默认滚动跳的样式*/
+::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, .1);
+}
+::-webkit-scrollbar-thumb {
+	background-image: -webkit-linear-gradient(0, #ff463d, $color);
+	background-image: linear-gradient(0, #ff463d, $color);
+	background-image: -webkit-linear-gradient(bottom, #ff463d, $color);
+	background-image: linear-gradient(to top, #ff463d, $color);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background-image: -webkit-linear-gradient(0, #ff463d, $color);
+	background-image: linear-gradient(0, #ff463d, $color);
+	background-image: -webkit-linear-gradient(bottom, #ff463d, $color);
+	background-image: linear-gradient(to top, #ff463d, $color);
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+	background-image: -webkit-linear-gradient(0, #ff463d, $color);
+	background-image: linear-gradient(0, #ff463d, $color);
+	background-image: -webkit-linear-gradient(bottom, #ff463d, $color);
+	background-image: linear-gradient(to top, #ff463d, $color);
+}
+/*==flex 弹性布局==*/
+.fb {
+	/*display: box;*/
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	display: -webkit-flex;
+	display: flex;
+}
+/* 容器属性 */
+/* 1、flex-direction 主轴方向 */
+.fb-row {
+	-webkit-box-direction: normal; /*老语法*/
+	-webkit-box-orient: horizontal; /*老语法*/
+	-webkit-flex-direction: row;
+	flex-direction: row;
+}
+.fb-row-rev {
+	/* box-direction只是改变了子元素的排序，并没有改变对齐方式，需要新增一个 box-pack 来改变对齐方式*/
+	-webkit-box-pack: end; /*老语法*/
+	box-pack: end; /*老语法*/
+	-webkit-box-direction: reverse; /*老语法*/
+	box-direction: reverse; /*老语法*/
+	-webkit-box-orient: horizontal; /*老语法*/
+	box-orient: horizontal; /*老语法*/
+	-webkit-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+.fb-col {
+	-webkit-box-direction: normal; /*老语法*/
+	box-direction: normal; /*老语法*/
+	-webkit-box-orient: vertical; /*老语法*/
+	box-orient: vertical; /*老语法*/
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+.fb-col-rev {
+	/* box-direction只是改变了子元素的排序，并没有改变对齐方式，需要新增一个 box-pack 来改变对齐方式*/
+	-webkit-box-pack: end; /*老语法*/
+	-webkit-box-direction: reverse; /*老语法*/
+	-webkit-box-orient: vertical; /*老语法*/
+	-webkit-flex-direction: column-reverse;
+	flex-direction: column-reverse;
+}
+/* 2、flex-wrap 设置溢出换行 */
+.fb-nowrap {
+	-webkit-flex-wrap: none;
+	flex-wrap: none; /* 溢出不换行 强制一行，元素同比缩小 */
+}
+.fb-wrap {
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap; /* 溢出换行 */
+}
+.fb-wrap-rev {
+	-webkit-flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;
+}
+/* 3、flex-flow 是flex-direction flex-wrap的缩写 */
+
+/* 4、justify-content属性定义了项目在主轴上的对齐方式 */
+.fb-main-start {
+	-webkit-box-pack: start; /*老语法*/
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+.fb-main-center {
+	-webkit-box-pack: center; /*老语法*/
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+.fb-main-end {
+	-webkit-box-pack: end; /*老语法*/
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+/* 两端对齐，项目之间的间隔都相等 */
+.fb-main-between {
+	-webkit-box-pack: justify; /*老语法*/
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+/* 每个项目两侧的间隔相等。项目之间的间隔比项目与边框的间隔大一倍。 */
+.fb-main-around {
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+/* 5、align-items属性定义项目在交叉轴上如何对齐 */
+.fb-cross-start {
+	-webkit-box-align: start; /*老语法*/
+	box-align: start; /*老语法*/
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+}
+.fb-cross-center {
+	-webkit-box-align: center; /*老语法*/
+	box-align: center; /*老语法*/
+	-webkit-align-items: center;
+	align-items: center;
+}
+.fb-cross-end {
+	-webkit-box-align: end; /*老语法*/
+	box-align: end; /*老语法*/
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+}
+/* 项目的第一行文字的基线对齐 */
+.fb-cross-baseline {
+	-webkit-box-align: baseline; /*老语法*/
+	box-align: baseline; /*老语法*/
+	-webkit-align-items: baseline;
+	align-items: baseline;
+}
+/* 如果项目未设置高度或设为auto，将占满整个容器的高度 */
+.fb-cross-stretch {
+	-webkit-box-align: stretch; /*老语法*/
+	box-align: stretch; /*老语法*/
+	-webkit-align-items: stretch;
+	align-items: stretch;
+}
+/* 项目属性 */
+
+/* 1、order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0 */
+.fb .item-order-1 {
+	-webkit-box-ordinal-group: 1;
+	-webkit-order: 1;
+	order: 1;
+}
+.fb .item-order-2 {
+	-webkit-box-ordinal-group: 2;
+	-webkit-order: 2;
+	order: 2;
+}
+.fb .item-order-3 {
+	-webkit-box-ordinal-group: 3;
+	-webkit-order: 3;
+	order: 3;
+}
+/*2、flex-grow属性定义项目的放大比例
+      放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）
+*/
+.fb .item-grow-1 {
+	-webkit-box-flex: 1.0;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+}
+.fb .item-grow-2 {
+	-webkit-box-flex: 2.0;
+	-webkit-flex-grow: 2;
+	flex-grow: 2;
+}
+/* ... */
+
+/* 3、flex-shrink属性定义了项目的缩小比例
+    缩小：默认1（如果空间不足则会缩小，值为0不缩小)
+*/
+.fb .item-shrink-0 {
+	-webkit-box-flex: 0;
+	-webkit-flex-shrink: 0;
+	flex-shrink: 0;
+}
+/* 4、flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小 */
+.fb .item-basis-120 { flex-basis: 120px; }
+/* 5、(建议优先使用这个属性)flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto */
+.fb .item-flex-1 {
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1.0;
+	flex: 1;
+}
+.fb .item-flex-2 {
+	display: block;
+	-webkit-flex: 2.0;
+	flex: 2;
+}
+/* {...} */
+
+/* 6、align-self 属性允许单个项目有与其他项目不一样的对齐方式。
+      可覆盖align-items属性。
+      默认值为auto，表示继承父元素的align-items属性，
+      如果没有父元素，则等同于stretch
+*/
+.fb .item-self-start {
+	-webkit-align-self: flex-start;
+	align-self: flex-start;
+}
+.fb .item-self-center {
+	-webkit-align-self: center;
+	align-self: center;
+}
+.fb .item-self-end {
+	-webkit-align-self: flex-end;
+	align-self: flex-end;
+}
+.fb .item-self-baseline {
+	-webkit-align-self: baseline;
+	align-self: baseline;
+}
+.fb .item-self-stretch {
+	-webkit-align-self: stretch;
+	align-self: stretch;
+}
+
+
+
+.el-date-table {
+	td{
+		&.available:hover {
+			color: $color;
+		}
+		&.current:not(.disabled) span {
+			color: #FFF;
+			background-color: $color;
+		}
+		&.today span {
+			color: $color;
+			font-weight: 700;
+		}
+	}
+}
+.el-date-picker__header-label.active, .el-date-picker__header-label:hover {
+	color: $color;
+}
+.el-picker-panel__icon-btn:hover {
+	color: $color;
+}
+.el-month-table td .cell:hover {
+	color: $color;
+}
+.el-year-table td .cell:hover, .el-year-table td.current:not(.disabled) .cell {
+	color: $color;
+}
+
+
+img{display: block;}
+// input type=number
+/* 谷歌 */ 
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+} 
+
+/* 火狐 */ 
+input{
+  -moz-appearance:textfield;
+}
+.flex{
+	display: flex;
+	align-items: center;
+}
+.flex-reverse{
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+}
+.flex-top{
+	display: flex;
+	align-items: flex-start;
+}
+.flex-wrap{
+	flex-wrap: wrap;
+}
+.flex-sp{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.flex-sp-top{
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.flex-center{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.flex-top-center{
+	display:flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+.flex-son{flex:1;}
+
+// element样式
+.el-loading-spinner i,.el-loading-spinner .el-loading-text{color:#fff;}
+.el-loading-spinner i{font-size:35px;}
+.el-loading-spinner .el-loading-text{font-size:18px;}

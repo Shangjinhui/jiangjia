@@ -1,0 +1,22 @@
+<!--pages/invite_friends/invite_friends.wxml-->
+<view class="invite por" wx:if="{{isShow}}">
+  <view class="mian por">
+    <image src="{{info.avatar?info.avatar:imgUrl+'tx.png'}}" class="ban-img"></image>
+    <view class="fa">{{info.nickName}}</view>
+    <view class="decoration por">
+      <view class="hr"></view>
+    </view>
+    <view class="title">邀请好友，获得更多奖励</view>
+    <!-- <image src="{{imgUrl+'invite-ico2.png'}}" class="ewm"></image> -->
+    <view class="detaile">
+      1. 点击邀请好友按钮，将小程序快速分享给好友； 
+    </view>
+    <view class="detaile">
+      2. 好友通过提示进行注册，即可成为“进球哨”注册会员； 
+    </view>
+    <view class="detaile">
+      3. 好友在平台内通过现金形式消费，邀请者都将按好友实际消费金额获得一定比例的奖金；
+    </view>
+    <button class="share-btn" open-type="share" style="padding:0;width:472rpx;">立即邀请</button>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<!--pages/infomationEdit/infomationEdit.wxml-->
+<view>
+  <view class="bgfff pd24 pt20 pb20 mb58">
+   <input placeholder="请输入名字" value="{{name}}" maxlength="16" bindinput="bindinput" data-cur='name' placeholder-style="color:#A0A0A0" class="w100 fsize30 hei80" />
+  </view>
+
+  <view class="pd24">
+    <view class="fsize28 cofff center lh88 rel with-btn" bindtap="editInfo">
+      <view class="rel">提交</view>
+    </view>
+  </view>
+</view>

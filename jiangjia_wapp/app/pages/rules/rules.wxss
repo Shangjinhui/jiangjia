@@ -1,0 +1,10 @@
+/* pages/rules/rules.wxss */
+.detaile{
+  padding: 30rpx 24rpx 30rpx;
+  font-size: 26rpx;
+  color: #3E3E3E;
+  line-height: 1.8;
+}
+.detaile image{
+  max-width: 100%;
+}

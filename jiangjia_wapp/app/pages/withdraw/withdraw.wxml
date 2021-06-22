@@ -1,0 +1,62 @@
+<!--pages/withdraw/withdraw.wxml-->
+<view class="pd24 pt20 box minhei bgF4F7FA">
+  <view class="bgfff radius10 lh70 mb25">
+    <view class="f-cb pd24 bor-boD8D8D8 pt20 pb20">
+      <view class="fl fsize30 with-top-fl">提现至</view>
+      <view class="fl fsize26 center with-top-con {{type==item.id?'on':''}}" wx:for="{{typeList}}" wx:key="index" bindtap="changeType" data-type="{{item.id}}">{{item.name}}</view>
+    </view>
+    <view class="f-cb pd24 pt20 pb20" wx:if="{{type==1}}">
+      <view class="fl fsize26 with-top-fl">支付宝账号</view>
+      <view class="fl with-top-fr">
+        <input placeholder="请输入支付宝账号" bindinput="bindinput" data-cur='accountNumber' value="{{accountNumber}}" placeholder-style="color:#A0A0A0;" class="fsize26 w100 hei70 box pl20" />
+      </view>
+    </view>
+    <view class="pd24" wx:else>
+      <view class="f-cb bor-boD8D8D8 pt20 pb20">
+        <view class="fl fsize26 with-top-fl">持卡人姓名</view>
+        <view class="fl with-top-fr">
+          <input placeholder="请输入持卡人姓名" bindinput="bindinput" data-cur='realName' value="{{realName}}" placeholder-style="color:#A0A0A0;" class="fsize26 w100 hei70 box pl20" />
+        </view>
+      </view>
+      <view class="f-cb bor-boD8D8D8 pt20 pb20">
+        <view class="fl fsize26 with-top-fl">银 行 名 称</view>
+        <view class="fl with-top-fr">
+          <input placeholder="请输入银行名称" bindinput="bindinput" data-cur='bankName' value="{{bankName}}" placeholder-style="color:#A0A0A0;" class="fsize26 w100 hei70 box pl20" />
+        </view>
+      </view>
+      <view class="f-cb bor-boD8D8D8 pt20 pb20">
+        <view class="fl fsize26 with-top-fl">银 行 卡 号</view>
+        <view class="fl with-top-fr">
+          <input placeholder="请输入银行卡号" bindinput="bindinput" data-cur='accountNumber' value="{{accountNumber}}" placeholder-style="color:#A0A0A0;" class="fsize26 w100 hei70 box pl20" />
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="bgfff radius10  mb58 pd24">
+    <view class="fsize28  bold pt25 mb40">提现金额</view>
+    <view class="rel with-ipt bor-boD8D8D8 ">
+      <view class="fsize48 abs ico1 lh70">¥</view>
+      <input placeholder="可转出金额{{info.withdrawBalance}}元" type="number" bindinput="bindinput" data-cur='amount' value="{{amount}}" placeholder-style="color:#A0A0A0;" class="fsize48 w100 hei70 box" />
+      <view class="abs fsize28 coE71415 ico2 lh70" bindtap="allAmont">全部</view>
+    </view>
+    <view class="fsize24 co666 pt30 pb30">提现规则：{{info.withdrawNumber}}以上才能提现，每个月{{info.withdrawStart}}日-{{info.withdrawEnd}}日提上个月收入</view>
+  </view>
+
+  <view class="pd24">
+    <view class="fsize28 cofff center lh88 rel with-btn {{isCan?'':'with-btn1'}}">
+      <view class="rel" bindtap="withdraw">立即提现</view>
+    </view>
+  </view>
+
+
+  <view class="with-success bgfff center" wx:if="{{successShow}}">
+    <image src="{{imgUrl+'points_ico2.png'}}" class="mb25"></image>
+    <view class="fsize36 mb10">恭喜您，您的申请已提交！</view>
+    <view class="fsize26 coA0A0A0 mb58">提现金额{{amount}}元，请等待平台打款，谢谢</view>
+    <view class="co666 bgE9E9E9 radius6 lh72 wid276 inline fsize28" bindtap="goBack">正在返回</view>
+  </view>
+
+
+</view>

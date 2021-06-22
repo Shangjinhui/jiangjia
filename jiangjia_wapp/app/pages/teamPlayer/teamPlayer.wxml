@@ -1,0 +1,390 @@
+<!--pages/teamPlayer/teamPlayer.wxml-->
+<view class="minhei box bgF4F7FA {{honorShow?'ovh h100':''}}">
+      <view class="bg7F2525 center">
+    <view class="rel match-top-con marginauto fsize28 pb50 pt10">
+      <image src="{{info.player_info.logo?info.player_info.logo:imgUrl+'tx.png'}}" mode='aspectFill' class="radius-50 block"></image>
+    </view>
+  </view>
+
+  <view class="fb bgfff center fsize24 bold lh72 rel home-top">
+    <view class="fb fb-col item-grow-1 fb-cross-center  {{nav==item.id?'coE71415':''}}" bindtap="changeNav" data-nav="{{item.id}}" wx:for="{{navList}}" wx:key="index">{{item.name}}</view>
+  </view>
+
+    <view class="fb bgfff center fsize24 bold lh72 rel home-top  on" wx:if="{{scrollTop>72}}">
+    <view class="fb fb-col item-grow-1 fb-cross-center  {{nav==item.id?'coE71415':''}}" bindtap="changeNav" data-nav="{{item.id}}" wx:for="{{navList}}" wx:key="index">{{item.name}}</view>
+  </view>
+
+
+  <!-- 基本信息 -->
+  <view class="pd24 pt20 pb20" hidden="{{nav!=1}}">
+
+    <view class="bgfff radius10 mb20 ">
+      <view class="pd24 mb20">
+        <view class="f-cb pt15 pb15 history bor-boD8D8D8">
+          <image src="{{info.player_info.team_logo?info.player_info.team_logo:imgUrl+'banner_1.png'}}" mode="aspectFit" class="img1 fl mr10"></image>
+          <view class="fl">
+            <view class="fsize28 pt5">{{info.player_info.team_name}}</view>
+            <view class="fsize22 coA0A0A0">合同到期：{{info.player_info.contract_until?info.player_info.contract_until:'-'}}</view>
+          </view>
+          <view class="fr fsize22 lh74" wx:if="{{info.player_info.market_value!=0}}">{{info.player_info.market_value/10000}}万欧</view>
+          <view class="fr fsize22 lh74" wx:else>-</view>
+        </view>
+      </view>
+      <view class="f-cb fsize26 center history-box">
+        <view class="fl w33 mb20">
+          <image src="{{info.player_info.country_logo?info.player_info.country_logo:imgUrl+'banner_1.png'}}" mode="aspectFit" class="marginauto block"></image>
+          <view class="fsize22 coA0A0A0">{{info.player_info.nationality}}</view>
+        </view>
+        <view class="fl w33 mb20">
+          <view class="lh74">{{info.player_info.age}}岁</view>
+          <view class="fsize22 coA0A0A0">{{info.player_info.birthday}}</view>
+        </view>
+        <view class="fl w33 mb20">
+          <view class="lh74">{{info.player_info.height}}CM/{{info.player_info.weight}}KG</view>
+          <view class="fsize22 coA0A0A0">身高/体重</view>
+        </view>
+        <view class="fl w33 mb20">
+          <view class="lh74">{{info.player_info.preferred_foot_name}}</view>
+          <view class="fsize22 coA0A0A0">惯用脚</view>
+        </view>
+        <view class="fl w33 mb20">
+          <view class="lh74">{{info.player_info.position_name}}</view>
+          <view class="fsize22 coA0A0A0">主要位置</view>
+        </view>
+        <view class="fl w33 mb20">
+          <view class="marginauto rel lh74 wid80 cofff" style="background:url({{imgUrl+'team_ico4.png'}}) no-repeat center /66rpx 66rpx;">
+            {{info.player_info.shirt_number}}
+          </view>
+          <view class="fsize22 coA0A0A0">球衣号码</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bgfff radius10 mb20 pd24 pb50">
+      <view class='radarContainer bor-boD8D8D8 ' wx:if="{{info.player_info.ability&&info.player_info.ability!='[]'}}">
+        <canvas class='radarCanvas' canvas-id='radarCanvas' hidden="{{scrollTop>290||canvasShow}}"></canvas>
+      </view>
+      <view class="fsize26 f-cb pt25">
+        <view class="fl ">
+          <view class="mb10 coE71415 f-cb">
+            <view class="fl">优势：</view>
+            <view class="fl wid266" wx:if="{{info.player_info.advantage_name.length>0}}">
+              <view wx:for="{{info.player_info.advantage_name}}" wx:key="index">{{item}}</view>
+            </view>
+            <view class="fl" wx:else>-</view>
+          </view>
+          <view class=" co4FC419">
+            <view class="fl">劣势：</view>
+            <view class="fl wid266" wx:if="{{info.player_info.defect_name.length>0}}">
+              <view wx:for="{{info.player_info.defect_name}}" wx:key="index">{{item}}</view>
+            </view>
+            <view class="fl" wx:else>-</view>
+          </view>
+        </view>
+        <view class="fr ">
+          擅长位置：
+          <view class="fr" style="max-width:120rpx;">{{info.player_info.positions_name}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bgfff radius10 mb20" wx:if="{{info.transfer.length>0}}">
+      <view  class="pd24 fsize30 lh88 bor-boD8D8D8 bold" style="background:url({{imgUrl+'match_ico26.png'}}) no-repeat center right 24rpx/14rpx 20rpx;" bindtap="showTran">转会历史</view>
+      <navigator hover-class="none" url="/pages/teamInfo/teamInfo?id={{item.to_team_id}}" class="f-cb pd24 pt15 pb15 history" wx:for="{{info.transfer}}" wx:key="index" wx:if="{{index<3}}">
+        <image src="{{item.team_logo?item.team_logo:imgUrl+'banner_1.png'}}" mode="aspectFill" class="img1 fl mr10 radius-50"></image>
+        <view class="fl">
+          <view class="fsize28 pt5">{{item.team_name||'-'}}</view>
+          <view class="fsize22 coA0A0A0">{{item.time}}</view>
+        </view>
+        <view class="fr right">
+          <!-- <view class="fsize24 coE71415" wx:if="{{item.transfer_fee!=0}}">{{item.transfer_fee/10000}}万欧</view>
+          <view class="fsize24 " wx:else>-</view> -->
+          <view class="fsize24 ">-</view>
+          <view class="fsize24 coE71415" wx:if="{{item.transfer_fee!=0}}">{{item.transfer_fee/10000}}万欧</view>
+          <view class="fsize22" v-else>
+            <view wx:if="{{item.transfer_type==1}}">租借</view>
+            <view wx:if="{{item.transfer_type==2}}">租借结束</view>
+            <view wx:if="{{item.transfer_type==3}}">转会</view>
+            <view wx:if="{{item.transfer_type==4}}">退役</view>
+            <view wx:if="{{item.transfer_type==5}}">选秀</view>
+            <view wx:if="{{item.transfer_type==6}}">已解约</view>
+            <view wx:if="{{item.transfer_type==7}}">已签约</view>
+            <view wx:if="{{item.transfer_type==8}}">未知</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+
+    <view class="bgfff radius10 mb20" wx:if="{{info.honor_list.length>0}}">
+      <view class="pd24 fsize30 lh88 bor-boD8D8D8 bold" style="background:url({{imgUrl+'match_ico26.png'}}) no-repeat center right 24rpx/14rpx 20rpx;" bindtap="showHonor">团队荣誉</view>
+      <view class="f-cb fsize22 center pt35 pb50">
+        <view class="fl w33 info-prize box" wx:for="{{info.honor_list}}" wx:key="index" wx:if="{{index<3}}">
+          <image src="{{item.honor_logo?item.honor_logo:imgUrl+'banner_1.png'}}" mode='aspectFit' class=" block"></image>
+          <view class="row1">{{item.honor_name}}</view>
+          <view class="fsize24 coE71415">{{item.number}}</view>
+        </view>
+      </view>
+    </view>
+
+
+
+
+  </view>
+
+  <!-- 技术统计 -->
+  <view class="pd24 pt20 pb20" wx:if="{{nav==2}}">
+    <view wx:if="{{statsInfo}}">
+      <view class="fsize24 pd24 lh72 mb20 radius6" bindtap="areaShow" style="background:#fff url({{imgUrl+'team_ico3.png'}}) no-repeat center right 24rpx/22rpx 13rpx;">
+        <image src="{{cateLogo?cateLogo:imgUrl+'banner_1.png'}}" mode='aspectFit' class="fl wid40 hei40 mr10 mt15"></image> {{cate}} {{season}}
+      </view>
+
+      <view class="bgfff radius10 mb20">
+        <view class="fsize30 pd24 rel team-line-top bold bor-boD8D8D8">比赛</view>
+        <view class="pd24 fsize22 coA0A0A0 lh72 pb20">
+          <view class="bor-boD8D8D8">出场
+            <view class="fr co333">{{statsInfo.matches}}</view>
+          </view>
+          <view class="bor-boD8D8D8">首发
+            <view class="fr co333">{{statsInfo.first}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均时间
+            <view class="fr co333">{{statsInfo.avg_minutes_played}}分钟</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="bgfff radius10 mb20">
+        <view class="fsize30 pd24 rel team-line-top bold bor-boD8D8D8">进球</view>
+        <view class="pd24 fsize22 coA0A0A0 lh72 pb20">
+          <view class="bor-boD8D8D8">进球（点球）
+            <view class="fr co333">{{statsInfo.goals}}({{statsInfo.penalty}})</view>
+          </view>
+          <view class="bor-boD8D8D8">场均进球
+            <view class="fr co333">{{statsInfo.avg_goals}}</view>
+          </view>
+          <view class="bor-boD8D8D8">耗时/球
+            <view class="fr co333">{{statsInfo.avg_goals_time}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均射门
+            <view class="fr co333">{{statsInfo.avg_shots}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均射正
+            <view class="fr co333">{{statsInfo.avg_shots_on_target}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="bgfff radius10 mb20">
+        <view class="fsize30 pd24 rel team-line-top bold bor-boD8D8D8">传球</view>
+        <view class="pd24 fsize22 coA0A0A0 lh72 pb20">
+          <view class="bor-boD8D8D8">助攻
+            <view class="fr co333">{{statsInfo.assists}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均助攻
+            <view class="fr co333">{{statsInfo.avg_assists}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均关键传球
+            <view class="fr co333">{{statsInfo.avg_key_passes}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均成功传球
+            <view class="fr co333">{{statsInfo.avg_passes_accuracy}}({{statsInfo.rate_passes}}%)</view>
+          </view>
+          <view class="bor-boD8D8D8">场均成功长传
+            <view class="fr co333">{{statsInfo.avg_long_balls_accuracy}}({{statsInfo.rate_long_balls}}%)</view>
+          </view>
+          <view class="bor-boD8D8D8">场均成功传中
+            <view class="fr co333">{{statsInfo.avg_crosses_accuracy}}({{statsInfo.rate_crosses}}%)</view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="bgfff radius10 mb20">
+        <view class="fsize30 pd24 rel team-line-top bold bor-boD8D8D8">防守</view>
+        <view class="pd24 fsize22 coA0A0A0 lh72 pb20">
+          <view class="bor-boD8D8D8">场均抢断
+            <view class="fr co333">{{statsInfo.avg_tackles}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均拦截
+            <view class="fr co333">{{statsInfo.avg_interceptions}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均封堵
+            <view class="fr co333">{{statsInfo.avg_blocked_shots}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均解围
+            <view class="fr co333">{{statsInfo.avg_clearances}}</view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="bgfff radius10 mb20">
+        <view class="fsize30 pd24 rel team-line-top bold bor-boD8D8D8">其他</view>
+        <view class="pd24 fsize22 coA0A0A0 lh72 pb20">
+          <view class="bor-boD8D8D8">场均成功过人
+            <view class="fr co333">{{statsInfo.avg_dribble_succ}}({{statsInfo.rate_dribble}}%)</view>
+          </view>
+          <view class="bor-boD8D8D8">场均1对1成功
+            <view class="fr co333">{{statsInfo.avg_duels_won}}({{statsInfo.rate_duels}}%)</view>
+          </view>
+          <view class="bor-boD8D8D8">场均失误
+            <view class="fr co333">{{statsInfo.avg_dispossessed}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均犯规
+            <view class="fr co333">{{statsInfo.avg_fouls}}</view>
+          </view>
+          <view class="bor-boD8D8D8">场均被侵犯
+            <view class="fr co333">{{statsInfo.avg_was_fouled}}</view>
+          </view>
+          <view class="bor-boD8D8D8">黄牌
+            <view class="fr co333">{{statsInfo.yellow_cards}}</view>
+          </view>
+          <view class="bor-boD8D8D8">红牌
+            <view class="fr co333">{{statsInfo.red_cards}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="list-none pb50" wx:else>
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+  </view>
+
+
+
+
+
+  <!-- 比赛 -->
+  <view class="pd24 pt20 pb20 fsize24" wx:if="{{nav==3}}">
+    <view class="bgfff radius10 mb20" wx:for="{{list}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+      <view class="pd24 bor-boD8D8D8 fsize30 team-match-top">
+        <image src="{{item.competition_logo?item.competition_logo:imgUrl+'banner_1.png'}}" mode="aspectFit" class="fl mt15 mr10"></image> {{item.competition_name}}</view>
+      <navigator hover-class="none" open-type="{{isHome?'reLaunch':'navigate'}}" url="/pages/matchInfo/matchInfo?id={{it.match_id}}" class="pl20 pr20 pt20 pb10" wx:for="{{item.list}}" wx:key="idx" wx:for-index="idx" wx:for-item="it">
+        <view  class="team-match-con f-cb bor-boD8D8D8 pt20 pb20" >
+          <view class="fl center  team-match-fl box">
+            <view class="fsize22 coA0A0A0 mb5">{{it.time}}</view>
+            <view wx:if="{{it.status_id==8}}">完场</view>
+          </view>
+          <view class="fl team-match-cen bor-riD8D8D8 bor-leD8D8D8 box">
+            <view class="f-cb mb20">
+              <image src="{{it.home_team_logo?it.home_team_logo:imgUrl+'banner_1.png'}}" mode="aspectFit" class="fl mr10"></image>
+              <view class="fl row1">{{it.home_team_name}}</view>
+              <view class="fr fsize22 bold {{it.home_scores[0]>it.away_scores[0]?'':'coccc'}}">{{it.home_scores[0]}}</view>
+            </view>
+            <view class="f-cb">
+              <image src="{{it.away_team_logo?it.away_team_logo:imgUrl+'banner_1.png'}}" mode="aspectFit" class="fl mr10"></image>
+              <view class="fl row1">{{it.away_team_name}}</view>
+              <view class="fr fsize22 bold {{it.home_scores[0]<it.away_scores[0]?'':'coccc'}}">{{it.away_scores[0]}}</view>
+            </view>
+          </view>
+          <view class="fr fsize22 center team-match-fr box">
+            <view class="coE71415" wx:if="{{it.rating}}">{{it.rating}}分</view>
+            <view class="coA0A0A0" wx:else>-</view>
+          </view>
+        </view>
+          <view wx:if="{{it.note}}" class="center lh50 coE71415 fsize22 bgFFE1E1 radius6">{{it.note}}</view>
+      </navigator>
+    </view>
+
+    <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>暂无数据</view>
+    </view>
+
+  </view>
+
+
+
+
+
+
+
+
+  <!-- 转会记录 -->
+  <view class="back-black {{tranShow?'back-black-show':''}}">
+    <view class="back-black-bg" bindtap="showTran"></view>
+    <view class="bgfff radius14 abs record">
+      <view class="fsize32  center lh88 bor-boD8D8D8">转会记录</view>
+      <view class="pd24 record-con">
+        <view class="f-cb pt15 pb15 history {{index<info.transfer.length-1?'bor-boD8D8D8':''}}" wx:for="{{info.transfer}}" wx:key="index">
+          <image src="{{item.team_logo?item.team_logo:imgUrl+'banner_1.png'}}" mode="aspectFill" class="img1 fl mr10 radius-50"></image>
+          <view class="fl">
+            <view class="fsize28 pt5">{{item.team_name}}</view>
+            <view class="fsize22 coA0A0A0">{{item.time}}</view>
+          </view>
+          <view class="fr right">
+            <view class="fsize24 coE71415" wx:if="{{item.transfer_fee!=0}}">{{item.transfer_fee/10000}}万欧</view>
+            <view class="fsize24 " wx:else>-</view>
+            <view class="fsize22">
+              <view wx:if="{{item.transfer_type==1}}">租借</view>
+              <view wx:if="{{item.transfer_type==2}}">租借结束</view>
+              <view wx:if="{{item.transfer_type==3}}">转会</view>
+              <view wx:if="{{item.transfer_type==4}}">退役</view>
+              <view wx:if="{{item.transfer_type==5}}">选秀</view>
+              <view wx:if="{{item.transfer_type==6}}">已解约</view>
+              <view wx:if="{{item.transfer_type==7}}">已签约</view>
+              <view wx:if="{{item.transfer_type==8}}">未知</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="fsize36  center lh88 bor-toD8D8D8" bindtap="showTran">关闭</view>
+    </view>
+  </view>
+
+  <!-- 团队荣誉 -->
+  <view class="back-black {{honorShow?'back-black-show':''}}">
+    <view class="back-black-bg" bindtap="showHonor"></view>
+    <view class="bgfff radius14 abs record">
+      <view class="fsize32  center lh88 bor-boD8D8D8">团队荣誉</view>
+      <view class="pd24 record-con">
+        <view class="f-cb pt15 pb15 price {{index<info.honor_list.length-1?'bor-boD8D8D8':''}}" wx:for="{{info.honor_list}}" wx:key="index">
+          <image src="{{item.honor_logo?item.honor_logo:imgUrl+'banner_1.png'}}" mode="aspectFit" class="img1 fl "></image>
+          <view class=" price-fr fr">
+            <view class="price-tit  fsize28 f-cb mb5">
+              <view class="row1 fl mr20">{{item.honor_name}}</view>
+              <text class="cofff bgE71415 fsize24 fl center">{{item.number}}</text>
+            </view>
+            <view class="fsize22 coA0A0A0 bgF2F2F2 pd24 pt10  f-cb radius6">
+              <text wx:for="{{item.season}}" wx:key="idx" wx:for-index="idx" wx:for-item="it" class="fl {{(idx+1)%2==0?'':'mr78'}}  mb10">{{it.team_name}} {{it.season}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="fsize36  center lh88 bor-toD8D8D8" bindtap="showHonor">关闭</view>
+    </view>
+  </view>
+
+
+  <!-- 球员联盟选择 -->
+  <view class="main" wx:if="{{condition}}">
+    <view class="modal-mask {{maskVisual}}" bindtap="cascadeDismiss"></view>
+    <view animation="{{animationData}}" class="citypicker">
+      <view class="cityheader">
+        <view bindtap="opened" class="city-cancel">取消</view>
+        <view bindtap="confirm" class="city-true">确定</view>
+      </view>
+      <view class="cityContent">
+        <picker-view indicator-style="height: 50rpx;" style="width: 100%; height: 208rpx; " value="{{value}}" bindchange="bindChange" class="citybody">
+          <picker-view-column>
+            <view wx:for="{{cateList}}" wx:key="item" class="cityList" style="line-height:68rpx;">{{item.name}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{seasonList}}" wx:key="item" class="cityList" style="line-height:68rpx;">{{item.name}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
+  </view>
+
+
+</view> 
+
+
+<!-- <scroll-view class="h100 bgF4F7FA" scroll-y="true"   bindscroll="scroll" bindscrolltolower="bindscrolltolower">
+     
+
+</scroll-view> -->
+

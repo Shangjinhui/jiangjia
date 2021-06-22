@@ -1,0 +1,24 @@
+<!--pages/set_up/set_up.wxml-->
+<view class="por">
+  <view class="f-cb box">
+    <text class="fl">推送通知</text>
+    <switch name="switch" class="fr" checked="{{isChecked}}" bindchange="changeSwitch"/>
+  </view>
+  <view class="f-cb box on">
+    <text class="fl">关注专家发单通知</text>
+    <switch name="switch" class="fr" checked="{{isCheckeds}}" bindchange="changeSwitchs"/>
+  </view>
+  <navigator hover-class="none" class="f-cb box" url="/pages/agreement/agreement?id=2">
+    <text class="fl">隐私协议</text>
+    <view class="fr arr" style="background:url({{imgUrl+'home_ico7.png'}}) center/13rpx no-repeat"></view>
+  </navigator>
+  <navigator hover-class="none" class="f-cb box" url="/pages/agreement/agreement?id=1">
+    <text class="fl">用户协议</text>
+    <view class="fr arr" style="background:url({{imgUrl+'home_ico7.png'}}) center/13rpx no-repeat"></view>
+  </navigator>
+  <navigator hover-class="none" class="f-cb box" url="/pages/problem_feedback/problem_feedback"> 
+    <text class="fl">问题反馈</text>
+    <view class="fr arr" style="background:url({{imgUrl+'home_ico7.png'}}) center/13rpx no-repeat"></view>
+  </navigator>
+  <view class="btn">安全退出</view>
+</view>

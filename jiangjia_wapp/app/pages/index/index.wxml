@@ -1,0 +1,266 @@
+<!--index.wxml-->
+<view class="pt100 rel {{nav==3?'bg022B43':'bgF4F7FA'}} minhei box pb10" wx:if="{{isShow}}">
+
+  <view class="f-cb cofff lh88  {{nav==3?'bg022B43':'bgBC0100'}} nav-top pd24 box">
+    <view wx:for="{{navList}}" wx:key="index" class="fl mr55 {{nav==item.id?'fsize40 bold':'fsize28'}}" bindtap="changeNav" data-nav="{{item.id}}">{{item.name}}</view>
+    <navigator hover-class="none" url="/pages/search/search">
+      <image src="{{imgUrl+'nav_btn.png'}}" class="fr"></image>
+    </navigator>
+  </view>
+
+  <image src="{{imgUrl+'nav_bg.png'}}" class="nav-bg" wx:if="{{nav==1}}"></image>
+
+
+  <!-- 热点 -->
+  <view class="rel" wx:if="{{nav==1}}">
+
+    <view class="pd24 banner mb25">
+      <swiper indicator-dots="true" circular autoplay="true" interval="5000" duration="1000" class="hei350 rel">
+        <block wx:for="{{bannerList}}" wx:key="item">
+          <swiper-item bindtap="goInfo" data-item="{{item}}">
+            <image src="{{item.photo?item.photo:imgUrl+'banner.png'}}" mode='aspectFill' class="bgF5F5F5 w100 hei350 rel bolck radius10"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <!-- 直播 -->
+    <scroll-view class="home-nav fsize28 w100 mb25" scroll-x="true" wx:if="{{canWatch}}">
+      <navigator hover-class="none" url="/pages/liveInfo/liveInfo?id={{item.id}}" class="rel mr20 inline bgfff home-nav-con box ml20" wx:for="{{directList}}" wx:key="index">
+        <view class="f-cb coA0A0A0 fsize20 home-nav-top mb20">
+          <view class="fl">{{item.competition}}</view>
+          <view class="fr" wx:if="{{item.status==0}}" style="background-image:url({{imgUrl+'home_ico1.png'}})">{{item.time}}</view>
+          <view class="fr coE71415" wx:if="{{item.status==1}}" style="background-image:url({{imgUrl+'home_ico2.png'}})">直播中</view>
+        </view>
+        <view class="rel f-cb home-nav-text fsize22 mb10">
+          <image src="{{item.home_logo?item.home_logo:imgUrl+'banner_1.png'}}" mode='aspectFit' class="fl img1"></image>
+          <view class="row1 fl text bold">{{item.home}}</view>
+          <view class="fr {{item.status!=0?'':'coccc'}}">{{item.status!=0?item.home_scores:'-'}}</view>
+          <image src="{{imgUrl+'home_ico6.png'}}" class="abs img2" wx:if="{{item.prompt==1}}"></image>
+        </view>
+        <view class="rel f-cb home-nav-text fsize22 mb10">
+          <image src="{{item.away_logo?item.away_logo:imgUrl+'banner_1.png'}}" mode='aspectFit' class="fl img1"></image>
+          <view class="row1 fl text bold">{{item.away}}</view>
+          <view class="fr  {{item.status!=0?'':'coccc'}}">{{item.status!=0?item.away_scores:'-'}}</view>
+          <image src="{{imgUrl+'home_ico6.png'}}" class="abs img2" wx:if="{{item.prompt==2}}"></image>
+        </view>
+        <view class="fsize20 coA0A0A0 f-cb home-nav-text">
+          <image src="{{item.expert.avatar?item.expert.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="fl radius-50  img1"></image>
+          <view class="fl">{{item.expert.nickName}}</view>
+          <view class="fr" wx:if="{{item.price==0}}">免费</view>
+          <view class="fr coE71415 tx" wx:else style="background-image:url({{imgUrl+'home_ico3.png'}})">{{item.price}}金币</view>
+        </view>
+      </navigator>
+    </scroll-view>
+
+    <view class="center home-nav-btn marginauto fsize24 co3F88C5 mb40" bindtap="changeNav" data-nav="3" wx:if="{{directList.length>0}}">
+      <view class="inline" style="background-image:url({{imgUrl+'home_ico8.png'}})">更多直播</view>
+    </view>
+
+
+    <view class="pd24">
+      <view class="fsize36 f-cb   lh36 mb25 home-tit bold">
+        热门推荐
+        <!-- <view class="fsize26 fr coA0A0A0 ml60 rel">篮球</view>
+        <view class="fsize26 fr coE71415 ml60 rel">足球</view> -->
+      </view>
+
+      <view class="radius6 bgfff f-cb pb35 pt45 bot-top mb20 center" wx:if="{{homeExpertList.length>0}}">
+        <navigator hover-class="none" url="/pages/expertInfo/expertInfo?id={{item.id}}" class="fl w20" wx:for="{{homeExpertList}}" wx:if="{{index<5}}" wx:key="index">
+          <view class="rel mb10 inline">
+            <image src="{{item.avatar?item.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+            <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+          </view>
+          <view class="row1 fsize22 lh30 ">{{item.nickName}} </view>
+          <view class="fsize20 coE71415 inline home-hot-tx rel lh25 vertical10 hei25" wx:if="{{item.label}}">
+            <view class="rel">{{item.label}}</view>
+            <!-- <view class="rel" wx:if="{{item.continueFocus>=5}}">{{item.continueFocus}}连红</view>
+            <view class="rel" wx:elif="{{item.focus >=10}}">近20中{{item.focus}}</view>
+            <view class="rel" wx:elif="{{item.articleCount >0&&item.focusArticleCount>0}}">总{{item.articleCount}}中{{item.focusArticleCount}}</view> -->
+          </view>
+          <view class="fsize20 coE71415 inline home-hot-tx rel lh25 vertical10 hei25" wx:if="{{!item.label}}">
+            <view class="rel" wx:if="{{item.continueFocus>=3}}">{{item.continueFocus}}连红</view>
+            <view class="rel" wx:elif="{{item.focus >=10&&item.articleCount>=20}}">近20中{{item.focus}}</view>
+            <view class="rel" wx:elif="{{item.articleCount >0&&item.focusArticleCount>0}}">总{{item.articleCount}}中{{item.focusArticleCount}}</view>
+          </view>
+        </navigator>
+
+      </view>
+
+      <view class="radius6 bgfff f-cb center fsize24 bold lh70 rel home-line mb20">
+        <view class="fl w50 {{type1==item.id?'coE71415':''}}" bindtap="changeType" data-cur="type1"  data-type="{{item.id}}" wx:for="{{typeList1}}" wx:key="index">{{item.name}}</view>
+      </view>
+
+
+
+    </view>
+
+
+  </view>
+
+
+  <!-- 专家 -->
+  <view class="rel" wx:if="{{nav==2&&isShow}}">
+
+    <!-- <view class="f-cb  home-expert-top center fsize26">
+      <view class="fl on">足球</view>
+      <view class="fl">篮球</view>
+    </view> -->
+
+    <view class="pd24">
+      <view class="fsize36 f-cb  mt40 lh36 mb25 home-tit bold">
+        专家
+      </view>
+
+      <view class="radius6 bgfff f-cb  pt45 bot-top mb20 center" wx:if="{{expertList.length>0}}">
+        <navigator hover-class="none" url="/pages/expertInfo/expertInfo?id={{item.id}}" class="fl w20 {{index<=4?'mb20':''}}" wx:for="{{expertList}}" wx:if="{{index<9}}" wx:key="index">
+          <view class="rel mb10 inline">
+            <image src="{{item.avatar?item.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+            <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+          </view>
+          <view class="row1 fsize22 lh30 ">{{item.nickName}} </view>
+          <view class="fsize20 coE71415 inline home-hot-tx rel lh25 vertical10 hei25">
+            <view class="rel" wx:if="{{item.label}}">{{item.label}}</view>
+            <view class="rel" wx:elif="{{item.continueFocus>=3}}">{{item.continueFocus}}连红</view>
+            <view class="rel" wx:elif="{{item.focus >=10&&item.articleCount>=20}}">近20中{{item.focus}}</view>
+            <view class="rel" wx:elif="{{item.articleCount>0&&item.focusArticleCount>0}}">总{{item.articleCount}}中{{item.focusArticleCount}}</view>
+          </view>
+        </navigator>
+        <navigator hover-class="none" class="fl w20" url="/pages/expert/expert">
+          <view class="rel mb10 inline">
+            <image src="{{imgUrl+'home_ico9.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+          </view>
+          <view class=" fsize22 lh30 coA0A0A0">更多专家 </view>
+        </navigator>
+      </view>
+
+      <view class="radius6 bgfff f-cb center fsize24 bold lh70 rel home-line mb20">
+        <view class="fl w33 {{type2==item.id?'coE71415':''}}" bindtap="changeType" data-cur="type2"  data-type="{{item.id}}" wx:for="{{typeList2}}" wx:key="index">{{item.name}}</view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view class="pd24" wx:if="{{nav==1||nav==2}}">
+    <navigator hover-class="none" url="/pages/expertArticle/expertArticle?id={{item.id}}&status=0" class="mb20 bgfff radius6 home-hot" wx:for="{{nav==1?list1:list2}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+      <view class="f-cb mb10">
+        <view class="rel fl mr20">
+          <image src="{{item.expert.avatar?item.expert.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+          <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+        </view>
+        <view class="fl fsize20 pt10">
+          <view class="fsize28 mb5">{{item.expert.nickName}}</view>
+          <view class="coA0A0A0">{{item.time}}</view>
+        </view>
+        <view class="fr fsize20 coE71415 lh25 pt25">
+          <!-- <view class=" fl home-hot-tx rel  ml10" wx:if="{{item.expert.continueFocus>=3}}">
+            <view class="rel">{{item.expert.continueFocus}}连红</view>
+          </view>
+          <view class=" fl home-hot-tx rel  ml10" wx:if="{{item.expert.focus >=10&&item.expert.articleCount>=20}}">
+            <view class="rel">近20中{{item.expert.focus}}</view>
+          </view>
+          <view class=" fl home-hot-tx rel  ml10" wx:if="{{(item.expert.continueFocus<3||item.expert.focus <10)&&item.expert.focusArticleCount>0}}">
+            <view class="rel">总{{item.expert.articleCount}}中{{item.expert.focusArticleCount}}</view>
+          </view> -->
+          <view class=" fl home-hot-tx rel  ml10" wx:for="{{item.labelList}}" wx:for-item="it" wx:key="idx">
+            <view class="rel">{{it}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="fsize26 lh38 mb10 f-cb">
+        <text class="cofff fsize18 bgE82F30 pl5 pr5 mr10 radius2 fl lh30 mt5" wx:if="{{item.notPointRefund==1}}">不中退金币</text>{{item.title}}</view>
+
+      <view class=" pt20 pb20 f-cb radius6 coA0A0A0 center fsize22 mb20" wx:for="{{item.detail}}" wx:for-index="idx" wx:for-item="it" wx:key="idx" style=" background:#F2F2F2 url({{imgUrl+'home_ico7.png'}}) no-repeat center right 24rpx/13rpx 22rpx;">
+        <view class="fl  wid130 box  pl10 pr10 ">{{it.match_name}}</view>
+        <view class="fl  {{it.home.length>8?'right':''}} wid188 co333 ">{{it.home}}</view>
+        <view class="fl pl10 pr10">VS</view>
+        <view class="fl {{it.away.length>8?'left':''}} wid188 co333 ">{{it.away}}</view>
+      </view>
+
+      <view class="fsize22 f-cb coA0A0A0 lh30">
+        <view class="fl pr20 mr20 bor-riD8D8D8">足球</view>
+        <view class="fl pr20 mr20 bor-riD8D8D8">开赛 {{item.mtime}}</view>
+        <view class="fl pl30" style=" background:url({{imgUrl+'home_ico5.png'}}) no-repeat center left/22rpx 22rpx;">{{item.saleCount}}</view>
+        <view class="fr fsize20" wx:if="{{item.price==0}}">免费</view>
+        <view class="fr coE71415 fsize20 pl30" wx:else style="background:url({{imgUrl+'home_ico3.png'}}) no-repeat center left/26rpx 26rpx;">{{item.price}}金币</view>
+      </view>
+    </navigator>
+  </view>
+
+
+  <!-- 直播 -->
+  <view class="pd24" wx:if="{{nav==3}}">
+    <navigator hover-class="none" url="/pages/liveInfo/liveInfo?id={{item.id}}" class="mb20 bgfff radius6 home-match fsize20" wx:for="{{directListAll}}" wx:key="index">
+      <view class="f-cb mb10 coA0A0A0">
+        <view class="fl w33">
+          <view class="fl mr20">周{{item.ftime}}</view>
+          <view class="co333 fl">{{item.competition}}</view>
+        </view>
+        <view class="fl w33 center">{{item.time}}</view>
+        <view class="fr coE71415" wx:if="{{item.status==1}}">直播中</view>
+        <view class="fr coFEA830" wx:elif="{{item.status==0&&item.price>0}}">预售中</view>
+        <view class="fr coA0A0A0" wx:else>未开始</view>
+
+      </view>
+
+      <view class=" lh40 f-cb co333  fsize28 mb15 home-match-con">
+        <view class="fl  wid266 right rel pr50 box minhei40">{{item.home}}
+          <image src="{{item.home_logo?item.home_logo:imgUrl+'banner_1.png'}}" class="abs img2" mode="aspectFit"></image>
+        </view>
+        <view class="fl wid110 coccc center">VS</view>
+        <view class="fl wid266 rel pl50 box minhei40">
+          <image src="{{item.away_logo?item.away_logo:imgUrl+'banner_1.png'}}" class="abs img3" mode="aspectFit"></image>{{item.away}}</view>
+      </view>
+
+      <view class=" f-cb coA0A0A0 lh34">
+        <view class="rel fl mr20">
+          <image src="{{item.expert.avatar?item.expert.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid34 hei34"></image>
+          <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid10 hei10"></image>
+        </view>
+        <view class="fl">{{item.expert.nickName}}</view>
+        <view class="fr fsize20" wx:if="{{item.price==0}}">免费</view>
+        <view class="fr coE71415 fsize20 pl30" wx:else style="background:url({{imgUrl+'home_ico3.png'}}) no-repeat center left/26rpx 26rpx;">{{item.price}}金币</view>
+
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 精彩回顾 -->
+  <view class="pd24 pt70" wx:if="{{nav==4}}">
+    <scroll-view scroll-x="true" class="lh70 fsize24 home-review-top box">
+      <view bindtap="changeType" data-type="{{item.id}}" data-cur="type3" class="{{type3==item.id?'coE71415':''}}" wx:for="{{typeList3}}" wx:key="index">{{item.name}}</view>
+    </scroll-view>
+
+
+    <navigator hover-class="none" url="/pages/reviewInfo/reviewInfo?link={{item.link}}" class="bgfff  mb20  home-review-con rel" wx:for="{{reviewList}}" wx:key="index">
+      <!-- <view class="fl">
+      <view class="fsize28 row2 lh40 hei80 mb45">{{item.title}}</view>
+      <view class="fsize20 coA0A0A0">05/27 19:00</view>
+      </view>
+      
+      <image src="{{item.photo?item.photo:imgUrl+'banner.png'}}" mode='aspectFill' class="w100 hei350 fr radius6"></image> -->
+      <image src="{{item.photo?item.photo:imgUrl+'banner.png'}}" mode='aspectFill' class="w100 hei440 block radius6"></image>
+      <view class="abs top">{{item.title}}</view>
+      <view class="abs bot">{{item.time}}</view>
+    </navigator>
+
+  </view>
+
+
+
+  <view class="list-none pb50" wx:if="{{(nav==1&&list1&&list1.length==0)||(nav==2&&list2&&list2.length==0)||(nav==3&&directListAll&&directListAll.length==0)||(nav==4&&reviewList&&reviewList.length==0)}}">
+    <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+    <view>暂无数据</view>
+  </view>
+
+
+
+
+
+  <!-- 足球提醒 -->
+  <!-- <prompt></prompt> -->
+
+
+</view>

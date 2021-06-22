@@ -1,0 +1,20 @@
+<!--pages/inviteIncome/inviteIncome.wxml-->
+<view class="pt20 box minhei bgF4F7FA">
+  <view class="bgfff bor-boD8D8D8 pd24 f-cb pt20 pb20" wx:for="{{list}}" wx:key="index">
+    <view class="fl int-fl">
+      <view class="fsize26 row1">（{{item.fType==1?'下级':'下下级'}}）{{item.f_name}} </view>
+      <view class="fsize22 coA0A0A0">{{item.createTime}}</view>
+    </view>
+    <view class="fr right">
+      <view class="fsize28 coE71415">+{{item.amount}}</view>
+      <view class="fsize22 coA0A0A0">获得佣金</view>
+    </view>
+  </view>
+
+  <view class="list-none pb50" wx:if="{{list&&list.length==0}}">
+    <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+    <view>暂无数据</view>
+  </view>
+
+
+</view>

@@ -1,0 +1,133 @@
+<!--pages/search/search.wxml-->
+<view class="pd24 minhei box {{state==2&&nav!=1?'bgF4F7FA':''}}">
+  <view class="search-top bgfff pd24 pb5 box f-cb  {{state==1?'bor-boD8D8D8':''}}">
+    <view class="search-top-con {{state==1?'wid615 fl pr20':'pr50'}} box rel ">
+      <input placeholder="搜索专家/文章/赛事" value="{{title}}" confirm-type="search" bindconfirm="search" bindinput="bindinput" data-cur='title' placeholder-style="color:#A0A0A0" class="w100 fsize26 " />
+      <image src="{{imgUrl+'search_ico1.png'}}" class="abs img1"></image>
+      <image src="{{imgUrl+'search_ico3.png'}}" class="abs img2" bindtap="cancelSearch" wx:if="{{state==2}}"></image>
+    </view>
+    <view class="fr fsize30 lh72" wx:if="{{state==1}}" bindtap="search">搜索</view>
+  </view>
+  <view class="search-top-box bgfff fb lh88 fsize28 bor-boD8D8D8 bold" wx:if="{{state==2}}">
+    <view class="fb fb-col item-grow-1 fb-cross-center rel {{item.id==nav?'on':''}}" bindtap="changeNav" data-id="{{item.id}}" wx:for="{{navList}}" wx:key="index">{{item.name}}</view>
+  </view>
+
+
+
+  <view class="search-tx pt100" wx:if="{{state==1}}">
+    <view class="fszie30 mb20" wx:if="{{hotList.length>0}}">热门搜索</view>
+    <view class="f-cb center lh70 fsize26 co666 mb40">
+      <view class="fl bgF8F8F8 mr20 mb20 pl20 pr20 box search-tx-con" wx:for="{{hotList}}" wx:key="index" bindtap="historySearch" data-name="{{item.word}}">{{item.word}}</view>
+    </view>
+
+
+    <view class="fszie30 mb20 f-cb" wx:if="{{historyList.length>0}}">最近搜索
+      <image src="{{imgUrl+'search_ico2.png'}}" class="img2 fr" bindtap="delHis"></image>
+    </view>
+    <view class="f-cb center lh70 fsize26 co666 mb40">
+      <view class="fl bgF8F8F8 mr20 mb20 pl20 pr20 box search-tx-con" wx:for="{{historyList}}" wx:key="index" bindtap="historySearch" data-name="{{item}}">{{item}}</view>
+    </view>
+  </view>
+
+
+  <view class="pt166" wx:if="{{state==2}}">
+
+    <view wx:if="{{nav==1}}">
+      <navigator hover-class="none" url="/pages/expertInfo/expertInfo?id={{item.id}}" class="bgfff bor-boD8D8D8 pd24 pt15 pb15 f-cb lh86 fsize28" wx:for="{{list}}" wx:for-item="item" wx:key="index">
+        <view class="rel fl mr20">
+          <image src="{{item.avatar?item.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+          <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+        </view>
+        <view class="fl ">{{item.nickName}}</view>
+        <view class="fr coA0A0A0">未开赛推荐：
+          <text class="coE71415">{{item.article}}</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="pt20 pb20" wx:if="{{nav==2}}">
+      <navigator hover-class="none" url="/pages/expertArticle/expertArticle?id={{item.id}}&status=0" class="mb20 bgfff radius6 home-hot" wx:for="{{list}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="f-cb mb10">
+          <view class="rel fl mr20">
+            <image src="{{item.expert.avatar?item.expert.avatar:imgUrl+'tx.png'}}" mode='aspectFill' class="block radius-50  wid86 hei86"></image>
+            <image src="{{imgUrl+'home_ico4.png'}}" mode='aspectFill' class="abs bottom-0 right-0 wid24 hei24"></image>
+          </view>
+          <view class="fl fsize20 pt10">
+            <view class="fsize28 mb5">{{item.expert.nickName}}</view>
+            <view class="coA0A0A0">{{item.time}}</view>
+          </view>
+          <view class="fr fsize20 coE71415 lh25 pt25">
+            <!-- <view class=" fl home-hot-tx rel  ml10" wx:if="{{item.expert.continueFocus>=3}}">
+              <view class="rel">{{item.expert.continueFocus}}连红</view>
+            </view>
+            <view class=" fl home-hot-tx rel  ml10" wx:if="{{item.expert.focus >=10&&item.expert.articleCount>=20}}">
+              <view class="rel">近20中{{item.expert.focus}}</view>
+            </view>
+            <view class=" fl home-hot-tx rel  ml10" wx:if="{{(item.expert.continueFocus<3||item.expert.focus <10)&&item.expert.articleCount>0}}">
+              <view class="rel">总{{item.expert.articleCount}}中{{item.expert.focusArticleCount}}</view>
+            </view> -->
+            <view class=" fl home-hot-tx rel  ml10"  wx:for="{{item.labelList}}"  wx:for-item="it" wx:key="{{idx}}">
+            <view class="rel">{{it}}</view>
+          </view>
+          </view>
+        </view>
+
+        <view class="fsize26 lh38 mb10">{{item.title}}</view>
+
+        <view class=" lh70 f-cb radius6 coA0A0A0 center fsize22 mb20" style=" background:#F2F2F2 url({{imgUrl+'home_ico7.png'}}) no-repeat center right 24rpx/13rpx 22rpx;" wx:for="{{item.detail}}" wx:for-index="idx" wx:for-item="it" wx:key="idx">
+          <view class="fl right wid120 box row1 pl10 pr10">{{it.match_name}}</view>
+          <view class="fl wid188 co333 row1">{{it.home}}</view>
+          <view class="fl pl10 pr10">VS</view>
+          <view class="fl wid188 co333 row1">{{it.away}}</view>
+        </view>
+
+        <view class="fsize22 f-cb coA0A0A0 lh30">
+           <view class="fl pr20 mr20 bor-riD8D8D8">足球</view>
+        <view class="fl pr20 mr20 bor-riD8D8D8">开赛 {{item.mtime}}</view>
+          <view class="fl pl30" style=" background:url({{imgUrl+'home_ico5.png'}}) no-repeat center left/22rpx 22rpx;">{{item.saleCount}}</view>
+          <view class="fr fsize20" wx:if="{{item.price==0}}">免费</view>
+          <view class="fr coE71415 fsize20 pl30" wx:else style="background:url({{imgUrl+'home_ico3.png'}}) no-repeat center left/26rpx 26rpx;">{{item.price}}金币</view>
+        </view>
+      </navigator>
+    </view>
+
+
+    <view class="pt20 pb20" wx:if="{{nav==3}}">
+      <navigator hover-class="none" url="/pages/matchInfo/matchInfo?id={{item.match_id}}" class="mb20 bgfff radius6 home-match fsize20" wx:for="{{list}}" wx:key="index">
+        <view class="f-cb mb10 coA0A0A0">
+          <view class="fl w33">
+            <view class="fl mr20">周{{item.ftime}}</view>
+            <!-- <view class="co333 fl">{{item.short_name_zh}}</view> -->
+            <view class="co333 fl">{{item.competition}}</view>
+          </view>
+          <view class="fl w33 center">{{item.time}}</view>
+          <image src="{{imgUrl+'search_ico4.png'}}" class="fr img1"></image>
+        </view>
+
+        <view class=" lh40 f-cb co333  fsize28  home-match-con">
+          <!-- <view class="fl wid266 right">{{item.home.short_name_zh}}
+            <image src="{{item.home.logo?item.home.logo:imgUrl+'banner_1.png'}}" class="ml20" mode="aspectFit"></image>
+          </view> -->
+          <view class="fl wid266 right rel pr50 box minhei40">
+            {{item.home_team}}
+            <image src="{{item.home_logo?item.home_logo:imgUrl+'banner_1.png'}}" class="abs img2"></image>
+          </view>
+          <view class="fl wid110 coccc center">VS</view>
+          <view class="fl wid266  rel pl50 box minhei40">
+            <image src="{{item.away_logo?item.away_logo:imgUrl+'banner_1.png'}}" class="abs img3" mode="aspectFit"></image>{{item.away_team}}</view>
+        </view>
+
+      </navigator>
+    </view>
+
+    <view class="list-none" wx:if="{{list&&list.length==0}}">
+      <image src="{{imgUrl+'no3.png'}}" class=" img3"></image>
+      <view>未搜索到任何结果</view>
+    </view>
+
+  </view>
+
+
+
+
+</view>

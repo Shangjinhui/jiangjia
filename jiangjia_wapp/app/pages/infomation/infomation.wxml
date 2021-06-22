@@ -1,0 +1,25 @@
+<!--pages/infomation/infomation.wxml-->
+<view class="por info">
+  <view class="f-cb portrait">
+    <text class="fl">头像</text>
+    <view bindtap="changeAvatar" class="fr avatar" style="background:url({{imgUrl+'home_ico7.png'}}) right center/13rpx no-repeat">
+      <view class="img" style="background:url({{avatar?avatar:imgUrl+'tx.png'}}) center/cover no-repeat"></view>
+    </view>
+  </view>
+  <view class="box f-cb">
+    <text class="fl">账号ID</text>
+    <view class="fr">{{info.showId}}</view>
+  </view>
+  <view class="box f-cb">
+    <text class="fl">名字</text>
+    <navigator hover-class="none" url="/pages/infomationEdit/infomationEdit?name={{info.nickName}}" class="fr info-fr" style="background:url({{imgUrl+'home_ico7.png'}}) right center/13rpx no-repeat">{{info.nickName}} </navigator>
+  </view>
+  <view class="box f-cb">
+    <text class="fl">手机号</text>
+    <navigator hover-class="none" url="/pages/modify_phone/modify_phone?phone={{info.phone}}" class="fr info-fr" style="background:url({{imgUrl+'home_ico7.png'}}) right center/13rpx no-repeat">{{info.phone}}</navigator>
+  </view>
+  <!-- <view class="box f-cb">
+    <text class="fl">微信号</text>
+    <navigator hover-class="none" class="fr" style="background:url({{imgUrl+'home_ico7.png'}}) right center/13rpx no-repeat">未绑定</navigator>
+  </view> -->
+</view>
